@@ -4,10 +4,207 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Snailkarts – Engineered to Drift</title>
+  <meta name="description" content="Snailkarts builds precision S-kart-Go racing karts designed for controllable slides, durability, and fun. Es-kart-Go electric version coming soon.">
+  <meta property="og:title" content="Snailkarts – Engineered to Drift">
+  <meta property="og:description" content="Precision-built karts for drifting. Meet the S-kart-Go and Es-kart-Go.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://assets.codepen.io/15323229/IMG_4932.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="https://assets.codepen.io/15323229/IMG_4932.png">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Snailkarts – Engineered to Drift</h1>
-  <p>This is your website. The full version we built is ready, but this is a simple starter index.html.</p>
+  <header class="site-header">
+    <a class="brand" href="#home" data-link>
+      <img class="logo" src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo">
+      <span class="brand-text">Snailkarts</span>
+    </a>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="site-nav" id="nav">
+      <a href="#home" data-link>Home</a>
+      <a href="#karts" data-link>Karts</a>
+      <a href="#gallery" data-link>Gallery</a>
+      <a href="#contact" class="cta" data-link>Contact</a>
+    </nav>
+  </header>
+
+  <main id="app">
+    <!-- HERO -->
+    <section id="home" class="route hero neon">
+      <div class="hero-media">
+        <video class="hero-video" autoplay muted loop playsinline poster="https://assets.codepen.io/15323229/IMG_4932.png">
+          <source src="https://assets.codepen.io/15323229/469ec902-6f85-d318-7491-a350336f4989_custom.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-content container">
+        <h1><span class="stroke">Engineered</span> <span class="glow">to Drift</span></h1>
+        <p class="hero-sub">Precision-built karts tuned for smooth slides.</p>
+        <div class="hero-actions">
+          <a href="#karts" class="btn primary" data-link>Explore Karts</a>
+          <a href="#contact" class="btn ghost" data-link>Request a Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- KARTS -->
+    <section id="karts" class="route section container hidden">
+      <div class="karts-video-bg">
+        <video autoplay muted loop playsinline>
+          <source src="https://assets.codepen.io/15323229/bbfbad66-75a9-0c8b-f385-7a491f2940e8_custom.mp4" type="video/mp4">
+        </video>
+        <div class="karts-overlay"></div>
+      </div>
+
+      <div class="karts-content">
+        <div class="section-head">
+          <h1>Our Karts</h1>
+          <p>Launching with the S-kart-Go. Electric Es-kart-Go coming soon.</p>
+        </div>
+
+        <div class="cards">
+          <!-- S-kart-Go -->
+          <article class="card">
+            <div class="card-media">
+              <video class="card-video" autoplay muted loop playsinline
+                     poster="https://assets.codepen.io/1234567/IMG_4812.jpeg">
+                <source src="https://assets.codepen.io/15323229/43bd0f6c-6c62-888e-903f-4df78a449110_custom.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="card-body">
+              <h3>S-kart-Go</h3>
+              <ul class="specs">
+                <li>Hydraulic rear disc brake</li>
+                <li>Hydraulic E-brake handle</li>
+                <li>3-speed 125cc engine</li>
+                <li>Custom lighting & colors</li>
+                <li>Keyed ignition for security</li>
+                <li>Push-to-start button</li>
+              </ul>
+              <a class="btn secondary" href="#contact" data-link>Get Build Sheet</a>
+            </div>
+          </article>
+
+          <!-- Es-kart-Go -->
+          <article class="card">
+            <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Es-kart-Go prototype">
+            <div class="card-body">
+              <h3>Es-kart-Go</h3>
+              <ul class="specs">
+                <li>Balanced weight distribution</li>
+                <li>Drift-ready chassis setup</li>
+                <li>Service-friendly open layout</li>
+              </ul>
+              <a class="btn secondary" href="#contact" data-link>Notify Me</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Why Snailkarts -->
+        <section class="section">
+          <div class="section-head">
+            <h2>Why Snailkarts?</h2>
+            <p>Compact chassis, torquey engines, geometry for predictable breakaway, and parts you can actually service.</p>
+          </div>
+          <div class="features-grid">
+            <div class="feature reveal">
+              <h4>Drift Geometry</h4>
+              <p>Steering ratio & scrub radius dialed for controllable slides.</p>
+            </div>
+            <div class="feature reveal">
+              <h4>Built to Bash</h4>
+              <p>TIG-welded frame, serviceable hubs, accessible components.</p>
+            </div>
+            <div class="feature reveal">
+              <h4>Portable</h4>
+              <p>Fits small trailers or pickup beds—lightweight, high fun.</p>
+            </div>
+            <div class="feature reveal">
+              <h4>Progress Fast</h4>
+              <p>Confidence-inspiring handling so new drivers level up quickly.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="route section container hidden">
+      <div class="section-head">
+        <h1>Gallery</h1>
+        <p>Workshop snapshots and in-progress builds.</p>
+      </div>
+      <div class="masonry">
+        <video class="gallery-video" autoplay muted loop playsinline
+               poster="https://assets.codepen.io/1234567/IMG_4812.jpeg">
+          <source src="https://assets.codepen.io/15323229/43bd0f6c-6c62-888e-903f-4df78a449110_custom.mp4" type="video/mp4">
+        </video>
+        <img src="https://assets.codepen.io/15323229/IMG_4933%20%281%29.png" alt="Snailkarts mascot keychain" />
+        <img src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo artwork" />
+        <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Snailkart angled front" />
+        <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%282%29.jpg" alt="Green Snailkart side view" />
+        <img src="https://assets.codepen.io/15323229/IMG_4806.jpg" alt="Pair of karts top view" />
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="route section container contact hidden">
+      <div class="contact-card">
+        <div class="contact-media">
+          <img src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo">
+        </div>
+        <div class="contact-body">
+          <h1>Contact</h1>
+          <p>Tell us how many karts you need, where you’ll run them, and any special requests. We’ll spec a build and timeline.</p>
+          <!-- Replace action URL with your Formspree endpoint when ready -->
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="grid">
+              <input type="text" name="name" placeholder="Your name" required>
+              <input type="email" name="email" placeholder="Email address" required>
+            </div>
+            <input type="text" name="company" placeholder="Company / Team (optional)">
+            <textarea name="message" rows="5" placeholder="What are you building toward?"></textarea>
+            <button type="submit" class="btn primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Snailkarts</span>
+      <nav class="footer-nav">
+        <a href="https://instagram.com/Snailkarts" target="_blank">@Snailkarts</a>
+        <a href="https://youtube.com/@Snailkarts" target="_blank">YouTube</a>
+        <a href="https://www.tiktok.com/@Formandforgellc" target="_blank">TikTok</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Simple routing
+    const routes = ["home", "karts", "gallery", "contact"];
+    const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
+    function setActive(route){
+      routes.forEach(r => sections[r].classList.toggle('hidden', r !== route));
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    function router(){
+      const hash = window.location.hash.replace('#','');
+      setActive(routes.includes(hash) ? hash : 'home');
+    }
+    // mobile menu
+    const btn=document.querySelector('.nav-toggle');
+    if(btn){ btn.addEventListener('click',()=>{ 
+      const isOpen=btn.getAttribute('aria-expanded')==='true';
+      btn.setAttribute('aria-expanded',String(!isOpen)); 
+      document.body.classList.toggle('nav-open');
+    });}
+    window.addEventListener('hashchange', router);
+    window.addEventListener('DOMContentLoaded', () => {
+      router();
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
 </body>
 </html>
