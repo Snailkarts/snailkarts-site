@@ -21,6 +21,7 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0a0b0f">
 
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -34,6 +35,7 @@
       <a href="#home" data-link>Home</a>
       <a href="#karts" data-link>Karts</a>
       <a href="#gallery" data-link>Gallery</a>
+      <a href="#build" data-link>Build</a>
       <a href="#contact" class="cta" data-link>Contact</a>
     </nav>
   </header>
@@ -51,7 +53,7 @@
         <p class="hero-sub">Precision-built karts tuned for smooth slides.</p>
         <div class="hero-actions">
           <a href="#karts" class="btn primary" data-link>Explore Karts</a>
-          <a href="#contact" class="btn ghost" data-link>Request a Quote</a>
+          <a href="#build" class="btn secondary" data-link>Configure Build</a>
         </div>
       </div>
     </section>
@@ -90,7 +92,9 @@
                 <li>Keyed ignition for security</li>
                 <li>Push-to-start button</li>
               </ul>
-              <a class="btn secondary" href="#contact" data-link>Get Build Sheet</a>
+              <div class="buy-buttons" style="display:flex;gap:10px;flex-wrap:wrap;">
+                <a class="btn primary" href="#build" data-link>Configure & Request Quote</a>
+              </div>
             </div>
           </article>
 
@@ -104,7 +108,7 @@
                 <li>Drift-ready chassis setup</li>
                 <li>Service-friendly open layout</li>
               </ul>
-              <a class="btn secondary" href="#contact" data-link>Notify Me</a>
+              <a class="btn secondary" href="#build" data-link>Configure & Notify Me</a>
             </div>
           </article>
         </div>
@@ -130,6 +134,115 @@
       </div>
     </section>
 
+    <!-- BUILD (NEW) -->
+    <section id="build" class="route section container hidden">
+      <div class="contact-card">
+        <div class="contact-body">
+          <h1>Build Your Snailkart</h1>
+          <p>Select your options and submit your custom build sheet. We’ll review and send you a quote.</p>
+
+          <form id="buildForm"
+                action="https://formspree.io/f/xandlqzb"
+                method="POST"
+                class="contact-form">
+
+            <!-- Useful metadata -->
+            <input type="hidden" name="_subject" value="New Snailkart Build Request">
+            <input type="hidden" name="formType" value="Build Sheet">
+            <!-- Honeypot (spam trap) -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
+
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+              <!-- Kart Type -->
+              <div>
+                <label for="kartType">Kart Type</label>
+                <select id="kartType" name="Kart Type" required>
+                  <option value="Gas">Gas (125cc, 3-speed)</option>
+                  <option value="Electric">Electric (Es-kart-Go)</option>
+                </select>
+              </div>
+
+              <!-- Frame -->
+              <div>
+                <label for="frame">Frame</label>
+                <select id="frame" name="Frame">
+                  <option value="Standard">Standard</option>
+                  <option value="Custom">Custom</option>
+                </select>
+              </div>
+
+              <!-- Seat -->
+              <div>
+                <label for="seat">Seat Type</label>
+                <select id="seat" name="Seat">
+                  <option value="Bucket">Bucket</option>
+                  <option value="Racing">Racing</option>
+                  <option value="Padded">Padded</option>
+                </select>
+              </div>
+
+              <!-- Steering -->
+              <div>
+                <label for="steering">Steering Wheel</label>
+                <select id="steering" name="Steering Wheel">
+                  <option value="Standard">Standard</option>
+                  <option value="D-Shape">D-Shape</option>
+                  <option value="Formula">Formula</option>
+                </select>
+              </div>
+
+              <!-- Kart Color -->
+              <div>
+                <label for="kartColor">Kart Color</label>
+                <input id="kartColor" type="color" name="Kart Color" value="#c8ff00">
+              </div>
+
+              <!-- Lighting -->
+              <div>
+                <label for="lighting">Lighting Color</label>
+                <select id="lighting" name="Lighting">
+                  <option value="Red">Red</option>
+                  <option value="Blue">Blue</option>
+                  <option value="Green">Green</option>
+                  <option value="White">White</option>
+                  <option value="Custom">Custom</option>
+                </select>
+              </div>
+
+              <!-- Gas Tank -->
+              <div>
+                <label for="tank">Gas Tank</label>
+                <select id="tank" name="Gas Tank">
+                  <option value="Standard">Standard</option>
+                  <option value="Extended">Extended</option>
+                  <option value="None">None</option>
+                </select>
+              </div>
+
+              <!-- Drift Sleeves -->
+              <div style="display:flex;align-items:flex-end;">
+                <label style="display:flex;gap:.5rem;align-items:center;">
+                  <input type="checkbox" name="Extra Drift Sleeves" value="Yes">
+                  Add Extra PVC Drift Sleeves
+                </label>
+              </div>
+            </div>
+
+            <!-- Customer Info -->
+            <h3 style="margin-top:1rem;">Your Info</h3>
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+              <input type="text" name="Name" placeholder="Your name" required>
+              <input type="email" name="Email" placeholder="Email address" required>
+            </div>
+            <textarea name="Notes" rows="4" placeholder="Any extra requests?"></textarea>
+
+            <button type="submit" class="btn primary">Submit Build Sheet</button>
+            <p id="buildStatus" class="form-status" aria-live="polite" style="margin-top:10px;color:#94b4c3"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact" class="route section container contact hidden">
       <div class="contact-card">
@@ -137,14 +250,12 @@
           <h1>Contact</h1>
           <p>Tell us how many karts you need, where you’ll run them, and any special requests. We’ll spec a build and timeline.</p>
 
-          <!-- ✅ Working Formspree contact form -->
           <form id="contactForm"
                 action="https://formspree.io/f/xandlqzb"
                 method="POST"
                 class="contact-form"
                 novalidate>
-            
-            <!-- Subject + spam honeypot -->
+
             <input type="hidden" name="_subject" value="New message from Snailkarts.com">
             <input type="hidden" name="page" value="snailkarts.com#contact">
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0">
@@ -176,8 +287,8 @@
   </footer>
 
   <script>
-    // Simple router
-    const routes = ["home", "karts", "gallery", "contact"];
+    // Simple router (now includes 'build')
+    const routes = ["home", "karts", "gallery", "build", "contact"];
     const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
     function setActive(route){
       routes.forEach(r => sections[r].classList.toggle('hidden', r !== route));
@@ -187,24 +298,29 @@
       const hash = window.location.hash.replace('#','');
       setActive(routes.includes(hash) ? hash : 'home');
     }
+
     // Mobile menu
-    const btn=document.querySelector('.nav-toggle');
-    if(btn){ btn.addEventListener('click',()=>{ 
-      const isOpen=btn.getAttribute('aria-expanded')==='true';
-      btn.setAttribute('aria-expanded',String(!isOpen)); 
-      document.body.classList.toggle('nav-open');
-    });}
+    const btn = document.querySelector('.nav-toggle');
+    if(btn){
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        document.body.classList.toggle('nav-open');
+      });
+    }
+
     window.addEventListener('hashchange', router);
     window.addEventListener('DOMContentLoaded', () => {
       router();
       document.getElementById('year').textContent = new Date().getFullYear();
     });
 
-    // Formspree AJAX
-    const form = document.getElementById('contactForm');
-    const statusEl = document.getElementById('formStatus');
+    // Reusable AJAX submit for both forms
+    function wireAjaxForm(formId, statusId){
+      const form = document.getElementById(formId);
+      const statusEl = document.getElementById(statusId);
+      if(!form) return;
 
-    if(form){
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         statusEl.textContent = 'Sending…';
@@ -229,6 +345,9 @@
         }
       });
     }
+
+    wireAjaxForm('contactForm', 'formStatus');
+    wireAjaxForm('buildForm', 'buildStatus');
   </script>
 </body>
 </html>
