@@ -10,15 +10,12 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://assets.codepen.io/15323229/IMG_4932.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="https://assets.codepen.io/15323229/IMG_4932.png">
-  <!-- Favicons -->
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#0a0b0f">
-
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0a0b0f">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -163,16 +160,29 @@
         <div class="contact-body">
           <h1>Contact</h1>
           <p>Tell us how many karts you need, where you’ll run them, and any special requests. We’ll spec a build and timeline.</p>
-          <!-- Replace action URL with your Formspree endpoint when ready -->
-          <form action="https://formspree.io/f/your-form-id" method="POST">
+
+          <!-- 🔧 Formspree Contact Form -->
+          <form id="contactForm" action="https://formspree.io/f/https://formspree.io/f/xandlqzb" method="POST" class="contact-form" novalidate>
+            <!-- Useful meta -->
+            <input type="hidden" name="_subject" value="New message from Snailkarts.com">
+            <input type="hidden" name="page" value="snailkarts.com#contact">
+            <!-- Honeypot (spam trap) -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
+
             <div class="grid">
               <input type="text" name="name" placeholder="Your name" required>
               <input type="email" name="email" placeholder="Email address" required>
             </div>
             <input type="text" name="company" placeholder="Company / Team (optional)">
-            <textarea name="message" rows="5" placeholder="What are you building toward?"></textarea>
+            <textarea name="message" rows="5" placeholder="What are you building toward?" required></textarea>
+
             <button type="submit" class="btn primary">Send</button>
+            <p id="formStatus" class="form-status" aria-live="polite" style="margin-top:10px;color:#94b4c3"></p>
           </form>
+
+          <small style="display:block;margin-top:10px;color:#94b4c3">
+            By submitting, you agree to be contacted about Snailkarts products. We never sell your info.
+          </small>
         </div>
       </div>
     </section>
@@ -213,6 +223,36 @@
       router();
       document.getElementById('year').textContent = new Date().getFullYear();
     });
+
+    // 🔧 Formspree AJAX submit (stays on page)
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('formStatus');
+
+    if(form){
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        statusEl.textContent = 'Sending…';
+        const data = new FormData(form);
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: data
+          });
+          if (res.ok) {
+            statusEl.style.color = '#c8ff00';
+            statusEl.textContent = 'Thanks! We’ll get back to you shortly.';
+            form.reset();
+          } else {
+            statusEl.style.color = '#ffb4c8';
+            statusEl.textContent = 'Something went wrong. Please try again or email us directly.';
+          }
+        } catch (err) {
+          statusEl.style.color = '#ffb4c8';
+          statusEl.textContent = 'Network error—please try again.';
+        }
+      });
+    }
   </script>
 </body>
 </html>
