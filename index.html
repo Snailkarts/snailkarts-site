@@ -116,31 +116,32 @@
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section id="gallery" class="route section container hidden">
-      <div class="gallery-video-bg">
-        <video autoplay muted loop playsinline>
-          <source src="https://assets.codepen.io/15323229/72ba602c-7f10-d743-5218-bd99e9be7543_custom.mp4" type="video/mp4">
-        </video>
-        <div class="gallery-overlay"></div>
-      </div>
+   <!-- GALLERY -->
+<section id="gallery" class="route section hidden">
+  <div class="gallery-video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.codepen.io/15323229/72ba602c-7f10-d743-5218-bd99e9be7543_custom.mp4" type="video/mp4">
+    </video>
+    <div class="gallery-overlay"></div>
+  </div>
 
-      <div class="section-head">
-        <h1>Gallery</h1>
-        <p>Workshop snapshots and in-progress builds.</p>
-      </div>
-      <div class="masonry">
-        <video class="gallery-video" autoplay muted loop playsinline
-               poster="https://assets.codepen.io/1234567/IMG_4812.jpeg">
-          <source src="https://assets.codepen.io/15323229/43bd0f6c-6c62-888e-903f-4df78a449110_custom.mp4" type="video/mp4">
-        </video>
-        <img src="https://assets.codepen.io/15323229/IMG_4933%20%281%29.png" alt="Snailkarts mascot keychain" />
-        <img src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo artwork" />
-        <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Snailkart angled front" />
-        <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%282%29.jpg" alt="Green Snailkart side view" />
-        <img src="https://assets.codepen.io/15323229/IMG_4806.jpg" alt="Pair of karts top view" />
-      </div>
-    </section>
+  <div class="container gallery-content">
+    <div class="section-head">
+      <h1>Gallery</h1>
+      <p>Workshop snapshots and in-progress builds.</p>
+    </div>
+
+    <div class="masonry">
+      <!-- removed the inline video tile so the BG is the only video on this tab -->
+      <img src="https://assets.codepen.io/15323229/IMG_4933%20%281%29.png" alt="Snailkarts mascot keychain" />
+      <img src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo artwork" />
+      <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Snailkart angled front" />
+      <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%282%29.jpg" alt="Green Snailkart side view" />
+      <img src="https://assets.codepen.io/15323229/IMG_4806.jpg" alt="Pair of karts top view" />
+    </div>
+  </div>
+</section>
+
 
     <!-- TESTIMONIALS -->
     <section id="testimonials" class="route section container">
@@ -182,31 +183,50 @@
     </div>
   </footer>
 
-  <script>
-    // Router logic stays the same
-    const routes = ["home", "karts", "gallery", "build", "contact"];
-    const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
-    function setActive(route){
-      routes.forEach(r => sections[r].classList.toggle('hidden', r !== route));
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
-    function router(){
-      const hash = window.location.hash.replace('#','');
-      setActive(routes.includes(hash) ? hash : 'home');
-    }
-    const btn = document.querySelector('.nav-toggle');
-    if(btn){
-      btn.addEventListener('click', () => {
-        const isOpen = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!isOpen));
-        document.body.classList.toggle('nav-open');
+<script>
+  // Sections we route between
+  const routes = ["home", "karts", "gallery", "build", "contact"];
+  const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
+
+  function setActive(route){
+    routes.forEach(r => {
+      const sec = sections[r];
+      const isActive = r === route;
+      sec.classList.toggle('hidden', !isActive);
+
+      // Pause all videos in hidden sections; play in visible one
+      sec.querySelectorAll('video').forEach(v => {
+        try {
+          if (isActive) { v.play().catch(()=>{}); }
+          else { v.pause(); }
+        } catch(e){}
       });
-    }
-    window.addEventListener('hashchange', router);
-    window.addEventListener('DOMContentLoaded', () => {
-      router();
-      document.getElementById('year').textContent = new Date().getFullYear();
     });
-  </script>
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  function router(){
+    const hash = window.location.hash.replace('#','');
+    setActive(routes.includes(hash) ? hash : 'home');
+  }
+
+  // Mobile menu
+  const btn = document.querySelector('.nav-toggle');
+  if(btn){
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      document.body.classList.toggle('nav-open');
+    });
+  }
+
+  window.addEventListener('hashchange', router);
+  window.addEventListener('DOMContentLoaded', () => {
+    router();
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  });
+</script>
+
 </body>
 </html>
