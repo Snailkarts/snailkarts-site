@@ -119,23 +119,6 @@ img, video { max-width: 100%; display: block; }
   background: linear-gradient(90deg, #00E5FF, #FF36A3);
   box-shadow: 0 0 10px rgba(0,229,255,.6);
 }
-/* ===== Gallery Background Video ===== */
-.gallery-video-bg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: -1;
-}
-.gallery-video-bg video {
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
-.gallery-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.55);
-}
 
 /* ========== Contact / Forms ========== */
 .contact-card {
@@ -167,6 +150,7 @@ img, video { max-width: 100%; display: block; }
 .site-footer .footer-inner { display: flex; flex-direction: column; gap: 0.5rem; }
 .site-footer a { color: #aaa; margin: 0 0.5rem; text-decoration: none; }
 .site-footer a:hover { color: #c8ff00; }
+
 /* ===== Gallery Background Video ===== */
 .gallery-video-bg {
   position: absolute;
