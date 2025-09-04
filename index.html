@@ -13,7 +13,7 @@
   <meta property="og:image" content="https://assets.codepen.io/15323229/IMG_4932.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Favicons -->
+  <!-- Favicons (ensure these files are in repo root) -->
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -41,7 +41,7 @@
   </header>
 
   <main id="app">
-    <!-- HERO -->
+    <!-- HERO (Home) -->
     <section id="home" class="route hero neon">
       <div class="hero-media">
         <video class="hero-video" autoplay muted loop playsinline poster="https://assets.codepen.io/15323229/IMG_4932.png">
@@ -58,8 +58,8 @@
       </div>
     </section>
 
-    <!-- KARTS -->
-    <section id="karts" class="route section container hidden">
+    <!-- KARTS (fullscreen background video) -->
+    <section id="karts" class="route section hidden">
       <div class="karts-video-bg">
         <video autoplay muted loop playsinline>
           <source src="https://assets.codepen.io/15323229/bbfbad66-75a9-0c8b-f385-7a491f2940e8_custom.mp4" type="video/mp4">
@@ -116,7 +116,7 @@
       </div>
     </section>
 
-    <!-- GALLERY -->
+    <!-- GALLERY (fullscreen background video) -->
     <section id="gallery" class="route section hidden">
       <div class="gallery-video-bg">
         <video autoplay muted loop playsinline>
@@ -125,7 +125,7 @@
         <div class="gallery-overlay"></div>
       </div>
 
-      <div class="container gallery-content">
+      <div class="gallery-content">
         <div class="section-head">
           <h1>Gallery</h1>
           <p>Workshop snapshots and in-progress builds.</p>
@@ -140,7 +140,29 @@
       </div>
     </section>
 
-    <!-- BUILD -->
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="route section container">
+      <div class="section-head">
+        <h2>What Drivers Say</h2>
+        <p>Real feedback from test days and early owners.</p>
+      </div>
+      <div class="cards testimonials">
+        <article class="card quote">
+          <p>“The chassis rotation is super predictable. You can hang it out and bring it back—zero surprises.”</p>
+          <div class="quote-meta"><span class="dot"></span><span>Alex R. — Track day regular</span></div>
+        </article>
+        <article class="card quote">
+          <p>“E-brake plus rear hydro disc is perfect for initiations. It just does what you ask.”</p>
+          <div class="quote-meta"><span class="dot"></span><span>Marisol V. — Drift novice to addict</span></div>
+        </article>
+        <article class="card quote">
+          <p>“We put a dozen hours on it the first weekend. Nothing broke. Maintenance is easy.”</p>
+          <div class="quote-meta"><span class="dot"></span><span>Ken P. — Rental fleet owner</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- BUILD (fullscreen background video) -->
     <section id="build" class="route section hidden">
       <div class="build-video-bg">
         <video autoplay muted loop playsinline>
@@ -149,18 +171,97 @@
         <div class="build-overlay"></div>
       </div>
 
-      <div class="container build-content">
+      <div class="build-content">
         <div class="contact-card">
           <div class="contact-body">
             <h1>Build Your Snailkart</h1>
             <p>Select your options and submit your custom build sheet. We’ll review and send you a quote.</p>
 
-            <!-- build form (unchanged) -->
             <form id="buildForm"
                   action="https://formspree.io/f/xandlqzb"
                   method="POST"
                   class="contact-form">
-              <!-- form fields here, same as before -->
+              <input type="hidden" name="_subject" value="New Snailkart Build Request">
+              <input type="hidden" name="formType" value="Build Sheet">
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
+
+              <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+                <div>
+                  <label for="kartType">Kart Type</label>
+                  <select id="kartType" name="Kart Type" required>
+                    <option value="Gas">Gas (125cc, 3-speed)</option>
+                    <option value="Electric">Electric (Es-kart-Go)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="frame">Frame</label>
+                  <select id="frame" name="Frame">
+                    <option value="Standard">Standard</option>
+                    <option value="Custom">Custom</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="seat">Seat Type</label>
+                  <select id="seat" name="Seat">
+                    <option value="Bucket">Bucket</option>
+                    <option value="Racing">Racing</option>
+                    <option value="Padded">Padded</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="steering">Steering Wheel</label>
+                  <select id="steering" name="Steering Wheel">
+                    <option value="Standard">Standard</option>
+                    <option value="D-Shape">D-Shape</option>
+                    <option value="Formula">Formula</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="kartColor">Kart Color</label>
+                  <input id="kartColor" type="color" name="Kart Color" value="#c8ff00">
+                </div>
+
+                <div>
+                  <label for="lighting">Lighting Color</label>
+                  <select id="lighting" name="Lighting">
+                    <option value="Red">Red</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Green">Green</option>
+                    <option value="White">White</option>
+                    <option value="Custom">Custom</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="tank">Gas Tank</label>
+                  <select id="tank" name="Gas Tank">
+                    <option value="Standard">Standard</option>
+                    <option value="Extended">Extended</option>
+                    <option value="None">None</option>
+                  </select>
+                </div>
+
+                <div style="display:flex;align-items:flex-end;">
+                  <label style="display:flex;gap:.5rem;align-items:center;">
+                    <input type="checkbox" name="Extra Drift Sleeves" value="Yes">
+                    Add Extra PVC Drift Sleeves
+                  </label>
+                </div>
+              </div>
+
+              <h3 style="margin-top:1rem;">Your Info</h3>
+              <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+                <input type="text" name="Name" placeholder="Your name" required>
+                <input type="email" name="Email" placeholder="Email address" required>
+              </div>
+              <textarea name="Notes" rows="4" placeholder="Any extra requests?"></textarea>
+
+              <button type="submit" class="btn primary">Submit Build Sheet</button>
+              <p id="buildStatus" class="form-status" aria-live="polite" style="margin-top:10px;color:#94b4c3"></p>
             </form>
           </div>
         </div>
@@ -168,7 +269,34 @@
     </section>
 
     <!-- CONTACT -->
-    <!-- (unchanged, same as before) -->
+    <section id="contact" class="route section container contact hidden">
+      <div class="contact-card">
+        <div class="contact-body">
+          <h1>Contact</h1>
+          <p>Tell us how many karts you need, where you’ll run them, and any special requests. We’ll spec a build and timeline.</p>
+
+          <form id="contactForm"
+                action="https://formspree.io/f/xandlqzb"
+                method="POST"
+                class="contact-form"
+                novalidate>
+            <input type="hidden" name="_subject" value="New message from Snailkarts.com">
+            <input type="hidden" name="page" value="snailkarts.com#contact">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0">
+
+            <div class="grid">
+              <input type="text" name="name" placeholder="Your name" required>
+              <input type="email" name="email" placeholder="Email address" required>
+            </div>
+            <input type="text" name="company" placeholder="Company / Team (optional)">
+            <textarea name="message" rows="5" placeholder="What are you building toward?" required></textarea>
+
+            <button type="submit" class="btn primary">Send</button>
+            <p id="formStatus" class="form-status" aria-live="polite" style="margin-top:10px;color:#94b4c3"></p>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -183,6 +311,7 @@
   </footer>
 
   <script>
+    // Router: shows one tab at a time and pauses hidden videos
     const routes = ["home", "karts", "gallery", "build", "contact"];
     const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
 
@@ -190,9 +319,10 @@
       routes.forEach(r => {
         const sec = sections[r];
         const isActive = r === route;
+        if (!sec) return;
         sec.classList.toggle('hidden', !isActive);
 
-        // Pause/play background videos
+        // Pause/play videos inside each section depending on visibility
         sec.querySelectorAll('video').forEach(v => {
           try {
             if (isActive) v.play().catch(()=>{});
@@ -208,6 +338,7 @@
       setActive(routes.includes(hash) ? hash : 'home');
     }
 
+    // Mobile menu
     const btn = document.querySelector('.nav-toggle');
     if(btn){
       btn.addEventListener('click', () => {
@@ -220,8 +351,43 @@
     window.addEventListener('hashchange', router);
     window.addEventListener('DOMContentLoaded', () => {
       router();
-      document.getElementById('year').textContent = new Date().getFullYear();
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
     });
+
+    // AJAX submit wiring (contact + build)
+    function wireAjaxForm(formId, statusId){
+      const form = document.getElementById(formId);
+      const statusEl = document.getElementById(statusId);
+      if(!form || !statusEl) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        statusEl.textContent = 'Sending…';
+        const data = new FormData(form);
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: data
+          });
+          if (res.ok) {
+            statusEl.style.color = '#c8ff00';
+            statusEl.textContent = 'Thanks! We’ll get back to you shortly.';
+            form.reset();
+          } else {
+            statusEl.style.color = '#ffb4c8';
+            statusEl.textContent = 'Something went wrong. Please try again.';
+          }
+        } catch (err) {
+          statusEl.style.color = '#ffb4c8';
+          statusEl.textContent = 'Network error—please try again.';
+        }
+      });
+    }
+
+    wireAjaxForm('contactForm', 'formStatus');
+    wireAjaxForm('buildForm', 'buildStatus');
   </script>
 </body>
 </html>
