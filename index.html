@@ -5,17 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Snailkarts – Engineered to Drift</title>
   <meta name="description" content="Snailkarts builds precision S-kart-Go racing karts designed for controllable slides, durability, and fun. Es-kart-Go electric version coming soon.">
+
+  <!-- Social previews -->
   <meta property="og:title" content="Snailkarts – Engineered to Drift">
   <meta property="og:description" content="Precision-built karts for drifting. Meet the S-kart-Go and Es-kart-Go.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://assets.codepen.io/15323229/IMG_4932.png">
   <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicons -->
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0a0b0f">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -103,32 +108,6 @@
             </div>
           </article>
         </div>
-
-        <!-- Why Snailkarts -->
-        <section class="section">
-          <div class="section-head">
-            <h2>Why Snailkarts?</h2>
-            <p>Compact chassis, torquey engines, geometry for predictable breakaway, and parts you can actually service.</p>
-          </div>
-          <div class="features-grid">
-            <div class="feature reveal">
-              <h4>Drift Geometry</h4>
-              <p>Steering ratio & scrub radius dialed for controllable slides.</p>
-            </div>
-            <div class="feature reveal">
-              <h4>Built to Bash</h4>
-              <p>TIG-welded frame, serviceable hubs, accessible components.</p>
-            </div>
-            <div class="feature reveal">
-              <h4>Portable</h4>
-              <p>Fits small trailers or pickup beds—lightweight, high fun.</p>
-            </div>
-            <div class="feature reveal">
-              <h4>Progress Fast</h4>
-              <p>Confidence-inspiring handling so new drivers level up quickly.</p>
-            </div>
-          </div>
-        </section>
       </div>
     </section>
 
@@ -154,20 +133,21 @@
     <!-- CONTACT -->
     <section id="contact" class="route section container contact hidden">
       <div class="contact-card">
-        <div class="contact-media">
-          <img src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo">
-        </div>
         <div class="contact-body">
           <h1>Contact</h1>
           <p>Tell us how many karts you need, where you’ll run them, and any special requests. We’ll spec a build and timeline.</p>
 
-          <!-- 🔧 Formspree Contact Form -->
-          <form id="contactForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form" novalidate>
-            <!-- Useful meta -->
+          <!-- ✅ Working Formspree contact form -->
+          <form id="contactForm"
+                action="https://formspree.io/f/xandlqzb"
+                method="POST"
+                class="contact-form"
+                novalidate>
+            
+            <!-- Subject + spam honeypot -->
             <input type="hidden" name="_subject" value="New message from Snailkarts.com">
             <input type="hidden" name="page" value="snailkarts.com#contact">
-            <!-- Honeypot (spam trap) -->
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0">
 
             <div class="grid">
               <input type="text" name="name" placeholder="Your name" required>
@@ -179,10 +159,6 @@
             <button type="submit" class="btn primary">Send</button>
             <p id="formStatus" class="form-status" aria-live="polite" style="margin-top:10px;color:#94b4c3"></p>
           </form>
-
-          <small style="display:block;margin-top:10px;color:#94b4c3">
-            By submitting, you agree to be contacted about Snailkarts products. We never sell your info.
-          </small>
         </div>
       </div>
     </section>
@@ -200,7 +176,7 @@
   </footer>
 
   <script>
-    // Simple routing
+    // Simple router
     const routes = ["home", "karts", "gallery", "contact"];
     const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
     function setActive(route){
@@ -211,7 +187,7 @@
       const hash = window.location.hash.replace('#','');
       setActive(routes.includes(hash) ? hash : 'home');
     }
-    // mobile menu
+    // Mobile menu
     const btn=document.querySelector('.nav-toggle');
     if(btn){ btn.addEventListener('click',()=>{ 
       const isOpen=btn.getAttribute('aria-expanded')==='true';
@@ -224,7 +200,7 @@
       document.getElementById('year').textContent = new Date().getFullYear();
     });
 
-    // 🔧 Formspree AJAX submit (stays on page)
+    // Formspree AJAX
     const form = document.getElementById('contactForm');
     const statusEl = document.getElementById('formStatus');
 
@@ -245,7 +221,7 @@
             form.reset();
           } else {
             statusEl.style.color = '#ffb4c8';
-            statusEl.textContent = 'Something went wrong. Please try again or email us directly.';
+            statusEl.textContent = 'Something went wrong. Please try again.';
           }
         } catch (err) {
           statusEl.style.color = '#ffb4c8';
