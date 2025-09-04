@@ -1,353 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Snailkarts – Engineered to Drift</title>
-  <meta name="description" content="Snailkarts builds precision S-kart-Go racing karts designed for controllable slides, durability, and fun. Es-kart-Go electric version coming soon.">
+/* ========== Base Reset ========== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0b0f;
+  color: #f0f0f0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img, video { max-width: 100%; display: block; }
 
-  <!-- Social previews -->
-  <meta property="og:title" content="Snailkarts – Engineered to Drift">
-  <meta property="og:description" content="Precision-built karts for drifting. Meet the S-kart-Go and Es-kart-Go.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://assets.codepen.io/15323229/IMG_4932.png">
-  <meta name="twitter:card" content="summary_large_image">
+/* ========== Layout Helpers ========== */
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+.hidden { display: none; }
+.section { padding: 4rem 0; }
+.section-head { text-align: center; margin-bottom: 2rem; }
+.section-head h1, .section-head h2 {
+  font-size: 2.5rem;
+  color: #c8ff00;
+  text-shadow: 0 0 8px rgba(200, 255, 0, 0.7);
+}
+.section-head p { color: #aaa; margin-top: 0.5rem; }
 
-  <!-- Favicons -->
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#0a0b0f">
+/* ========== Header / Nav ========== */
+.site-header {
+  position: fixed; top: 0; width: 100%;
+  background: rgba(10, 11, 15, 0.8);
+  backdrop-filter: blur(6px);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 2rem; z-index: 999;
+}
+.site-header .brand { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+.site-header .logo { height: 40px; }
+.brand-text { font-weight: bold; font-size: 1.2rem; color: #c8ff00; }
+.site-nav a { margin-left: 1.5rem; text-decoration: none; color: #f0f0f0; transition: color 0.2s ease; }
+.site-nav a:hover, .site-nav a.cta { color: #c8ff00; }
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#home" data-link>
-      <img class="logo" src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo">
-      <span class="brand-text">Snailkarts</span>
-    </a>
-    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="site-nav" id="nav">
-      <a href="#home" data-link>Home</a>
-      <a href="#karts" data-link>Karts</a>
-      <a href="#gallery" data-link>Gallery</a>
-      <a href="#build" data-link>Build</a>
-      <a href="#contact" class="cta" data-link>Contact</a>
-    </nav>
-  </header>
+/* Mobile nav toggle */
+.nav-toggle { display: none; font-size: 1.5rem; background: none; border: none; color: #fff; }
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .site-nav {
+    display: none; flex-direction: column; background: rgba(0,0,0,0.9);
+    position: absolute; top: 60px; right: 20px; padding: 1rem; border-radius: 8px;
+  }
+  body.nav-open .site-nav { display: flex; }
+}
 
-  <main id="app">
-    <!-- HERO -->
-    <section id="home" class="route hero neon">
-      <div class="hero-media">
-        <video class="hero-video" autoplay muted loop playsinline poster="https://assets.codepen.io/15323229/IMG_4932.png">
-          <source src="https://assets.codepen.io/15323229/469ec902-6f85-d318-7491-a350336f4989_custom.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="hero-content container">
-        <h1><span class="stroke">Engineered</span> <span class="glow">to Drift</span></h1>
-        <p class="hero-sub">Precision-built karts tuned for smooth slides.</p>
-        <div class="hero-actions">
-          <a href="#karts" class="btn primary" data-link>Explore Karts</a>
-          <a href="#build" class="btn secondary" data-link>Configure Build</a>
-        </div>
-      </div>
-    </section>
+/* ========== Hero ========== */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-video {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: -1;
+}
+.hero-content { text-align: center; color: #fff; }
+.hero-content h1 { font-size: 3rem; }
+.hero-content .stroke { -webkit-text-stroke: 1px #c8ff00; color: transparent; }
+.hero-content .glow { color: #c8ff00; text-shadow: 0 0 8px rgba(200,255,0,0.7); }
+.hero-sub { margin-top: 1rem; font-size: 1.2rem; }
+.hero-actions { margin-top: 2rem; }
 
-    <!-- KARTS -->
-    <section id="karts" class="route section container hidden">
-      <div class="karts-video-bg">
-        <video autoplay muted loop playsinline>
-          <source src="https://assets.codepen.io/15323229/bbfbad66-75a9-0c8b-f385-7a491f2940e8_custom.mp4" type="video/mp4">
-        </video>
-        <div class="karts-overlay"></div>
-      </div>
+/* Buttons */
+.btn {
+  display: inline-block; padding: 0.8rem 1.5rem; border-radius: 50px;
+  text-decoration: none; font-weight: bold; transition: all 0.2s ease;
+}
+.btn.primary { background: #c8ff00; color: #0a0b0f; }
+.btn.primary:hover { background: #a8df00; }
+.btn.secondary { border: 2px solid #c8ff00; color: #c8ff00; }
+.btn.secondary:hover { background: rgba(200,255,0,0.1); }
+.btn.ghost { border: 2px solid #fff; color: #fff; }
+.btn.ghost:hover { background: rgba(255,255,255,0.1); }
 
-      <div class="karts-content">
-        <div class="section-head">
-          <h1>Our Karts</h1>
-          <p>Launching with the S-kart-Go. Electric Es-kart-Go coming soon.</p>
-        </div>
+/* ========== Karts Section ========== */
+.karts-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+.karts-video-bg video { width: 100%; height: 100%; object-fit: cover; }
+.karts-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); }
+.cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem; margin-top: 2rem;
+}
+.card {
+  background: rgba(20, 20, 25, 0.8); border-radius: 1rem; overflow: hidden;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5); transition: transform 0.2s ease; position: relative;
+}
+.card:hover { transform: translateY(-5px); }
+.card-body { padding: 1.5rem; }
+.card-body h3 { color: #c8ff00; margin-bottom: 1rem; }
+.specs li { margin: 0.3rem 0; }
 
-        <div class="cards">
-          <!-- S-kart-Go -->
-          <article class="card">
-            <div class="card-media">
-              <video class="card-video" autoplay muted loop playsinline
-                     poster="https://assets.codepen.io/1234567/IMG_4812.jpeg">
-                <source src="https://assets.codepen.io/15323229/43bd0f6c-6c62-888e-903f-4df78a449110_custom.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="card-body">
-              <h3>S-kart-Go</h3>
-              <ul class="specs">
-                <li>Hydraulic rear disc brake</li>
-                <li>Hydraulic E-brake handle</li>
-                <li>3-speed 125cc engine</li>
-                <li>Custom lighting & colors</li>
-                <li>Keyed ignition for security</li>
-                <li>Push-to-start button</li>
-              </ul>
-              <div class="buy-buttons" style="display:flex;gap:10px;flex-wrap:wrap;">
-                <a class="btn primary" href="#build" data-link>Configure & Request Quote</a>
-              </div>
-            </div>
-          </article>
+/* Coming soon badge */
+.coming-badge {
+  position: absolute; top: 12px; left: 12px;
+  background: linear-gradient(90deg, #00E5FF, #FF36A3);
+  color: #0a0b0f; font-weight: 800; font-size: .85rem;
+  padding: .35rem .6rem; border-radius: 999px;
+  box-shadow: 0 0 14px rgba(0,229,255,.35), 0 0 18px rgba(255,54,163,.25);
+}
 
-          <!-- Es-kart-Go -->
-          <article class="card">
-            <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Es-kart-Go prototype">
-            <div class="card-body">
-              <h3>Es-kart-Go</h3>
-              <ul class="specs">
-                <li>Balanced weight distribution</li>
-                <li>Drift-ready chassis setup</li>
-                <li>Service-friendly open layout</li>
-              </ul>
-              <a class="btn secondary" href="#build" data-link>Configure & Notify Me</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+/* ========== Gallery ========== */
+.masonry {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.masonry img, .masonry video { border-radius: 12px; box-shadow: 0 0 8px rgba(0,0,0,0.4); }
 
-    <!-- GALLERY -->
-    <section id="gallery" class="route section container hidden">
-      <div class="section-head">
-        <h1>Gallery</h1>
-        <p>Workshop snapshots and in-progress builds.</p>
-      </div>
-      <div class="masonry">
-        <video class="gallery-video" autoplay muted loop playsinline
-               poster="https://assets.codepen.io/1234567/IMG_4812.jpeg">
-          <source src="https://assets.codepen.io/15323229/43bd0f6c-6c62-888e-903f-4df78a449110_custom.mp4" type="video/mp4">
-        </video>
-        <img src="https://assets.codepen.io/15323229/IMG_4933%20%281%29.png" alt="Snailkarts mascot keychain" />
-        <img src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo artwork" />
-        <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Snailkart angled front" />
-        <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%282%29.jpg" alt="Green Snailkart side view" />
-        <img src="https://assets.codepen.io/15323229/IMG_4806.jpg" alt="Pair of karts top view" />
-      </div>
-    </section>
+/* ========== Testimonials ========== */
+.testimonials .quote { padding: 1.4rem; }
+.quote p {
+  font-size: 1.05rem; color: #e9faff;
+  text-shadow: 0 1px 6px rgba(0,0,0,.45);
+}
+.quote-meta { display: flex; align-items: center; gap: .6rem; margin-top: .9rem; color: #94b4c3; }
+.quote-meta .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: linear-gradient(90deg, #00E5FF, #FF36A3);
+  box-shadow: 0 0 10px rgba(0,229,255,.6);
+}
 
-    <!-- BUILD (NEW) -->
-    <section id="build" class="route section container hidden">
-      <div class="contact-card">
-        <div class="contact-body">
-          <h1>Build Your Snailkart</h1>
-          <p>Select your options and submit your custom build sheet. We’ll review and send you a quote.</p>
+/* ========== Contact / Forms ========== */
+.contact-card {
+  background: rgba(20,20,25,0.85);
+  padding: 2rem; border-radius: 1rem; max-width: 700px; margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+.contact-card h1 { color: #c8ff00; margin-bottom: 1rem; }
+.contact-form { margin-top: 1rem; }
+.contact-form .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.contact-form input, .contact-form textarea, .contact-form select {
+  width: 100%; padding: 0.8rem; margin-bottom: 1rem;
+  border: 2px solid #333; border-radius: 8px;
+  background: rgba(0,0,0,0.5); color: #fff; font-size: 1rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+  border-color: #c8ff00; box-shadow: 0 0 8px rgba(200,255,0,0.6); outline: none;
+}
+.contact-form button {
+  display: inline-block; padding: 0.8rem 1.5rem; background: #c8ff00; color: #0a0b0f;
+  border: none; border-radius: 50px; font-weight: bold; cursor: pointer; transition: background 0.2s ease;
+}
+.contact-form button:hover { background: #a8df00; }
+.form-status { font-size: 0.9rem; margin-top: 0.5rem; }
 
-          <form id="buildForm"
-                action="https://formspree.io/f/xandlqzb"
-                method="POST"
-                class="contact-form">
-
-            <!-- Useful metadata -->
-            <input type="hidden" name="_subject" value="New Snailkart Build Request">
-            <input type="hidden" name="formType" value="Build Sheet">
-            <!-- Honeypot (spam trap) -->
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
-
-            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
-              <!-- Kart Type -->
-              <div>
-                <label for="kartType">Kart Type</label>
-                <select id="kartType" name="Kart Type" required>
-                  <option value="Gas">Gas (125cc, 3-speed)</option>
-                  <option value="Electric">Electric (Es-kart-Go)</option>
-                </select>
-              </div>
-
-              <!-- Frame -->
-              <div>
-                <label for="frame">Frame</label>
-                <select id="frame" name="Frame">
-                  <option value="Standard">Standard</option>
-                  <option value="Custom">Custom</option>
-                </select>
-              </div>
-
-              <!-- Seat -->
-              <div>
-                <label for="seat">Seat Type</label>
-                <select id="seat" name="Seat">
-                  <option value="Bucket">Bucket</option>
-                  <option value="Racing">Racing</option>
-                  <option value="Padded">Padded</option>
-                </select>
-              </div>
-
-              <!-- Steering -->
-              <div>
-                <label for="steering">Steering Wheel</label>
-                <select id="steering" name="Steering Wheel">
-                  <option value="Standard">Standard</option>
-                  <option value="D-Shape">D-Shape</option>
-                  <option value="Formula">Formula</option>
-                </select>
-              </div>
-
-              <!-- Kart Color -->
-              <div>
-                <label for="kartColor">Kart Color</label>
-                <input id="kartColor" type="color" name="Kart Color" value="#c8ff00">
-              </div>
-
-              <!-- Lighting -->
-              <div>
-                <label for="lighting">Lighting Color</label>
-                <select id="lighting" name="Lighting">
-                  <option value="Red">Red</option>
-                  <option value="Blue">Blue</option>
-                  <option value="Green">Green</option>
-                  <option value="White">White</option>
-                  <option value="Custom">Custom</option>
-                </select>
-              </div>
-
-              <!-- Gas Tank -->
-              <div>
-                <label for="tank">Gas Tank</label>
-                <select id="tank" name="Gas Tank">
-                  <option value="Standard">Standard</option>
-                  <option value="Extended">Extended</option>
-                  <option value="None">None</option>
-                </select>
-              </div>
-
-              <!-- Drift Sleeves -->
-              <div style="display:flex;align-items:flex-end;">
-                <label style="display:flex;gap:.5rem;align-items:center;">
-                  <input type="checkbox" name="Extra Drift Sleeves" value="Yes">
-                  Add Extra PVC Drift Sleeves
-                </label>
-              </div>
-            </div>
-
-            <!-- Customer Info -->
-            <h3 style="margin-top:1rem;">Your Info</h3>
-            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
-              <input type="text" name="Name" placeholder="Your name" required>
-              <input type="email" name="Email" placeholder="Email address" required>
-            </div>
-            <textarea name="Notes" rows="4" placeholder="Any extra requests?"></textarea>
-
-            <button type="submit" class="btn primary">Submit Build Sheet</button>
-            <p id="buildStatus" class="form-status" aria-live="polite" style="margin-top:10px;color:#94b4c3"></p>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="route section container contact hidden">
-      <div class="contact-card">
-        <div class="contact-body">
-          <h1>Contact</h1>
-          <p>Tell us how many karts you need, where you’ll run them, and any special requests. We’ll spec a build and timeline.</p>
-
-          <form id="contactForm"
-                action="https://formspree.io/f/xandlqzb"
-                method="POST"
-                class="contact-form"
-                novalidate>
-
-            <input type="hidden" name="_subject" value="New message from Snailkarts.com">
-            <input type="hidden" name="page" value="snailkarts.com#contact">
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0">
-
-            <div class="grid">
-              <input type="text" name="name" placeholder="Your name" required>
-              <input type="email" name="email" placeholder="Email address" required>
-            </div>
-            <input type="text" name="company" placeholder="Company / Team (optional)">
-            <textarea name="message" rows="5" placeholder="What are you building toward?" required></textarea>
-
-            <button type="submit" class="btn primary">Send</button>
-            <p id="formStatus" class="form-status" aria-live="polite" style="margin-top:10px;color:#94b4c3"></p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Snailkarts</span>
-      <nav class="footer-nav">
-        <a href="https://instagram.com/Snailkarts" target="_blank">@Snailkarts</a>
-        <a href="https://youtube.com/@Snailkarts" target="_blank">YouTube</a>
-        <a href="https://www.tiktok.com/@Formandforgellc" target="_blank">TikTok</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script>
-    // Simple router (now includes 'build')
-    const routes = ["home", "karts", "gallery", "build", "contact"];
-    const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
-    function setActive(route){
-      routes.forEach(r => sections[r].classList.toggle('hidden', r !== route));
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
-    function router(){
-      const hash = window.location.hash.replace('#','');
-      setActive(routes.includes(hash) ? hash : 'home');
-    }
-
-    // Mobile menu
-    const btn = document.querySelector('.nav-toggle');
-    if(btn){
-      btn.addEventListener('click', () => {
-        const isOpen = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!isOpen));
-        document.body.classList.toggle('nav-open');
-      });
-    }
-
-    window.addEventListener('hashchange', router);
-    window.addEventListener('DOMContentLoaded', () => {
-      router();
-      document.getElementById('year').textContent = new Date().getFullYear();
-    });
-
-    // Reusable AJAX submit for both forms
-    function wireAjaxForm(formId, statusId){
-      const form = document.getElementById(formId);
-      const statusEl = document.getElementById(statusId);
-      if(!form) return;
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        statusEl.textContent = 'Sending…';
-        const data = new FormData(form);
-        try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: data
-          });
-          if (res.ok) {
-            statusEl.style.color = '#c8ff00';
-            statusEl.textContent = 'Thanks! We’ll get back to you shortly.';
-            form.reset();
-          } else {
-            statusEl.style.color = '#ffb4c8';
-            statusEl.textContent = 'Something went wrong. Please try again.';
-          }
-        } catch (err) {
-          statusEl.style.color = '#ffb4c8';
-          statusEl.textContent = 'Network error—please try again.';
-        }
-      });
-    }
-
-    wireAjaxForm('contactForm', 'formStatus');
-    wireAjaxForm('buildForm', 'buildStatus');
-  </script>
-</body>
-</html>
+/* ========== Footer ========== */
+.site-footer { background: #0a0b0f; padding: 1.5rem 0; text-align: center; border-top: 1px solid #222; margin-top: 3rem; }
+.site-footer .footer-inner { display: flex; flex-direction: column; gap: 0.5rem; }
+.site-footer a { color: #aaa; margin: 0 0.5rem; text-decoration: none; }
+.site-footer a:hover { color: #c8ff00; }
