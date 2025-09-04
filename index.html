@@ -165,25 +165,113 @@
       </div>
     </section>
 
-    <!-- BUILD -->
-    <!-- (unchanged, same as before) -->
+<!-- BUILD -->
+<section id="build" class="route section hidden">
+  <div class="build-video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.codepen.io/15323229/VideoAug30202542731PM-ezgif.com-resize-video.mov" type="video/mp4">
+    </video>
+    <div class="build-overlay"></div>
+  </div>
 
-    <!-- CONTACT -->
-    <!-- (unchanged, same as before) -->
-  </main>
+  <div class="container build-content">
+    <div class="contact-card">
+      <div class="contact-body">
+        <h1>Build Your Snailkart</h1>
+        <p>Select your options and submit your custom build sheet. We’ll review and send you a quote.</p>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Snailkarts</span>
-      <nav class="footer-nav">
-        <a href="https://instagram.com/Snailkarts" target="_blank">@Snailkarts</a>
-        <a href="https://youtube.com/@Snailkarts" target="_blank">YouTube</a>
-        <a href="https://www.tiktok.com/@Formandforgellc" target="_blank">TikTok</a>
-      </nav>
+        <form id="buildForm"
+              action="https://formspree.io/f/xandlqzb"
+              method="POST"
+              class="contact-form">
+
+          <input type="hidden" name="_subject" value="New Snailkart Build Request">
+          <input type="hidden" name="formType" value="Build Sheet">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
+
+          <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+            <div>
+              <label for="kartType">Kart Type</label>
+              <select id="kartType" name="Kart Type" required>
+                <option value="Gas">Gas (125cc, 3-speed)</option>
+                <option value="Electric">Electric (Es-kart-Go)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="frame">Frame</label>
+              <select id="frame" name="Frame">
+                <option value="Standard">Standard</option>
+                <option value="Custom">Custom</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="seat">Seat Type</label>
+              <select id="seat" name="Seat">
+                <option value="Bucket">Bucket</option>
+                <option value="Racing">Racing</option>
+                <option value="Padded">Padded</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="steering">Steering Wheel</label>
+              <select id="steering" name="Steering Wheel">
+                <option value="Standard">Standard</option>
+                <option value="D-Shape">D-Shape</option>
+                <option value="Formula">Formula</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="kartColor">Kart Color</label>
+              <input id="kartColor" type="color" name="Kart Color" value="#c8ff00">
+            </div>
+
+            <div>
+              <label for="lighting">Lighting Color</label>
+              <select id="lighting" name="Lighting">
+                <option value="Red">Red</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+                <option value="White">White</option>
+                <option value="Custom">Custom</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="tank">Gas Tank</label>
+              <select id="tank" name="Gas Tank">
+                <option value="Standard">Standard</option>
+                <option value="Extended">Extended</option>
+                <option value="None">None</option>
+              </select>
+            </div>
+
+            <div style="display:flex;align-items:flex-end;">
+              <label style="display:flex;gap:.5rem;align-items:center;">
+                <input type="checkbox" name="Extra Drift Sleeves" value="Yes">
+                Add Extra PVC Drift Sleeves
+              </label>
+            </div>
+          </div>
+
+          <h3 style="margin-top:1rem;">Your Info</h3>
+          <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+            <input type="text" name="Name" placeholder="Your name" required>
+            <input type="email" name="Email" placeholder="Email address" required>
+          </div>
+          <textarea name="Notes" rows="4" placeholder="Any extra requests?"></textarea>
+
+          <button type="submit" class="btn primary">Submit Build Sheet</button>
+          <p id="buildStatus" class="form-status" aria-live="polite" style="margin-top:10px;color:#94b4c3"></p>
+        </form>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-<script>
   // Sections we route between
   const routes = ["home", "karts", "gallery", "build", "contact"];
   const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
