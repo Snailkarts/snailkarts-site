@@ -42,6 +42,27 @@
     </nav>
   </header>
 
+/* === Animated gradient ring around header logo === */
+.logo-badge{
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  padding: 6px;              /* space for the ring */
+  border-radius: 14px;       /* rounded-capsule look */
+}
+.logo-badge::before{
+  content:"";
+  position:absolute; inset:-2px; border-radius: inherit; padding: 2px;
+  background: var(--grad-neon); background-size: 300% 300%;
+  /* Mask to create a border-only ring */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: neonShift 9s linear infinite;
+  opacity: .45;              /* subtle by default */
+  pointer-events: none;
+}
+.brand:hover .logo-badge::before{ opacity: .8; }  /* brighten on hover */
+
   <main id="app">
     <!-- HERO -->
     <section id="home" class="route hero neon">
