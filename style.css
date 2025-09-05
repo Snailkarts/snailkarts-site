@@ -1,48 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Snailkarts – Engineered to Drift</title>
-  <meta name="description" content="Snailkarts builds precision S-kart-Go racing karts designed for controllable slides, durability, and fun. Es-kart-Go electric version coming soon.">
+/* ========= Design Tokens ========= */
+:root{
+  --bg: #0a0b0f;
+  --text: #f5f5f5;
+  --muted: #ccc;
 
-  <!-- Social previews -->
-  <meta property="og:title" content="Snailkarts – Engineered to Drift">
-  <meta property="og:description" content="Precision-built karts for drifting. Meet the S-kart-Go and Es-kart-Go.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://assets.codepen.io/15323229/IMG_4932.png">
-  <meta name="twitter:card" content="summary_large_image">
+  --c-cyan:   #00E5FF;
+  --c-lime:   #C8FF00;
+  --c-pink:   #FF36A3;
+  --c-purple: #8C52FF;
 
-  <!-- Favicons -->
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#0a0b0f">
+  --grad-neon: linear-gradient(90deg, var(--c-cyan), var(--c-lime), var(--c-pink), var(--c-purple));
+  --glass: rgba(10,11,15,0.8);
+  --card-bg: rgba(255,255,255,0.06);
+}
 
-  <!-- Styles (cache-busted) -->
-  <link rel="stylesheet" href="style.css?v=7.1" />
-</head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#home" data-link>
-      <span class="logo-badge">
-        <img class="logo" src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo">
-      </span>
-      <span class="brand-text">Snailkarts</span>
-    </a>
-    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="site-nav" id="nav">
-      <a href="#home" data-link>Home</a>
-      <a href="#karts" data-link>Karts</a>
-      <a href="#gallery" data-link>Gallery</a>
-      <a href="#build" data-link>Build</a>
-      <a href="#contact" class="cta neon-btn" data-link>Contact</a>
-    </nav>
-  </header>
+/* ========= Animations ========= */
+@keyframes neonShift{
+  0%{background-position: 0% 50%;}
+  50%{background-position: 100% 50%;}
+  100%{background-position: 0% 50%;}
+}
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001s !important; animation-iteration-count: 1 !important; }
+}
 
-/* === Animated gradient ring around header logo === */
+/* ========= Reset & Base ========= */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+img, video { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+.hidden { display: none !important; }
+.container { width: min(1200px, 90%); margin-inline: auto; position: relative; z-index: 1; }
+
+/* ========= Header ========= */
+.site-header {
+  position: sticky; top: 0; z-index: 1000;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .6rem 1rem;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 0 12px rgba(0,0,0,0.35);
+}
+.brand { display: flex; align-items: center; gap: .6rem; font-weight: 800; font-size: 1.2rem; }
+
+/* Animated gradient ring around header logo */
 .logo-badge{
   position: relative;
   display: inline-grid;
@@ -63,325 +73,233 @@
 }
 .brand:hover .logo-badge::before{ opacity: .8; }  /* brighten on hover */
 
-  <main id="app">
-    <!-- HERO -->
-    <section id="home" class="route hero neon">
-      <div class="hero-media">
-        <video class="hero-video" autoplay muted loop playsinline poster="https://assets.codepen.io/15323229/IMG_4932.png">
-          <source src="https://assets.codepen.io/15323229/469ec902-6f85-d318-7491-a350336f4989_custom.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="hero-content container">
-        <h1><span class="stroke">Engineered</span> <span class="glow">to Drift</span></h1>
-        <p class="hero-sub neon-text">Precision-built karts tuned for smooth slides.</p>
-        <div class="hero-actions">
-          <a href="#karts" class="btn neon-btn" data-link>Explore Karts</a>
-          <a href="#build" class="btn secondary" data-link>Configure Build</a>
-        </div>
-      </div>
-    </section>
+.brand img.logo { height: 40px; }
+.brand-text{
+  background: var(--grad-neon); background-size: 300% 300%;
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color: transparent;
+  animation: neonShift 12s linear infinite;
+}
 
-    <!-- KARTS -->
-    <section id="karts" class="route section hidden">
-      <div class="karts-video-bg">
-        <video autoplay muted loop playsinline>
-          <source src="https://assets.codepen.io/15323229/bbfbad66-75a9-0c8b-f385-7a491f2940e8_custom.mp4" type="video/mp4">
-        </video>
-        <div class="karts-overlay"></div>
-      </div>
+.site-nav { display: flex; gap: 1rem; align-items:center; }
+.site-nav a {
+  position: relative;
+  padding: .4rem .8rem; border-radius: 10px; transition: .25s ease;
+  color: #e9faff;
+}
+.site-nav a::after{
+  content:""; position:absolute; left:10%; right:10%; bottom:-3px; height:2px; border-radius:999px;
+  background: var(--grad-neon); background-size:300% 300%;
+  transform: scaleX(.6); opacity: .0;
+  transition: transform .25s, opacity .25s;
+  animation: neonShift 8s linear infinite;
+}
+.site-nav a:hover::after{ opacity:1; transform: scaleX(1); }
+.site-nav .cta.neon-btn{ margin-left:.25rem; }
+.nav-toggle { display:none; font-size:1.6rem; background:none; border:none; color:#fff; }
 
-      <div class="karts-content">
-        <div class="section-head">
-          <h1 class="neon-text">Our Karts</h1>
-          <p>Launching with the S-kart-Go. Electric Es-kart-Go coming soon.</p>
-        </div>
+/* ========= Hero ========= */
+.hero{ position: relative; height: 100vh; overflow: hidden; display:flex; align-items:center; justify-content:center; text-align:center; }
+.hero-media{ position:absolute; inset:0; z-index:-1; }
+.hero-video{ width:100%; height:100%; object-fit:cover; }
+.hero-content{ position:relative; z-index:1; }
+.hero h1{ font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: .5rem; }
+.hero .stroke{ -webkit-text-stroke: 1px var(--c-lime); color:transparent; }
+.hero .glow{ color: var(--c-lime); text-shadow: 0 0 15px var(--c-lime); }
 
-        <div class="cards">
-          <!-- S-kart-Go -->
-          <article class="card">
-            <div class="card-media">
-              <video class="card-video" autoplay muted loop playsinline>
-                <source src="https://assets.codepen.io/15323229/43bd0f6c-6c62-888e-903f-4df78a449110_custom.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="card-body">
-              <h3 class="neon-text">S-kart-Go</h3>
-              <ul class="specs">
-                <li>Hydraulic rear disc brake</li>
-                <li>Hydraulic E-brake handle</li>
-                <li>3-speed 125cc engine</li>
-                <li>Custom lighting & colors</li>
-                <li>Keyed ignition for security</li>
-                <li>Push-to-start button</li>
-              </ul>
-              <a class="btn neon-btn" href="#build" data-link>Configure & Request Quote</a>
-            </div>
-          </article>
+/* Animated multi-neon tagline */
+.hero .hero-sub.neon-text{
+  font-size: 1.2rem; margin-bottom: 1.5rem;
+  background: var(--grad-neon); background-size: 300% 300%;
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 5px rgba(200,255,0,0.6),
+    0 0 10px rgba(0,229,255,0.5),
+    0 0 20px rgba(255,54,163,0.4),
+    0 0 30px rgba(140,82,255,0.3);
+  animation: neonShift 10s linear infinite;
+}
 
-          <!-- Es-kart-Go (Coming Soon) -->
-          <article class="card">
-            <div class="coming-badge">Coming Soon</div>
-            <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Es-kart-Go prototype">
-            <div class="card-body">
-              <h3 class="neon-text">Es-kart-Go</h3>
-              <ul class="specs">
-                <li>Balanced weight distribution</li>
-                <li>Drift-ready chassis setup</li>
-                <li>Service-friendly open layout</li>
-              </ul>
-              <a class="btn secondary" href="#build" data-link>Join Waitlist</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+/* ========= Buttons ========= */
+.btn{
+  padding:.7rem 1.2rem; border-radius: 999px; border:none; cursor:pointer;
+  font-weight: 900; letter-spacing:.2px;
+  transition: transform .2s, box-shadow .2s, filter .2s;
+}
+.btn.secondary{ border:2px solid var(--c-lime); color:var(--c-lime); background:transparent; }
+.btn:hover{ transform: translateY(-1px) scale(1.03); }
 
-    <!-- GALLERY -->
-    <section id="gallery" class="route section hidden">
-      <div class="gallery-video-bg">
-        <video autoplay muted loop playsinline>
-          <source src="https://assets.codepen.io/15323229/72ba602c-7f10-d743-5218-bd99e9be7543_custom.mp4" type="video/mp4">
-        </video>
-        <div class="gallery-overlay"></div>
-      </div>
+/* Animated multi-neon buttons */
+.neon-btn{
+  background: var(--grad-neon); background-size: 300% 300%; color:#0a0b0f;
+  box-shadow: 0 0 10px rgba(0,229,255,0.6), 0 0 18px rgba(200,255,0,0.5), 0 0 28px rgba(255,54,163,0.45);
+  animation: neonShift 6s linear infinite;
+}
+.neon-btn:hover{ filter: brightness(1.05) contrast(1.03); }
 
-      <div class="gallery-content">
-        <div class="section-head">
-          <h1 class="neon-text">Gallery</h1>
-          <p>Workshop snapshots and in-progress builds.</p>
-        </div>
-        <div class="masonry">
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4933%20%281%29.png" alt="Snailkarts mascot keychain" /></figure>
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo artwork" /></figure>
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Snailkart angled front" /></figure>
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%282%29.jpg" alt="Green Snailkart side view" /></figure>
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4806.jpg" alt="Pair of karts top view" /></figure>
-        </div>
-      </div>
-    </section>
+/* ========= Fullscreen Background Video Sections ========= */
+#karts, #gallery, #build{
+  position:relative; min-height:100vh; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.karts-video-bg, .gallery-video-bg, .build-video-bg{ position:absolute; inset:0; z-index:-1; }
+.karts-video-bg video, .gallery-video-bg video, .build-video-bg video{
+  width:100%; height:100%; object-fit:cover;
+  filter: saturate(1.1) contrast(1.05) brightness(.75);
+}
+.karts-overlay, .gallery-overlay, .build-overlay{
+  position:absolute; inset:0; background: rgba(0,0,0,0.55); pointer-events:none;
+}
+.karts-content, .gallery-content, .build-content{
+  position:relative; z-index:1; width:min(1200px,90%); margin:0 auto; padding:4rem 0;
+}
 
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="route section container">
-      <div class="section-head">
-        <h2 class="neon-text">What Drivers Say</h2>
-        <p>Real feedback from test days and early owners.</p>
-      </div>
-      <div class="cards testimonials">
-        <article class="card quote">
-          <p>“The chassis rotation is super predictable. You can hang it out and bring it back—zero surprises.”</p>
-          <div class="quote-meta"><span class="dot"></span><span>Alex R. — Track day regular</span></div>
-        </article>
-        <article class="card quote">
-          <p>“E-brake plus rear hydro disc is perfect for initiations. It just does what you ask.”</p>
-          <div class="quote-meta"><span class="dot"></span><span>Marisol V. — Drift novice to addict</span></div>
-        </article>
-        <article class="card quote">
-          <p>“We put a dozen hours on it the first weekend. Nothing broke. Maintenance is easy.”</p>
-          <div class="quote-meta"><span class="dot"></span><span>Ken P. — Rental fleet owner</span></div>
-        </article>
-      </div>
-    </section>
+/* ========= Sections ========= */
+.section{ padding:4rem 0; }
+.section-head{ text-align:center; margin-bottom:2rem; }
+.section-head h1, .section-head h2{
+  font-size:2.2rem; margin-bottom:.5rem;
+  background: var(--grad-neon); background-size: 300% 300%;
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(200,255,0,0.45);
+  animation: neonShift 9s linear infinite;
+}
+.section-head p{ color: var(--muted); }
 
-    <!-- BUILD -->
-    <section id="build" class="route section hidden">
-      <div class="build-video-bg">
-        <video autoplay muted loop playsinline>
-          <source src="https://assets.codepen.io/15323229/VideoAug30202542731PM-ezgif.com-resize-video.mov" type="video/mp4">
-        </video>
-        <div class="build-overlay"></div>
-      </div>
+/* Animated neon underline */
+.neon-underline{
+  width:200px; height:4px; margin:.5rem auto 1rem; border-radius:999px;
+  background: var(--grad-neon); background-size:300% 300%;
+  filter: drop-shadow(0 0 10px rgba(200,255,0,0.8));
+  animation: neonShift 8s linear infinite;
+}
+.neon-sub{ color:#dfffe0; text-shadow: 0 0 8px rgba(200,255,0,0.45); }
 
-      <div class="build-content">
-        <div class="section-head neon-head">
-          <h1 class="neon-text">Build Your Snailkart</h1>
-          <div class="neon-underline"></div>
-          <p class="neon-sub">Choose your spec. We’ll review and send a quote.</p>
-        </div>
+/* ========= Cards ========= */
+.cards{ display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+.card{
+  background: var(--card-bg);
+  border-radius: 16px; overflow:hidden; position:relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  border:1px solid rgba(255,255,255,0.08);
+}
+.card-media{ position:relative; }
+.card-video{ width:100%; height:auto; }
+.card-body{ padding:1rem; }
+.card-body h3{
+  margin-top:0;
+  background: var(--grad-neon); background-size:300% 300%;
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color: transparent;
+  animation: neonShift 7s linear infinite;
+}
+.specs{ list-style:none; padding:0; margin:.5rem 0 1rem; }
+.specs li{ margin-bottom:.35rem; color:#e9faff; opacity:.92; }
+.coming-badge{
+  position:absolute; top:1rem; left:1rem; z-index:2;
+  background: var(--grad-neon); background-size:300% 300%;
+  color:#0a0b0f; padding:.28rem .65rem; border-radius:999px; font-size:.78rem; font-weight:900;
+  box-shadow: 0 0 14px rgba(0,229,255,.35), 0 0 18px rgba(255,54,163,.25);
+  animation: neonShift 6s linear infinite;
+}
 
-        <div class="contact-card neon-card">
-          <div class="contact-body">
-            <form id="buildForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form">
-              <input type="hidden" name="_subject" value="New Snailkart Build Request">
-              <input type="hidden" name="formType" value="Build Sheet">
-              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
+/* ========= Masonry Gallery ========= */
+.masonry{ column-count:3; column-gap:1rem; }
+.tile{ position:relative; display:block; border-radius:12px; overflow:hidden; margin:0 0 1rem; break-inside:avoid; }
+.tile img{ width:100%; height:auto; display:block; }
 
-              <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
-                <div>
-                  <label for="kartType" class="neon-text">Kart Type</label>
-                  <select id="kartType" name="Kart Type" required>
-                    <option value="Gas">Gas (125cc, 3-speed)</option>
-                    <option value="Electric">Electric (Es-kart-Go)</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="frame" class="neon-text">Frame</label>
-                  <select id="frame" name="Frame">
-                    <option value="Standard">Standard</option>
-                    <option value="Custom">Custom</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="seat" class="neon-text">Seat Type</label>
-                  <select id="seat" name="Seat">
-                    <option value="Bucket">Bucket</option>
-                    <option value="Racing">Racing</option>
-                    <option value="Padded">Padded</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="steering" class="neon-text">Steering Wheel</label>
-                  <select id="steering" name="Steering Wheel">
-                    <option value="Standard">Standard</option>
-                    <option value="D-Shape">D-Shape</option>
-                    <option value="Formula">Formula</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="kartColor" class="neon-text">Kart Color</label>
-                  <input id="kartColor" type="color" name="Kart Color" value="#c8ff00">
-                </div>
-                <div>
-                  <label for="lighting" class="neon-text">Lighting Color</label>
-                  <select id="lighting" name="Lighting">
-                    <option value="Red">Red</option>
-                    <option value="Blue">Blue</option>
-                    <option value="Green">Green</option>
-                    <option value="White">White</option>
-                    <option value="Custom">Custom</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="tank" class="neon-text">Gas Tank</label>
-                  <select id="tank" name="Gas Tank">
-                    <option value="Standard">Standard</option>
-                    <option value="Extended">Extended</option>
-                    <option value="None">None</option>
-                  </select>
-                </div>
-                <div style="display:flex;align-items:flex-end;">
-                  <label style="display:flex;gap:.5rem;align-items:center;">
-                    <input type="checkbox" name="Extra Drift Sleeves" value="Yes">
-                    <span class="neon-text">Add Extra PVC Drift Sleeves</span>
-                  </label>
-                </div>
-              </div>
+/* Animated gradient border glow on hover (via masked pseudo-element) */
+.tile::before{
+  content:""; position:absolute; inset:-2px; border-radius:14px; padding:2px;
+  background: var(--grad-neon); background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity:0; transition: opacity .2s ease;
+  animation: neonShift 6s linear infinite;
+}
+.tile:hover::before{ opacity:1; }
 
-              <h3 class="neon-text" style="margin-top:1rem;">Your Info</h3>
-              <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
-                <div><label for="name" class="neon-text">Name</label><input id="name" type="text" name="Name" placeholder="Your name" required></div>
-                <div><label for="email" class="neon-text">Email</label><input id="email" type="email" name="Email" placeholder="Email address" required></div>
-              </div>
-              <label for="notes" class="neon-text">Notes</label>
-              <textarea id="notes" name="Notes" rows="4" placeholder="Any extra requests?"></textarea>
+/* ========= Testimonials ========= */
+.cards.testimonials{ grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); }
+.card.quote{ padding:1rem; font-style:italic; }
+.card.quote p{ color:#e9faff; text-shadow:0 1px 6px rgba(0,0,0,.45); }
+.quote-meta{ margin-top:.6rem; font-size:.9rem; color:#94b4c3; display:flex; align-items:center; gap:.5rem; }
+.quote-meta .dot{
+  width:8px; height:8px; border-radius:50%;
+  background: var(--grad-neon); background-size:300% 300%;
+  animation: neonShift 7s linear infinite;
+  box-shadow: 0 0 10px rgba(0,229,255,.6);
+}
 
-              <button type="submit" class="btn neon-btn">Submit Build Sheet</button>
-              <p id="buildStatus" class="form-status" aria-live="polite"></p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+/* ========= Contact & Build Forms ========= */
+.contact-card{
+  background: rgba(0,0,0,0.6);
+  padding:2rem; border-radius:16px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 0 12px rgba(255,255,255,0.04), 0 0 12px rgba(0,0,0,0.35);
+}
 
-    <!-- CONTACT -->
-    <section id="contact" class="route section container contact hidden">
-      <div class="contact-card">
-        <div class="contact-body">
-          <h1 class="neon-text">Contact</h1>
-          <p>Tell us how many karts you need, where you’ll run them, and any special requests. We’ll spec a build and timeline.</p>
+/* Build frame with animated gradient border */
+.neon-card{ position:relative; }
+.neon-card::before{
+  content:""; position:absolute; inset:-2px; border-radius:18px; padding:2px;
+  background: var(--grad-neon); background-size:300% 300%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: neonShift 8s linear infinite;
+  pointer-events:none;
+}
 
-          <form id="contactForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form" novalidate>
-            <div class="grid">
-              <div><label for="cname" class="neon-text">Name</label><input id="cname" type="text" name="name" placeholder="Your name" required></div>
-              <div><label for="cemail" class="neon-text">Email</label><input id="cemail" type="email" name="email" placeholder="Email address" required></div>
-            </div>
-            <label for="company" class="neon-text">Company / Team (optional)</label>
-            <input id="company" type="text" name="company" placeholder="Company / Team">
-            <label for="cmsg" class="neon-text">Message</label>
-            <textarea id="cmsg" name="message" rows="5" placeholder="What are you building toward?" required></textarea>
+/* Labels animated gradient text */
+.contact-form label,
+#build h1, #build h3{
+  background: var(--grad-neon); background-size:300% 300%;
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color: transparent;
+  animation: neonShift 9s linear infinite;
+}
+.contact-form{ display:flex; flex-direction:column; gap:1rem; }
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  width:100%; padding:.85rem .9rem; border-radius:10px; border:2px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.5); color:#fff; outline:none;
+  transition: border .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+  border-color: rgba(200,255,0,0.75);
+  box-shadow: 0 0 12px rgba(0,229,255,0.35), 0 0 18px rgba(255,54,163,0.25);
+  background: rgba(0,0,0,0.55);
+}
+.form-status{ font-size:.9rem; color:#bcd; }
+.grid{ display:grid; gap:1rem; }
 
-            <button type="submit" class="btn neon-btn">Send</button>
-            <p id="formStatus" class="form-status" aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
+/* ========= Footer ========= */
+.site-footer{
+  background: var(--bg); padding:1.2rem 0; text-align:center;
+  border-top:1px solid rgba(255,255,255,0.08); margin-top:2rem;
+}
+.footer-inner{ display:flex; flex-direction:column; align-items:center; gap:.5rem; }
+.footer-nav{ display:flex; gap:1rem; }
+.footer-nav a{ color:#e9faff; position:relative; padding:.2rem .1rem; }
+.footer-nav a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; border-radius:999px;
+  background: var(--grad-neon); background-size:300% 300%;
+  transform: scaleX(.6); opacity:.0; transition: transform .25s, opacity .25s;
+  animation: neonShift 10s linear infinite;
+}
+.footer-nav a:hover::after{ opacity:1; transform: scaleX(1); }
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Snailkarts</span>
-      <nav class="footer-nav">
-        <a href="https://instagram.com/Snailkarts" target="_blank">@Snailkarts</a>
-        <a href="https://youtube.com/@Snailkarts" target="_blank">YouTube</a>
-        <a href="https://www.tiktok.com/@Formandforgellc" target="_blank">TikTok</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script>
-    // Router: shows one tab at a time and pauses hidden videos
-    const routes = ["home", "karts", "gallery", "build", "contact"];
-    const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
-
-    function setActive(route){
-      routes.forEach(r => {
-        const sec = sections[r];
-        if (!sec) return;
-        const isActive = r === route;
-        sec.classList.toggle('hidden', !isActive);
-        sec.querySelectorAll('video').forEach(v => {
-          try { isActive ? v.play() : v.pause(); } catch(e){}
-        });
-      });
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
-    function router(){ setActive(routes.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'home'); }
-
-    // Mobile menu
-    const btn = document.querySelector('.nav-toggle');
-    if(btn){
-      btn.addEventListener('click', () => {
-        const isOpen = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!isOpen));
-        document.body.classList.toggle('nav-open');
-      });
-    }
-
-    window.addEventListener('hashchange', router);
-    window.addEventListener('DOMContentLoaded', () => {
-      router();
-      const y = document.getElementById('year');
-      if (y) y.textContent = new Date().getFullYear();
-    });
-
-    // AJAX submit wiring (contact + build)
-    function wireAjaxForm(formId, statusId){
-      const form = document.getElementById(formId);
-      const statusEl = document.getElementById(statusId);
-      if(!form || !statusEl) return;
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        statusEl.textContent = 'Sending…';
-        const data = new FormData(form);
-        try {
-          const res = await fetch(form.action, { method:'POST', headers:{ 'Accept':'application/json' }, body:data });
-          if (res.ok) {
-            statusEl.style.color = '#c8ff00';
-            statusEl.textContent = 'Thanks! We’ll get back to you shortly.';
-            form.reset();
-          } else {
-            statusEl.style.color = '#ffb4c8';
-            statusEl.textContent = 'Something went wrong. Please try again.';
-          }
-        } catch (err) {
-          statusEl.style.color = '#ffb4c8';
-          statusEl.textContent = 'Network error—please try again.';
-        }
-      });
-    }
-    wireAjaxForm('contactForm', 'formStatus');
-    wireAjaxForm('buildForm', 'buildStatus');
-  </script>
-</body>
-</html>
+/* ========= Responsive ========= */
+@media (max-width:1024px){ .masonry{ column-count:2; } }
+@media (max-width:768px){
+  .site-nav{
+    display:none; flex-direction:column; gap:.6rem;
+    background: rgba(10,11,15,0.95); position:absolute; top:100%; right:0;
+    width: 230px; padding:1rem; border-radius:12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.35);
+  }
+  body.nav-open .site-nav{ display:flex; }
+  .nav-toggle{ display:block; }
+  .masonry{ column-count:1; }
+  .karts-content, .gallery-content, .build-content{ padding:3rem 0; }
+}
