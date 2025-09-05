@@ -90,11 +90,43 @@ a { color: inherit; text-decoration: none; }
   content:""; position:absolute; left:10%; right:10%; bottom:-3px; height:2px; border-radius:999px;
   background: var(--grad-neon); background-size:300% 300%;
   transform: scaleX(.6); opacity: .0;
-  transition: transform .25s, opacity .25s;
+  transition: transform .25s, opacity .25s, filter .25s;
   animation: neonShift 8s linear infinite;
 }
 .site-nav a:hover::after{ opacity:1; transform: scaleX(1); }
+
+/* NEW: active nav highlight (steady, brighter underline) */
+.site-nav a.active::after{
+  opacity:1;
+  transform: scaleX(1);
+  filter: brightness(1.2) contrast(1.05);
+}
+
 .site-nav .cta.neon-btn{ margin-left:.25rem; }
+
+/* Social icons in header */
+.social-icons{
+  display:flex; gap:.6rem; align-items:center; margin-left:.25rem;
+  padding-left:.6rem; border-left:1px solid rgba(255,255,255,0.08);
+}
+.social-icons a{
+  width:28px; height:28px; display:grid; place-items:center;
+  border-radius:8px; position:relative; overflow:hidden;
+}
+.social-icons a svg{
+  width:18px; height:18px; fill:#e9faff;
+  transition: transform .2s ease, filter .2s ease;
+}
+.social-icons a::before{
+  content:""; position:absolute; inset:0; border-radius:inherit; opacity:0;
+  background: var(--grad-neon); background-size:300% 300%;
+  filter: blur(10px);
+  animation: neonShift 8s linear infinite;
+  transition: opacity .2s ease;
+}
+.social-icons a:hover::before{ opacity:.65; }
+.social-icons a:hover svg{ transform: scale(1.08); filter: drop-shadow(0 0 6px rgba(0,229,255,.6)); }
+
 .nav-toggle { display:none; font-size:1.6rem; background:none; border:none; color:#fff; }
 
 /* ========= Hero ========= */
@@ -295,11 +327,12 @@ a { color: inherit; text-decoration: none; }
   .site-nav{
     display:none; flex-direction:column; gap:.6rem;
     background: rgba(10,11,15,0.95); position:absolute; top:100%; right:0;
-    width: 230px; padding:1rem; border-radius:12px;
+    width: 260px; padding:1rem; border-radius:12px;
     box-shadow: 0 0 12px rgba(0,0,0,0.35);
   }
   body.nav-open .site-nav{ display:flex; }
   .nav-toggle{ display:block; }
+  .social-icons{ border-left: none; margin-left: 0; justify-content: center; }
   .masonry{ column-count:1; }
   .karts-content, .gallery-content, .build-content{ padding:3rem 0; }
 }
