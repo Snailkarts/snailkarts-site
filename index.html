@@ -22,7 +22,7 @@
   <meta name="theme-color" content="#0a0b0f">
 
   <!-- Styles (cache-busted) -->
-  <link rel="stylesheet" href="style.css?v=7.3" />
+  <link rel="stylesheet" href="style.css?v=7.4" />
 </head>
 <body>
   <header class="site-header">
@@ -42,20 +42,23 @@
       <a href="#build" data-link>Build</a>
       <a href="#contact" class="cta neon-btn" data-link>Contact</a>
 
-      <!-- Social icons moved to top -->
-      <div class="social-icons" aria-label="Follow Snailkarts">
-        <a href="https://instagram.com/Snailkarts" target="_blank" rel="noopener" aria-label="Instagram @Snailkarts" title="Instagram @Snailkarts">
-          <!-- Instagram SVG -->
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
-        </a>
-        <a href="https://youtube.com/@Snailkarts" target="_blank" rel="noopener" aria-label="YouTube @Snailkarts" title="YouTube @Snailkarts">
-          <!-- YouTube SVG -->
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .6-5.8 31 31 0 0 0-.6-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
-        </a>
-        <a href="https://www.tiktok.com/@Formandforgellc" target="_blank" rel="noopener" aria-label="TikTok @Formandforgellc" title="TikTok @Formandforgellc">
-          <!-- TikTok SVG -->
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.8 3.2c.8 1.3 2.1 2.4 3.6 2.9v3.1a8.5 8.5 0 0 1-4.3-1.2v6.8a6.8 6.8 0 1 1-6.8-6.8c.5 0 1 .1 1.5.2v3.2a3.6 3.6 0 1 0 2.5 3.4V2.5h3.5v.7z"/></svg>
-        </a>
+      <!-- Follow + social icons (top of page) -->
+      <div class="social-wrap" aria-label="Follow Snailkarts">
+        <span class="follow-label">Follow us</span>
+        <div class="social-icons">
+          <a href="https://instagram.com/Snailkarts" target="_blank" rel="noopener" aria-label="Instagram @Snailkarts" title="Instagram @Snailkarts">
+            <!-- Instagram SVG -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
+          </a>
+          <a href="https://youtube.com/@Snailkarts" target="_blank" rel="noopener" aria-label="YouTube @Snailkarts" title="YouTube @Snailkarts">
+            <!-- YouTube SVG -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .6-5.8 31 31 0 0 0-.6-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@Formandforgellc" target="_blank" rel="noopener" aria-label="TikTok @Formandforgellc" title="TikTok @Formandforgellc">
+            <!-- TikTok SVG -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.8 3.2c.8 1.3 2.1 2.4 3.6 2.9v3.1a8.5 8.5 0 0 1-4.3-1.2v6.8a6.8 6.8 0 1 1-6.8-6.8c.5 0 1 .1 1.5.2v3.2a3.6 3.6 0 1 0 2.5 3.4V2.5h3.5v.7z"/></svg>
+          </a>
+        </div>
       </div>
     </nav>
   </header>
@@ -307,11 +310,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <span>© <span id="year"></span> Snailkarts</span>
-      <nav class="footer-nav">
-        <a href="https://instagram.com/Snailkarts" target="_blank">@Snailkarts</a>
-        <a href="https://youtube.com/@Snailkarts" target="_blank">YouTube</a>
-        <a href="https://www.tiktok.com/@Formandforgellc" target="_blank">TikTok</a>
-      </nav>
+      <!-- Social links removed from footer per request -->
     </div>
   </footer>
 
@@ -334,7 +333,6 @@
       });
       // Highlight active nav link
       navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${route}`));
-      // Scroll to top (no animation to avoid fighting videos)
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
