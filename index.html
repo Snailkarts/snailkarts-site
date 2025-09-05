@@ -22,7 +22,7 @@
   <meta name="theme-color" content="#0a0b0f">
 
   <!-- Styles (cache-busted) -->
-  <link rel="stylesheet" href="style.css?v=6.0" />
+  <link rel="stylesheet" href="style.css?v=7.0" />
 </head>
 <body>
   <header class="site-header">
@@ -36,7 +36,7 @@
       <a href="#karts" data-link>Karts</a>
       <a href="#gallery" data-link>Gallery</a>
       <a href="#build" data-link>Build</a>
-      <a href="#contact" class="cta" data-link>Contact</a>
+      <a href="#contact" class="cta neon-btn" data-link>Contact</a>
     </nav>
   </header>
 
@@ -52,7 +52,7 @@
         <h1><span class="stroke">Engineered</span> <span class="glow">to Drift</span></h1>
         <p class="hero-sub neon-text">Precision-built karts tuned for smooth slides.</p>
         <div class="hero-actions">
-          <a href="#karts" class="btn primary" data-link>Explore Karts</a>
+          <a href="#karts" class="btn neon-btn" data-link>Explore Karts</a>
           <a href="#build" class="btn secondary" data-link>Configure Build</a>
         </div>
       </div>
@@ -69,10 +69,12 @@
 
       <div class="karts-content">
         <div class="section-head">
-          <h1>Our Karts</h1>
+          <h1 class="neon-text">Our Karts</h1>
           <p>Launching with the S-kart-Go. Electric Es-kart-Go coming soon.</p>
         </div>
+
         <div class="cards">
+          <!-- S-kart-Go -->
           <article class="card">
             <div class="card-media">
               <video class="card-video" autoplay muted loop playsinline>
@@ -80,7 +82,7 @@
               </video>
             </div>
             <div class="card-body">
-              <h3>S-kart-Go</h3>
+              <h3 class="neon-text">S-kart-Go</h3>
               <ul class="specs">
                 <li>Hydraulic rear disc brake</li>
                 <li>Hydraulic E-brake handle</li>
@@ -89,15 +91,16 @@
                 <li>Keyed ignition for security</li>
                 <li>Push-to-start button</li>
               </ul>
-              <a class="btn primary neon-btn" href="#build" data-link>Configure & Request Quote</a>
+              <a class="btn neon-btn" href="#build" data-link>Configure & Request Quote</a>
             </div>
           </article>
 
+          <!-- Es-kart-Go (Coming Soon) -->
           <article class="card">
             <div class="coming-badge">Coming Soon</div>
             <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Es-kart-Go prototype">
             <div class="card-body">
-              <h3>Es-kart-Go</h3>
+              <h3 class="neon-text">Es-kart-Go</h3>
               <ul class="specs">
                 <li>Balanced weight distribution</li>
                 <li>Drift-ready chassis setup</li>
@@ -118,17 +121,18 @@
         </video>
         <div class="gallery-overlay"></div>
       </div>
+
       <div class="gallery-content">
         <div class="section-head">
-          <h1>Gallery</h1>
+          <h1 class="neon-text">Gallery</h1>
           <p>Workshop snapshots and in-progress builds.</p>
         </div>
         <div class="masonry">
-          <img src="https://assets.codepen.io/15323229/IMG_4933%20%281%29.png" alt="Snailkarts mascot keychain" />
-          <img src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo artwork" />
-          <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Snailkart angled front" />
-          <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%282%29.jpg" alt="Green Snailkart side view" />
-          <img src="https://assets.codepen.io/15323229/IMG_4806.jpg" alt="Pair of karts top view" />
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4933%20%281%29.png" alt="Snailkarts mascot keychain" /></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo artwork" /></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Snailkart angled front" /></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%282%29.jpg" alt="Green Snailkart side view" /></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4806.jpg" alt="Pair of karts top view" /></figure>
         </div>
       </div>
     </section>
@@ -136,7 +140,7 @@
     <!-- TESTIMONIALS -->
     <section id="testimonials" class="route section container">
       <div class="section-head">
-        <h2>What Drivers Say</h2>
+        <h2 class="neon-text">What Drivers Say</h2>
         <p>Real feedback from test days and early owners.</p>
       </div>
       <div class="cards testimonials">
@@ -165,9 +169,8 @@
       </div>
 
       <div class="build-content">
-        <!-- Neon section header with underline -->
         <div class="section-head neon-head">
-          <h1>Build Your Snailkart</h1>
+          <h1 class="neon-text">Build Your Snailkart</h1>
           <div class="neon-underline"></div>
           <p class="neon-sub">Choose your spec. We’ll review and send a quote.</p>
         </div>
@@ -181,21 +184,21 @@
 
               <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
                 <div>
-                  <label for="kartType">Kart Type</label>
+                  <label for="kartType" class="neon-text">Kart Type</label>
                   <select id="kartType" name="Kart Type" required>
                     <option value="Gas">Gas (125cc, 3-speed)</option>
                     <option value="Electric">Electric (Es-kart-Go)</option>
                   </select>
                 </div>
                 <div>
-                  <label for="frame">Frame</label>
+                  <label for="frame" class="neon-text">Frame</label>
                   <select id="frame" name="Frame">
                     <option value="Standard">Standard</option>
                     <option value="Custom">Custom</option>
                   </select>
                 </div>
                 <div>
-                  <label for="seat">Seat Type</label>
+                  <label for="seat" class="neon-text">Seat Type</label>
                   <select id="seat" name="Seat">
                     <option value="Bucket">Bucket</option>
                     <option value="Racing">Racing</option>
@@ -203,7 +206,7 @@
                   </select>
                 </div>
                 <div>
-                  <label for="steering">Steering Wheel</label>
+                  <label for="steering" class="neon-text">Steering Wheel</label>
                   <select id="steering" name="Steering Wheel">
                     <option value="Standard">Standard</option>
                     <option value="D-Shape">D-Shape</option>
@@ -211,11 +214,11 @@
                   </select>
                 </div>
                 <div>
-                  <label for="kartColor">Kart Color</label>
+                  <label for="kartColor" class="neon-text">Kart Color</label>
                   <input id="kartColor" type="color" name="Kart Color" value="#c8ff00">
                 </div>
                 <div>
-                  <label for="lighting">Lighting Color</label>
+                  <label for="lighting" class="neon-text">Lighting Color</label>
                   <select id="lighting" name="Lighting">
                     <option value="Red">Red</option>
                     <option value="Blue">Blue</option>
@@ -225,7 +228,7 @@
                   </select>
                 </div>
                 <div>
-                  <label for="tank">Gas Tank</label>
+                  <label for="tank" class="neon-text">Gas Tank</label>
                   <select id="tank" name="Gas Tank">
                     <option value="Standard">Standard</option>
                     <option value="Extended">Extended</option>
@@ -235,20 +238,20 @@
                 <div style="display:flex;align-items:flex-end;">
                   <label style="display:flex;gap:.5rem;align-items:center;">
                     <input type="checkbox" name="Extra Drift Sleeves" value="Yes">
-                    Add Extra PVC Drift Sleeves
+                    <span class="neon-text">Add Extra PVC Drift Sleeves</span>
                   </label>
                 </div>
               </div>
 
-              <h3 style="margin-top:1rem;">Your Info</h3>
+              <h3 class="neon-text" style="margin-top:1rem;">Your Info</h3>
               <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
-                <div><label for="name">Name</label><input id="name" type="text" name="Name" placeholder="Your name" required></div>
-                <div><label for="email">Email</label><input id="email" type="email" name="Email" placeholder="Email address" required></div>
+                <div><label for="name" class="neon-text">Name</label><input id="name" type="text" name="Name" placeholder="Your name" required></div>
+                <div><label for="email" class="neon-text">Email</label><input id="email" type="email" name="Email" placeholder="Email address" required></div>
               </div>
-              <label for="notes">Notes</label>
+              <label for="notes" class="neon-text">Notes</label>
               <textarea id="notes" name="Notes" rows="4" placeholder="Any extra requests?"></textarea>
 
-              <button type="submit" class="btn primary neon-btn">Submit Build Sheet</button>
+              <button type="submit" class="btn neon-btn">Submit Build Sheet</button>
               <p id="buildStatus" class="form-status" aria-live="polite"></p>
             </form>
           </div>
@@ -260,18 +263,20 @@
     <section id="contact" class="route section container contact hidden">
       <div class="contact-card">
         <div class="contact-body">
-          <h1>Contact</h1>
+          <h1 class="neon-text">Contact</h1>
           <p>Tell us how many karts you need, where you’ll run them, and any special requests. We’ll spec a build and timeline.</p>
+
           <form id="contactForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form" novalidate>
             <div class="grid">
-              <div><label for="cname">Name</label><input id="cname" type="text" name="name" placeholder="Your name" required></div>
-              <div><label for="cemail">Email</label><input id="cemail" type="email" name="email" placeholder="Email address" required></div>
+              <div><label for="cname" class="neon-text">Name</label><input id="cname" type="text" name="name" placeholder="Your name" required></div>
+              <div><label for="cemail" class="neon-text">Email</label><input id="cemail" type="email" name="email" placeholder="Email address" required></div>
             </div>
-            <label for="company">Company / Team (optional)</label>
+            <label for="company" class="neon-text">Company / Team (optional)</label>
             <input id="company" type="text" name="company" placeholder="Company / Team">
-            <label for="cmsg">Message</label>
+            <label for="cmsg" class="neon-text">Message</label>
             <textarea id="cmsg" name="message" rows="5" placeholder="What are you building toward?" required></textarea>
-            <button type="submit" class="btn primary neon-btn">Send</button>
+
+            <button type="submit" class="btn neon-btn">Send</button>
             <p id="formStatus" class="form-status" aria-live="polite"></p>
           </form>
         </div>
@@ -337,11 +342,7 @@
         statusEl.textContent = 'Sending…';
         const data = new FormData(form);
         try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: data
-          });
+          const res = await fetch(form.action, { method:'POST', headers:{ 'Accept':'application/json' }, body:data });
           if (res.ok) {
             statusEl.style.color = '#c8ff00';
             statusEl.textContent = 'Thanks! We’ll get back to you shortly.';
