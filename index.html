@@ -24,8 +24,34 @@
   <!-- Styles (cache-busted) -->
   <link rel="stylesheet" href="style.css?v=7.5" />
 
-  <!-- Plausible Analytics -->
-  <script defer data-domain="snailkarts.com" src="https://plausible.io/js/script.js"></script>
+  <!-- Plausible Analytics (safe-queued) -->
+  <script>
+    // Tiny queue so calls never throw even if the script is blocked
+    (function () {
+      window.plausibleQueue = [];
+      window.plausible = function(){ window.plausibleQueue.push(arguments); };
+      window.onPlausibleLoaded = function(){
+        // Replace shim with real function once script loads
+        if (window.plausible && window.plausible.loaded) return; // guard
+        var real = window.plausible;
+        // After plausible script sets window.plausible, flush queued events
+        var flush = function(){
+          try {
+            var q = window.plausibleQueue || [];
+            for (var i=0;i<q.length;i++){
+              window.plausible.apply(null, q[i]);
+            }
+            window.plausibleQueue = [];
+          } catch(e){}
+        };
+        // Mark as loaded and flush later in onload of real script (below)
+        real.loaded = true;
+        flush();
+      };
+    })();
+  </script>
+  <script defer data-domain="snailkarts.com" src="https://plausible.io/js/script.js" onload="onPlausibleLoaded()"></script>
+  <noscript><style>body{opacity:1}</style></noscript>
 </head>
 <body>
   <header class="site-header">
@@ -53,7 +79,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
           </a>
           <a href="https://youtube.com/@Snailkarts" target="_blank" rel="noopener" aria-label="YouTube @Snailkarts" title="YouTube @Snailkarts">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .6-5.8 31 31 31 0 0 0-.6-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .6-5.8 31 31 0 0 0-.6-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
           </a>
           <a href="https://www.tiktok.com/@Formandforgellc" target="_blank" rel="noopener" aria-label="TikTok @Formandforgellc" title="TikTok @Formandforgellc">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.8 3.2c.8 1.3 2.1 2.4 3.6 2.9v3.1a8.5 8.5 0 0 1-4.3-1.2v6.8a6.8 6.8 0 1 1-6.8-6.8c.5 0 1 .1 1.5.2v3.2a3.6 3.6 0 1 0 2.5 3.4V2.5h3.5v.7z"/></svg>
@@ -287,7 +313,7 @@
       <div class="contact-card">
         <div class="contact-body">
           <h1 class="neon-text">Contact</h1>
-          <p>Tell us how many karts you need, where you’ll run them, and any special requests. We’ll spec a build and timeline.</p>
+        <p>Tell us how many karts you need, where you’ll run them, and any special requests. We’ll spec a build and timeline.</p>
 
           <form id="contactForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form" novalidate>
             <div class="grid">
@@ -310,25 +336,25 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <span>© <span id="year"></span> Snailkarts</span>
-      <!-- Footer socials intentionally removed -->
     </div>
   </footer>
 
   <script>
-    // ---------- Helpers for analytics ----------
+    // --------- Analytics helpers (safe) ----------
     function sendPageview(route){
-      if (window.plausible) plausible('pageview', { u: location.origin + '/#' + route });
+      // hashed path for SPA analytics
+      plausible && plausible('pageview', { u: location.origin + '/#' + route });
     }
     function track(name, props){
-      if (window.plausible) plausible(name, props ? { props } : undefined);
+      if (typeof plausible === 'function') {
+        props ? plausible(name, { props }) : plausible(name);
+      }
     }
     const FILE_EXTS = ['pdf','zip','rar','7z','mp3','wav','mp4','mov','webm','png','jpg','jpeg','gif','svg'];
 
     function isExternalLink(a){
-      try{
-        const url = new URL(a.href, location.href);
-        return url.hostname !== location.hostname;
-      }catch(e){ return false; }
+      try{ const url = new URL(a.href, location.href); return url.hostname !== location.hostname; }
+      catch(e){ return false; }
     }
     function getFileExt(a){
       try{
@@ -352,23 +378,18 @@
         const isActive = r === route;
         sec.classList.toggle('hidden', !isActive);
         if (isActive) {
-          sec.classList.remove('enter');
-          void sec.offsetWidth; // restart animation
-          sec.classList.add('enter');
+          sec.classList.remove('enter'); void sec.offsetWidth; sec.classList.add('enter');
         }
-        sec.querySelectorAll('video').forEach(v => {
-          try { isActive ? v.play() : v.pause(); } catch(e){}
-        });
+        sec.querySelectorAll('video').forEach(v => { try { isActive ? v.play() : v.pause(); } catch(e){} });
       });
       navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${route}`));
       window.scrollTo({ top: 0, behavior: 'instant' });
-      sendPageview(route); // hashed page paths ✅
+      sendPageview(route);
     }
 
     function router(){
       const hash = location.hash.slice(1);
       if (!routes.includes(hash)) {
-        // 404-like route
         if (hash) track('Not Found', { hash: '#' + hash });
         setActive('home');
         return;
@@ -393,11 +414,10 @@
       const y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
 
-      // Initial enter animation on first visible route
       const first = document.querySelector('.route:not(.hidden)');
       if (first) { first.classList.add('enter'); }
 
-      // CTA click tracking (label from data-attr)
+      // CTA click tracking
       document.body.addEventListener('click', (e) => {
         const a = e.target.closest('[data-track="cta"]');
         if (a) {
@@ -410,22 +430,13 @@
       document.body.addEventListener('click', (e) => {
         const a = e.target.closest('a[href]');
         if (!a) return;
-
-        // File download?
         const ext = getFileExt(a);
-        if (ext) {
-          track('File Download', { url: a.href, ext });
-          return; // don't double-fire as outbound too
-        }
-
-        // Outbound?
-        if (isExternalLink(a)) {
-          track('Outbound Link', { url: a.href });
-        }
+        if (ext) { track('File Download', { url: a.href, ext }); return; }
+        if (isExternalLink(a)) { track('Outbound Link', { url: a.href }); }
       });
     });
 
-    // ---------- AJAX forms (Contact + Build) ----------
+    // ---------- AJAX forms ----------
     function wireAjaxForm(formId, statusId, eventName){
       const form = document.getElementById(formId);
       const statusEl = document.getElementById(statusId);
@@ -440,7 +451,7 @@
           if (res.ok) {
             statusEl.style.color = '#c8ff00';
             statusEl.textContent = 'Thanks! We’ll get back to you shortly.';
-            track(eventName); // custom event on success
+            track(eventName);
             form.reset();
           } else {
             statusEl.style.color = '#ffb4c8';
@@ -455,15 +466,11 @@
     wireAjaxForm('contactForm', 'formStatus', 'Contact Submit');
     wireAjaxForm('buildForm', 'buildStatus', 'Build Sheet Submit');
 
-    // ---------- (Later) Ecommerce revenue helper ----------
-    // Call this when a payment succeeds: send amount + currency to a Revenue goal
-    // Example: trackPurchase(199.00, 'USD', { plan: 'S-kart-Go Deposit' });
+    // Revenue helper (for future payments)
     function trackPurchase(amount, currency, props){
-      // In Plausible, create a "Purchase" goal and mark it as Revenue
-      // Then this will attach revenue to that event in your dashboard
       const payload = { revenue: { amount: amount, currency: currency } };
       if (props) payload.props = props;
-      if (window.plausible) plausible('Purchase', payload);
+      track('Purchase', payload);
     }
   </script>
 </body>
