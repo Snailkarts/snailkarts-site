@@ -21,28 +21,11 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0a0b0f">
 
-  <!-- Styles -->
+  <!-- Styles (cache-busted) -->
   <link rel="stylesheet" href="style.css?v=7.5" />
 
-  <!-- Plausible Analytics (safe-queued) -->
-  <script>
-    (function () {
-      window.plausibleQueue = [];
-      window.plausible = function(){ window.plausibleQueue.push(arguments); };
-      window.onPlausibleLoaded = function(){
-        if (window.plausible && window.plausible.loaded) return;
-        var flush = function(){
-          try {
-            (window.plausibleQueue || []).forEach(args => window.plausible.apply(null, args));
-            window.plausibleQueue = [];
-          } catch(e){}
-        };
-        if (window.plausible) { window.plausible.loaded = true; flush(); }
-      };
-    })();
-  </script>
-  <script defer data-domain="snailkarts.com" src="https://plausible.io/js/script.js" onload="onPlausibleLoaded()"></script>
-  <noscript><style>body{opacity:1}</style></noscript>
+  <!-- Plausible Analytics -->
+  <script defer data-domain="snailkarts.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -66,28 +49,14 @@
       <div class="social-wrap" aria-label="Follow Snailkarts">
         <span class="follow-label">Follow us</span>
         <div class="social-icons">
-          <!-- Instagram (simple shapes, no complex path) -->
           <a href="https://instagram.com/Snailkarts" target="_blank" rel="noopener" aria-label="Instagram @Snailkarts" title="Instagram @Snailkarts">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-              <circle cx="12" cy="12" r="4.5"></circle>
-              <circle cx="17.5" cy="6.5" r="1.2"></circle>
-            </svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
           </a>
-          <!-- YouTube (rounded rect + play triangle) -->
           <a href="https://youtube.com/@Snailkarts" target="_blank" rel="noopener" aria-label="YouTube @Snailkarts" title="YouTube @Snailkarts">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="2" y="6" width="20" height="12" rx="3" ry="3"></rect>
-              <polygon points="10,9 16,12 10,15"></polygon>
-            </svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .6-5.8 31 31 31 0 0 0-.6-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
           </a>
-          <!-- TikTok (simple music-note style with shapes) -->
           <a href="https://www.tiktok.com/@Formandforgellc" target="_blank" rel="noopener" aria-label="TikTok @Formandforgellc" title="TikTok @Formandforgellc">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="13" y="3" width="2" height="10"></rect>
-              <circle cx="10" cy="16" r="3"></circle>
-              <circle cx="18" cy="8" r="1.5"></circle>
-            </svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.8 3.2c.8 1.3 2.1 2.4 3.6 2.9v3.1a8.5 8.5 0 0 1-4.3-1.2v6.8a6.8 6.8 0 1 1-6.8-6.8c.5 0 1 .1 1.5.2v3.2a3.6 3.6 0 1 0 2.5 3.4V2.5h3.5v.7z"/></svg>
           </a>
         </div>
       </div>
@@ -341,20 +310,35 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <span>© <span id="year"></span> Snailkarts</span>
+      <!-- Footer socials intentionally removed -->
     </div>
   </footer>
 
   <script>
-    // ---------- Analytics helpers (safe) ----------
+    // ---------- Helpers for analytics ----------
     function sendPageview(route){
-      if (typeof plausible === 'function') plausible('pageview', { u: location.origin + '/#' + route });
+      if (window.plausible) plausible('pageview', { u: location.origin + '/#' + route });
     }
     function track(name, props){
-      if (typeof plausible === 'function') props ? plausible(name, { props }) : plausible(name);
+      if (window.plausible) plausible(name, props ? { props } : undefined);
     }
     const FILE_EXTS = ['pdf','zip','rar','7z','mp3','wav','mp4','mov','webm','png','jpg','jpeg','gif','svg'];
-    function isExternalLink(a){ try{ const url = new URL(a.href, location.href); return url.hostname !== location.hostname; }catch(e){ return false; } }
-    function getFileExt(a){ try{ const m = new URL(a.href, location.href).pathname.match(/\.([a-z0-9]+)$/i); return m && FILE_EXTS.includes(m[1].toLowerCase()) ? m[1].toLowerCase() : null; }catch(e){ return null; } }
+
+    function isExternalLink(a){
+      try{
+        const url = new URL(a.href, location.href);
+        return url.hostname !== location.hostname;
+      }catch(e){ return false; }
+    }
+    function getFileExt(a){
+      try{
+        const url = new URL(a.href, location.href);
+        const m = url.pathname.match(/\.([a-z0-9]+)$/i);
+        if (!m) return null;
+        const ext = m[1].toLowerCase();
+        return FILE_EXTS.includes(ext) ? ext : null;
+      }catch(e){ return null; }
+    }
 
     // ---------- Router (SPA) ----------
     const routes = ["home", "karts", "gallery", "testimonials", "build", "contact"];
@@ -363,20 +347,32 @@
 
     function setActive(route){
       routes.forEach(r => {
-        const sec = sections[r]; if (!sec) return;
-        const on = r === route;
-        sec.classList.toggle('hidden', !on);
-        if (on) { sec.classList.remove('enter'); void sec.offsetWidth; sec.classList.add('enter'); }
-        sec.querySelectorAll('video').forEach(v => { try { on ? v.play() : v.pause(); } catch(e){} });
+        const sec = sections[r];
+        if (!sec) return;
+        const isActive = r === route;
+        sec.classList.toggle('hidden', !isActive);
+        if (isActive) {
+          sec.classList.remove('enter');
+          void sec.offsetWidth; // restart animation
+          sec.classList.add('enter');
+        }
+        sec.querySelectorAll('video').forEach(v => {
+          try { isActive ? v.play() : v.pause(); } catch(e){}
+        });
       });
       navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${route}`));
       window.scrollTo({ top: 0, behavior: 'instant' });
-      sendPageview(route);
+      sendPageview(route); // hashed page paths ✅
     }
 
     function router(){
       const hash = location.hash.slice(1);
-      if (!routes.includes(hash)) { if (hash) track('Not Found', { hash: '#' + hash }); setActive('home'); return; }
+      if (!routes.includes(hash)) {
+        // 404-like route
+        if (hash) track('Not Found', { hash: '#' + hash });
+        setActive('home');
+        return;
+      }
       setActive(hash);
     }
 
@@ -394,41 +390,80 @@
     window.addEventListener('hashchange', router);
     window.addEventListener('DOMContentLoaded', () => {
       router();
-      const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
 
-      // CTA click tracking
+      // Initial enter animation on first visible route
+      const first = document.querySelector('.route:not(.hidden)');
+      if (first) { first.classList.add('enter'); }
+
+      // CTA click tracking (label from data-attr)
       document.body.addEventListener('click', (e) => {
         const a = e.target.closest('[data-track="cta"]');
-        if (a) track('CTA Click', { label: a.getAttribute('data-label') || a.textContent.trim() });
+        if (a) {
+          const label = a.getAttribute('data-label') || a.textContent.trim();
+          track('CTA Click', { label });
+        }
       });
 
       // Outbound links + file downloads
       document.body.addEventListener('click', (e) => {
-        const a = e.target.closest('a[href]'); if (!a) return;
-        const ext = getFileExt(a); if (ext) { track('File Download', { url: a.href, ext }); return; }
-        if (isExternalLink(a)) track('Outbound Link', { url: a.href });
+        const a = e.target.closest('a[href]');
+        if (!a) return;
+
+        // File download?
+        const ext = getFileExt(a);
+        if (ext) {
+          track('File Download', { url: a.href, ext });
+          return; // don't double-fire as outbound too
+        }
+
+        // Outbound?
+        if (isExternalLink(a)) {
+          track('Outbound Link', { url: a.href });
+        }
       });
     });
 
-    // ---------- AJAX forms ----------
+    // ---------- AJAX forms (Contact + Build) ----------
     function wireAjaxForm(formId, statusId, eventName){
-      const form = document.getElementById(formId), statusEl = document.getElementById(statusId);
+      const form = document.getElementById(formId);
+      const statusEl = document.getElementById(statusId);
       if(!form || !statusEl) return;
+
       form.addEventListener('submit', async (e) => {
-        e.preventDefault(); statusEl.textContent = 'Sending…';
+        e.preventDefault();
+        statusEl.textContent = 'Sending…';
+        const data = new FormData(form);
         try {
-          const res = await fetch(form.action, { method:'POST', headers:{ 'Accept':'application/json' }, body:new FormData(form) });
-          if (res.ok) { statusEl.style.color = '#c8ff00'; statusEl.textContent = 'Thanks! We’ll get back to you shortly.'; track(eventName); form.reset(); }
-          else { statusEl.style.color = '#ffb4c8'; statusEl.textContent = 'Something went wrong. Please try again.'; }
-        } catch (err) { statusEl.style.color = '#ffb4c8'; statusEl.textContent = 'Network error—please try again.'; }
+          const res = await fetch(form.action, { method:'POST', headers:{ 'Accept':'application/json' }, body:data });
+          if (res.ok) {
+            statusEl.style.color = '#c8ff00';
+            statusEl.textContent = 'Thanks! We’ll get back to you shortly.';
+            track(eventName); // custom event on success
+            form.reset();
+          } else {
+            statusEl.style.color = '#ffb4c8';
+            statusEl.textContent = 'Something went wrong. Please try again.';
+          }
+        } catch (err) {
+          statusEl.style.color = '#ffb4c8';
+          statusEl.textContent = 'Network error—please try again.';
+        }
       });
     }
     wireAjaxForm('contactForm', 'formStatus', 'Contact Submit');
     wireAjaxForm('buildForm', 'buildStatus', 'Build Sheet Submit');
 
-    // Future: trackPurchase(amount, 'USD', { plan: 'S-kart-Go Deposit' })
+    // ---------- (Later) Ecommerce revenue helper ----------
+    // Call this when a payment succeeds: send amount + currency to a Revenue goal
+    // Example: trackPurchase(199.00, 'USD', { plan: 'S-kart-Go Deposit' });
     function trackPurchase(amount, currency, props){
-      const payload = { revenue: { amount, currency } }; if (props) payload.props = props; track('Purchase', payload);
+      // In Plausible, create a "Purchase" goal and mark it as Revenue
+      // Then this will attach revenue to that event in your dashboard
+      const payload = { revenue: { amount: amount, currency: currency } };
+      if (props) payload.props = props;
+      if (window.plausible) plausible('Purchase', payload);
     }
   </script>
 </body>
