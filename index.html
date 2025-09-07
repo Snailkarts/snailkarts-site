@@ -24,7 +24,8 @@
   <!-- Styles (cache-busted) -->
   <link rel="stylesheet" href="style.css?v=7.5" />
 
-  <!-- Plausible Analytics -->
+  <!-- === Plausible Analytics (cookie-free) ===
+       Dashboard: create site "snailkarts.com" on plausible.io -->
   <script defer data-domain="snailkarts.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
@@ -43,7 +44,7 @@
       <a href="#karts" data-link>Karts</a>
       <a href="#gallery" data-link>Gallery</a>
       <a href="#build" data-link>Build</a>
-      <a href="#contact" class="cta neon-btn pulse" data-link data-track="cta" data-label="Contact">Contact</a>
+      <a href="#contact" class="cta neon-btn pulse" data-link>Contact</a>
 
       <!-- Follow + social icons (top of page) -->
       <div class="social-wrap" aria-label="Follow Snailkarts">
@@ -315,32 +316,7 @@
   </footer>
 
   <script>
-    // ---------- Helpers for analytics ----------
-    function sendPageview(route){
-      if (window.plausible) plausible('pageview', { u: location.origin + '/#' + route });
-    }
-    function track(name, props){
-      if (window.plausible) plausible(name, props ? { props } : undefined);
-    }
-    const FILE_EXTS = ['pdf','zip','rar','7z','mp3','wav','mp4','mov','webm','png','jpg','jpeg','gif','svg'];
-
-    function isExternalLink(a){
-      try{
-        const url = new URL(a.href, location.href);
-        return url.hostname !== location.hostname;
-      }catch(e){ return false; }
-    }
-    function getFileExt(a){
-      try{
-        const url = new URL(a.href, location.href);
-        const m = url.pathname.match(/\.([a-z0-9]+)$/i);
-        if (!m) return null;
-        const ext = m[1].toLowerCase();
-        return FILE_EXTS.includes(ext) ? ext : null;
-      }catch(e){ return null; }
-    }
-
-    // ---------- Router (SPA) ----------
+    // Router: shows one tab at a time, pauses hidden videos, highlights active nav, and triggers enter animation
     const routes = ["home", "karts", "gallery", "testimonials", "build", "contact"];
     const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
     const navLinks = Array.from(document.querySelectorAll('.site-nav a[data-link], .site-nav a[href^="#"]'));
@@ -362,21 +338,20 @@
       });
       navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${route}`));
       window.scrollTo({ top: 0, behavior: 'instant' });
-      sendPageview(route); // hashed page paths ✅
+
+      // --- Analytics: SPA pageview on route change ---
+      if (window.plausible) {
+        // send the route as a path (helps segment in dashboard)
+        plausible('pageview', { u: location.origin + '/#' + route });
+      }
     }
 
     function router(){
       const hash = location.hash.slice(1);
-      if (!routes.includes(hash)) {
-        // 404-like route
-        if (hash) track('Not Found', { hash: '#' + hash });
-        setActive('home');
-        return;
-      }
-      setActive(hash);
+      setActive(routes.includes(hash) ? hash : 'home');
     }
 
-    // ---------- Mobile menu ----------
+    // Mobile menu
     const btn = document.querySelector('.nav-toggle');
     if(btn){
       btn.addEventListener('click', () => {
@@ -386,7 +361,6 @@
       });
     }
 
-    // ---------- Wire everything ----------
     window.addEventListener('hashchange', router);
     window.addEventListener('DOMContentLoaded', () => {
       router();
@@ -397,35 +371,17 @@
       const first = document.querySelector('.route:not(.hidden)');
       if (first) { first.classList.add('enter'); }
 
-      // CTA click tracking (label from data-attr)
+      // --- Analytics: CTA click tracking (label from data-attr) ---
       document.body.addEventListener('click', (e) => {
         const a = e.target.closest('[data-track="cta"]');
-        if (a) {
+        if (a && window.plausible) {
           const label = a.getAttribute('data-label') || a.textContent.trim();
-          track('CTA Click', { label });
-        }
-      });
-
-      // Outbound links + file downloads
-      document.body.addEventListener('click', (e) => {
-        const a = e.target.closest('a[href]');
-        if (!a) return;
-
-        // File download?
-        const ext = getFileExt(a);
-        if (ext) {
-          track('File Download', { url: a.href, ext });
-          return; // don't double-fire as outbound too
-        }
-
-        // Outbound?
-        if (isExternalLink(a)) {
-          track('Outbound Link', { url: a.href });
+          plausible('CTA Click', { props: { label } });
         }
       });
     });
 
-    // ---------- AJAX forms (Contact + Build) ----------
+    // AJAX submit wiring (contact + build) + analytics events on success
     function wireAjaxForm(formId, statusId, eventName){
       const form = document.getElementById(formId);
       const statusEl = document.getElementById(statusId);
@@ -440,7 +396,7 @@
           if (res.ok) {
             statusEl.style.color = '#c8ff00';
             statusEl.textContent = 'Thanks! We’ll get back to you shortly.';
-            track(eventName); // custom event on success
+            if (window.plausible && eventName) plausible(eventName);
             form.reset();
           } else {
             statusEl.style.color = '#ffb4c8';
@@ -454,17 +410,6 @@
     }
     wireAjaxForm('contactForm', 'formStatus', 'Contact Submit');
     wireAjaxForm('buildForm', 'buildStatus', 'Build Sheet Submit');
-
-    // ---------- (Later) Ecommerce revenue helper ----------
-    // Call this when a payment succeeds: send amount + currency to a Revenue goal
-    // Example: trackPurchase(199.00, 'USD', { plan: 'S-kart-Go Deposit' });
-    function trackPurchase(amount, currency, props){
-      // In Plausible, create a "Purchase" goal and mark it as Revenue
-      // Then this will attach revenue to that event in your dashboard
-      const payload = { revenue: { amount: amount, currency: currency } };
-      if (props) payload.props = props;
-      if (window.plausible) plausible('Purchase', payload);
-    }
   </script>
 </body>
 </html>
