@@ -94,7 +94,7 @@ a {
   box-shadow: 0 0 12px rgba(0,0,0,0.35);
 }
 
-/* Brand block */
+/* Updated brand for new logo */
 .brand {
   display: flex;
   align-items: center;
@@ -139,7 +139,7 @@ a {
 .logo {
   height: 46px;
   width: auto;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.9));
+  filter: drop-shadow(0 0 12px rgba(0,0,0,0.6));
 }
 
 .logo-badge::before {
@@ -541,12 +541,17 @@ a {
 }
 
 .tile {
-  position: relative;
   border-radius: 12px;
   overflow: hidden;
   margin: 0 0 1rem;
   break-inside: avoid;
   transition: transform .2s, box-shadow .2s;
+  position: relative;
+}
+
+.tile img {
+  width: 100%;
+  display: block;
 }
 
 .tile::before {
@@ -698,6 +703,23 @@ a {
   background: rgba(0,0,0,0.55);
 }
 
+.field-note {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.build-total {
+  margin: 1rem 0;
+  font-weight: 700;
+}
+
+.build-small {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
 .form-status {
   font-size: .9rem;
   color: #bcd;
@@ -706,6 +728,92 @@ a {
 .grid {
   display: grid;
   gap: 1rem;
+}
+
+/* ========= Riders Slider ========= */
+.riders-section {
+  background: radial-gradient(circle at top, #1a1c25 0, #05060a 60%);
+}
+
+.slider {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.slider-window {
+  overflow: hidden;
+  border-radius: 16px;
+  flex: 1;
+  box-shadow: 0 10px 30px rgba(0,0,0,.6);
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  padding: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide img,
+.slide video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.slider-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 1.8rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,.6);
+  transition: background .2s, transform .2s;
+}
+
+.slider-btn:hover {
+  background: rgba(0,0,0,0.9);
+  transform: translateY(-1px);
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: .4rem;
+}
+
+.slider-dots .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: background .2s, transform .2s, width .2s;
+}
+
+.slider-dots .dot.active {
+  width: 18px;
+  background: var(--grad-neon);
+  background-size: 300% 300%;
+  animation: neonShift 6s linear infinite;
+  transform: translateY(-1px);
 }
 
 /* ========= Footer ========= */
@@ -761,5 +869,16 @@ a {
   .gallery-content,
   .build-content {
     padding: 3rem 0;
+  }
+
+  .slider {
+    flex-direction: row;
+    padding-inline: 1rem;
+  }
+
+  .slider-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 1.4rem;
   }
 }
