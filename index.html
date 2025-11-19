@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Snailkarts – Engineered to Drift</title>
 
@@ -19,7 +19,7 @@
   <meta name="theme-color" content="#000000">
 
   <!-- MAIN STYLESHEET -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -30,8 +30,8 @@
   <header class="site-header">
     <a class="brand" href="#home" data-link>
       <span class="logo-badge">
-        <!-- using the black snail image you uploaded in repo root -->
-        <img class="logo" src="IMG_5286.PNG" alt="Snailkarts logo">
+        <!-- Use your black logo PNG here -->
+        <img class="logo" src="img/IMG_5286.png" alt="Snailkarts logo">
       </span>
       <span class="brand-text">
         <span class="brand-title">Snailkarts</span>
@@ -59,10 +59,7 @@
             <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .6-5.8 31 31 0 0 0-.6-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
           </a>
           <a href="https://www.tiktok.com/@snailkarts" target="_blank" aria-label="TikTok">
-            <!-- Updated TikTok glyph -->
-            <svg viewBox="0 0 24 24">
-              <path d="M18.5 7.1a4.9 4.9 0 0 1-3-1.5A4.7 4.7 0 0 1 14 3h-2.6v12.2a2 2 0 1 1-1.4-1.9V10a4.8 4.8 0 1 0 3.8 8.4A4.7 4.7 0 0 0 15.4 15v-6a6.9 6.9 0 0 0 3.1 1.1z"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><path d="M16.8 3.2c.8 1.3 2.1 2.4 3.6 2.9v3.1a8.5 8.5 0 0 1-4.3-1.2v6.8a6.8 6.8 0 1 1-6.8-6.8c.5 0 1 .1 1.5.2v3.2a3.6 3.6 0 1 0 2.5 3.4V2.5h3.5v.7z"/></svg>
           </a>
         </div>
       </div>
@@ -77,7 +74,8 @@
     <!-- ================= HERO ================= -->
     <section id="home" class="route hero">
       <div class="hero-media">
-        <video class="hero-video" autoplay muted loop playsinline poster="IMG_5286.PNG">
+        <!-- Keep or swap this background video as you like -->
+        <video class="hero-video" autoplay muted loop playsinline poster="img/IMG_5286.png">
           <source src="https://assets.codepen.io/15323229/469ec902-6f85-d318-7491-a350336f4989_custom.mp4" type="video/mp4">
         </video>
       </div>
@@ -134,7 +132,7 @@
           <!-- Es-kart-Go -->
           <article class="card">
             <div class="coming-badge">Coming Soon</div>
-            <img src="yellowkart.jpg" alt="Es-kart-Go prototype yellow kart">
+            <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Es-kart-Go prototype">
             <div class="card-body">
               <h3 class="neon-text">Es-kart-Go</h3>
               <ul class="specs">
@@ -150,56 +148,73 @@
       </div>
     </section>
 
-    <!-- ================= RIDERS & KARTS (SLIDER) ================= -->
-    <section id="riders" class="route section hidden riders-section">
-      <div class="section-head">
-        <h1 class="neon-text">Riders &amp; Karts</h1>
-        <p>Real people, real smoke — shots from test days and events.</p>
-      </div>
-
-      <div class="slider">
-        <button class="slider-btn prev" aria-label="Previous slide">‹</button>
-
-        <div class="slider-window">
-          <div class="slider-track">
-            <div class="slide active">
-              <img src="kartsdinos1.jpg" alt="Three riders lined up on drift karts">
-            </div>
-            <div class="slide">
-              <img src="kartsdinos2.jpg" alt="Three riders on drift karts on city street">
-            </div>
-            <div class="slide">
-              <img src="whitekart.jpg" alt="White Snailkart with blue wheels in shop">
-            </div>
-            <div class="slide">
-              <img src="yellowkart.jpg" alt="Yellow Snailkart in workshop">
-            </div>
-            <div class="slide">
-              <img src="yellowpinkkart.jpg" alt="Yellow and pink Snailkarts parked in shop">
-            </div>
-            <div class="slide">
-              <img src="pinkkart.jpg" alt="Pink Snailkart close-up in shop">
-            </div>
-            <div class="slide">
-              <video class="slider-video" controls muted>
-                <source src="7136d24717104a3f819ae4c0f21c5e98-_1_.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
+    <!-- ================= RIDERS & BUILDS (NEW SLIDER) ================= -->
+    <section id="riders" class="route section riders-builds hidden">
+      <div class="container">
+        <div class="section-head">
+          <h1 class="neon-text">Riders &amp; Builds</h1>
+          <p>Real karts, real colors, real slides.</p>
         </div>
 
-        <button class="slider-btn next" aria-label="Next slide">›</button>
-      </div>
+        <div class="riders-slider" aria-label="Snailkarts riders and builds slider">
+          <button class="slider-arrow prev" type="button" aria-label="Previous slide">&#10094;</button>
 
-      <div class="slider-dots" aria-label="Select slide">
-        <button class="dot active" data-slide="0"></button>
-        <button class="dot" data-slide="1"></button>
-        <button class="dot" data-slide="2"></button>
-        <button class="dot" data-slide="3"></button>
-        <button class="dot" data-slide="4"></button>
-        <button class="dot" data-slide="5"></button>
-        <button class="dot" data-slide="6"></button>
+          <div class="slides">
+            <!-- Slide 1 -->
+            <div class="slide is-active">
+              <img src="img/whitekart.jpg" alt="White Snailkart build in the lot">
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+              <img src="img/yellowkart.jpg" alt="Yellow Snailkart build with neon accents">
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+              <img src="img/pinkkart.jpg" alt="Pink Snailkart build">
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+              <img src="img/yellowpinkkart.jpg" alt="Yellow and pink Snailkart build">
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="slide">
+              <img src="img/kartsdinos1.jpg" alt="Snailkarts drifting with dinosaur ride in background">
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="slide">
+              <img src="img/kartsdinos2.jpg" alt="Snailkarts lineup with dinosaurs in background">
+            </div>
+
+            <!-- Slide 7 - VIDEO -->
+            <div class="slide">
+              <!-- Place your converted MP4 file at img/riders-clip.mp4 in the repo -->
+              <video
+                src="img/riders-clip.mp4"
+                muted
+                autoplay
+                loop
+                playsinline
+              ></video>
+            </div>
+          </div>
+
+          <button class="slider-arrow next" type="button" aria-label="Next slide">&#10095;</button>
+        </div>
+
+        <div class="slider-dots" aria-hidden="true">
+          <button class="dot is-active" data-slide="0"></button>
+          <button class="dot" data-slide="1"></button>
+          <button class="dot" data-slide="2"></button>
+          <button class="dot" data-slide="3"></button>
+          <button class="dot" data-slide="4"></button>
+          <button class="dot" data-slide="5"></button>
+          <button class="dot" data-slide="6"></button>
+        </div>
       </div>
     </section>
 
@@ -219,17 +234,43 @@
         </div>
 
         <div class="masonry hover-lift">
-          <!-- existing remote shots -->
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4933%20%281%29.png" alt=""></figure>
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4932.png" alt=""></figure>
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt=""></figure>
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%282%29.jpg" alt=""></figure>
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4806.jpg" alt=""></figure>
 
-          <!-- new local shots -->
-          <figure class="tile"><img src="kartsdinos1.jpg" alt="Riders and karts"></figure>
-          <figure class="tile"><img src="yellowkart.jpg" alt="Yellow kart side view"></figure>
-          <figure class="tile"><img src="whitekart.jpg" alt="White kart side view"></figure>
+          <!-- Real build photos -->
+          <figure class="tile">
+            <img src="img/whitekart.jpg" alt="White Snailkart build close up">
+          </figure>
+
+          <figure class="tile">
+            <img src="img/yellowkart.jpg" alt="Yellow Snailkart build close up">
+          </figure>
+
+          <figure class="tile">
+            <img src="img/pinkkart.jpg" alt="Pink Snailkart in the shop">
+          </figure>
+
+          <figure class="tile">
+            <img src="img/yellowpinkkart.jpg" alt="Dual-color yellow and pink Snailkart">
+          </figure>
+
+          <figure class="tile">
+            <img src="img/kartsdinos1.jpg" alt="Drift kart with dinosaurs in the background">
+          </figure>
+
+          <figure class="tile">
+            <img src="img/kartsdinos2.jpg" alt="Snailkarts lineup at the lot">
+          </figure>
+
+          <!-- Small video tile inside gallery -->
+          <figure class="tile video-tile">
+            <video
+              src="img/riders-clip.mp4"
+              muted
+              autoplay
+              loop
+              playsinline
+            ></video>
+          </figure>
+
         </div>
       </div>
     </section>
@@ -276,45 +317,27 @@
         </div>
 
         <div class="contact-card neon-card neon-scan">
+
           <form id="buildForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form">
             <input type="hidden" name="_subject" value="New Snailkart Build Request">
 
             <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
 
-              <!-- Kart type & engine pricing -->
+              <!-- Kart type -->
               <div>
                 <label for="kartType">Kart Type</label>
                 <select id="kartType" name="Kart Type" required>
-                  <option value="Gas">Gas (125cc)</option>
-                  <option value="Electric">Electric</option>
+                  <option value="Gas 125cc">Gas 125cc (engine from $300)</option>
+                  <option value="Electric">Electric (motor from $500 + battery)</option>
                 </select>
-              </div>
-
-              <div>
-                <label for="engineChoice">Engine</label>
-                <select id="engineChoice" name="Engine">
-                  <!-- values are price in USD -->
-                  <option value="300">125cc Gas (+$300)</option>
-                  <option value="500">Electric Motor (+$500)</option>
-                </select>
-                <small class="field-note">Electric automatically adds required battery (+$600).</small>
               </div>
 
               <!-- Frame -->
               <div>
                 <label for="frame">Frame</label>
                 <select id="frame" name="Frame">
-                  <option value="2000">Standard Frame (+$2,000)</option>
-                  <option value="2600">Custom Frame (+$2,600)</option>
-                </select>
-              </div>
-
-              <!-- Steering -->
-              <div>
-                <label for="steering">Steering Wheel</label>
-                <select id="steering" name="Steering Wheel">
-                  <option value="100">Standard (+$100)</option>
-                  <option value="150">Custom (+$150)</option>
+                  <option value="Standard">Standard frame (~$2,000)</option>
+                  <option value="Custom">Custom frame (~$2,600)</option>
                 </select>
               </div>
 
@@ -322,45 +345,27 @@
               <div>
                 <label for="seat">Seat Type</label>
                 <select id="seat" name="Seat">
-                  <option value="75">Standard (+$75)</option>
-                  <option value="150">Custom (+$150)</option>
+                  <option value="Standard seat">Standard seat (~$75)</option>
+                  <option value="Custom seat">Custom seat (~$150)</option>
                 </select>
               </div>
 
-              <!-- Wheels & Tires -->
+              <!-- Steering -->
               <div>
-                <label for="wheels">Wheels &amp; Tires</label>
-                <select id="wheels" name="Wheels & Tires">
-                  <option value="700">Standard Drift Set (+$700)</option>
+                <label for="steering">Steering Wheel</label>
+                <select id="steering" name="Steering Wheel">
+                  <option value="Standard wheel">Standard wheel (~$100)</option>
+                  <option value="Custom wheel">Custom wheel (~$150)</option>
                 </select>
               </div>
 
-              <!-- Wheel color options -->
-              <div>
-                <label for="wheelColor">Wheel Color</label>
-                <select id="wheelColor" name="Wheel Color">
-                  <option value="0">Black / Raw (no extra)</option>
-                  <option value="125">Basic Color (+$125)</option>
-                  <option value="165">Flake / Candy / 2-Part (+$165)</option>
-                </select>
-              </div>
-
-              <!-- PVC slicks -->
-              <div>
-                <label for="pvcSlicks">Replacement PVC Slicks</label>
-                <select id="pvcSlicks" name="PVC Slicks">
-                  <option value="0">No extra slicks</option>
-                  <option value="50">1 Pair (+$50)</option>
-                  <option value="125">3 Pairs Bundle (+$125)</option>
-                </select>
-              </div>
-
-              <!-- Kart color / lighting / accessories -->
+              <!-- Kart color -->
               <div>
                 <label for="kartColor">Kart Color</label>
                 <input id="kartColor" type="color" name="Kart Color" value="#c8ff00">
               </div>
 
+              <!-- Lighting -->
               <div>
                 <label for="lighting">Lighting Color</label>
                 <select id="lighting" name="Lighting">
@@ -372,12 +377,43 @@
                 </select>
               </div>
 
+              <!-- Wheels & Tires -->
+              <div>
+                <label for="wheels">Wheels &amp; Tires</label>
+                <select id="wheels" name="Wheels & Tires">
+                  <option value="Standard wheels & tires">Standard set (~$700)</option>
+                  <option value="Upgraded wheels & tires">Upgraded look / compound (~$950)</option>
+                </select>
+              </div>
+
+              <!-- Wheel color -->
+              <div>
+                <label for="wheelColor">Wheel Color</label>
+                <select id="wheelColor" name="Wheel Color">
+                  <option value="Black">Black (no extra)</option>
+                  <option value="Basic color">Basic color (+$125)</option>
+                  <option value="Flake/Candy/2-part">Flake / Candy / 2-part (+$165)</option>
+                </select>
+              </div>
+
+              <!-- Replacement PVC slicks -->
+              <div>
+                <label for="pvcSlicks">Replacement PVC Slicks</label>
+                <select id="pvcSlicks" name="PVC Slicks">
+                  <option value="None">None</option>
+                  <option value="1 pair">1 pair – $50</option>
+                  <option value="3 pairs">3 pairs – $125</option>
+                </select>
+              </div>
+
+              <!-- Color-matched accessories -->
               <div>
                 <label for="accessories">Color-Matched Accessories</label>
                 <select id="accessories" name="Color Matched Accessories">
-                  <option value="0">None</option>
-                  <option value="150">Basic Package (+$150)</option>
-                  <option value="300">Full Package (+$300)</option>
+                  <option value="None">None</option>
+                  <option value="Wheel & seat mounts">Wheel &amp; seat mounts color-matched</option>
+                  <option value="Brackets & small parts">Brackets &amp; small parts color-matched</option>
+                  <option value="Full accessory pack">Full accessory pack color-matched</option>
                 </select>
               </div>
 
@@ -397,12 +433,7 @@
             </div>
 
             <label for="notes">Notes</label>
-            <textarea id="notes" name="Notes" rows="4" placeholder="Tell us how you’ll use it, preferred colors, etc."></textarea>
-
-            <p class="build-total">
-              Estimated Build Total: <span id="buildTotal">$0</span> USD
-              <br><span class="build-small">Final quote may vary with tax, freight, and custom fab.</span>
-            </p>
+            <textarea id="notes" name="Notes" rows="4" placeholder="How many karts? Engine choice? Any special paint or event needs?"></textarea>
 
             <button type="submit" class="btn neon-btn pulse">Submit Build Sheet</button>
             <p id="buildStatus" class="form-status"></p>
@@ -456,7 +487,7 @@
   </footer>
 
   <!-- ========================================================= -->
-  <!--                 CLEANED / OPTIMIZED JS                    -->
+  <!--                 JS (ROUTER + FORMS + SLIDER)              -->
   <!-- ========================================================= -->
   <script>
     // ------------------ DOM SHORTCUTS ------------------
@@ -473,10 +504,10 @@
         const active = (r === route);
         sec.classList.toggle("hidden", !active);
 
-        // control videos in each section
+        // Play/pause videos based on active route
         sec.querySelectorAll("video").forEach(v => {
           if (active) {
-            if (v.autoplay && v.paused) v.play().catch(() => {});
+            if (v.paused) v.play().catch(() => {});
           } else {
             v.pause();
           }
@@ -533,12 +564,7 @@
           if (res.ok) {
             out.textContent = "Thanks! We’ll reply shortly.";
             out.style.color = "#c8ff00";
-            if (formId === "buildForm") {
-              form.reset();
-              updateBuildTotal(); // reset price display too
-            } else {
-              form.reset();
-            }
+            form.reset();
             if (window.plausible) plausible(eventName);
           } else {
             out.textContent = "Error. Try again.";
@@ -554,62 +580,14 @@
     wireForm("contactForm", "formStatus", "Contact Submit");
     wireForm("buildForm", "buildStatus", "Build Sheet Submit");
 
-    // ------------------ BUILD PRICE CALCULATOR ------------------
-    const buildPriceIds = [
-      "kartType",
-      "engineChoice",
-      "frame",
-      "steering",
-      "seat",
-      "wheels",
-      "wheelColor",
-      "pvcSlicks",
-      "accessories"
-    ];
-
-    function parseMoney(val) {
-      const n = Number(val);
-      return isNaN(n) ? 0 : n;
-    }
-
-    function updateBuildTotal() {
-      const type = document.getElementById("kartType")?.value || "Gas";
-      const enginePrice = parseMoney(document.getElementById("engineChoice")?.value || 0);
-      const framePrice = parseMoney(document.getElementById("frame")?.value || 0);
-      const steeringPrice = parseMoney(document.getElementById("steering")?.value || 0);
-      const seatPrice = parseMoney(document.getElementById("seat")?.value || 0);
-      const wheelsPrice = parseMoney(document.getElementById("wheels")?.value || 0);
-      const wheelColorPrice = parseMoney(document.getElementById("wheelColor")?.value || 0);
-      const pvcPrice = parseMoney(document.getElementById("pvcSlicks")?.value || 0);
-      const accessoriesPrice = parseMoney(document.getElementById("accessories")?.value || 0);
-
-      let total = framePrice + steeringPrice + seatPrice +
-                  wheelsPrice + wheelColorPrice + pvcPrice +
-                  accessoriesPrice + enginePrice;
-
-      // add battery only if electric kart is selected
-      if (type === "Electric") {
-        total += 600; // battery price
-      }
-
-      const out = document.getElementById("buildTotal");
-      if (out) out.textContent = `$${total.toLocaleString()}`;
-    }
-
-    buildPriceIds.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.addEventListener("change", updateBuildTotal);
-    });
-
     // ------------------ RIDERS SLIDER ------------------
-    (function initSlider() {
-      const slider = document.querySelector(".slider");
+    function initRidersSlider() {
+      const slider = document.querySelector(".riders-slider");
       if (!slider) return;
 
-      const track = slider.querySelector(".slider-track");
       const slides = [...slider.querySelectorAll(".slide")];
-      const prevBtn = slider.querySelector(".slider-btn.prev");
-      const nextBtn = slider.querySelector(".slider-btn.next");
+      const prevBtn = slider.querySelector(".slider-arrow.prev");
+      const nextBtn = slider.querySelector(".slider-arrow.next");
       const dots = [...document.querySelectorAll(".slider-dots .dot")];
 
       let index = 0;
@@ -619,37 +597,50 @@
         index = (i + slides.length) % slides.length;
 
         slides.forEach((s, idx) => {
-          s.classList.toggle("active", idx === index);
-        });
-
-        dots.forEach((d, idx) => {
-          d.classList.toggle("active", idx === index);
-        });
-
-        // Pause all videos except active slide
-        slides.forEach((s, idx) => {
+          s.classList.toggle("is-active", idx === index);
+          // Pause videos on non-active slides
           const vid = s.querySelector("video");
-          if (!vid) return;
-          if (idx === index) {
-            if (vid.paused) vid.play().catch(() => {});
-          } else {
-            vid.pause();
+          if (vid) {
+            if (idx === index) {
+              vid.play().catch(() => {});
+            } else {
+              vid.pause();
+            }
           }
         });
 
-        const pct = -index * 100;
-        track.style.transform = `translateX(${pct}%)`;
+        dots.forEach((d, idx) => {
+          d.classList.toggle("is-active", idx === index);
+        });
       }
 
-      prevBtn?.addEventListener("click", () => showSlide(index - 1));
-      nextBtn?.addEventListener("click", () => showSlide(index + 1));
+      prevBtn.addEventListener("click", () => showSlide(index - 1));
+      nextBtn.addEventListener("click", () => showSlide(index + 1));
 
-      dots.forEach((dot, i) =>
-        dot.addEventListener("click", () => showSlide(i))
-      );
+      dots.forEach((dot, idx) => {
+        dot.addEventListener("click", () => showSlide(idx));
+      });
+
+      // Basic swipe support
+      let startX = null;
+      slider.addEventListener("touchstart", e => {
+        const touch = e.changedTouches[0];
+        startX = touch.clientX;
+      });
+
+      slider.addEventListener("touchend", e => {
+        if (startX === null) return;
+        const touch = e.changedTouches[0];
+        const dx = touch.clientX - startX;
+        if (Math.abs(dx) > 40) {
+          if (dx < 0) showSlide(index + 1);
+          else showSlide(index - 1);
+        }
+        startX = null;
+      });
 
       showSlide(0);
-    })();
+    }
 
     // ------------------ DOM READY ------------------
     window.addEventListener("DOMContentLoaded", () => {
@@ -667,7 +658,7 @@
         }
       });
 
-      updateBuildTotal();
+      initRidersSlider();
     });
 
     window.addEventListener("hashchange", router);
