@@ -211,124 +211,159 @@
     </section>
 
     <!-- ================= BUILD ================= -->
-    <section id="build" class="route section hidden">
-      <div class="build-video-bg">
-        <video autoplay muted loop playsinline>
-          <source src="https://assets.codepen.io/15323229/VideoAug30202542731PM-ezgif.com-resize-video.mov" type="video/mp4">
-        </video>
-        <div class="build-overlay"></div>
-      </div>
+   <section id="build" class="route section hidden">
+  <div class="build-video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.codepen.io/15323229/VideoAug30202542731PM-ezgif.com-resize-video.mov" type="video/mp4">
+    </video>
+    <div class="build-overlay"></div>
+  </div>
 
-      <div class="build-content">
-        <div class="section-head neon-head">
-          <h1 class="neon-text">Build Your Snailkart</h1>
-          <div class="neon-underline"></div>
-          <p class="neon-sub">Choose your spec. We’ll review and send a quote.</p>
+  <div class="build-content">
+    <div class="section-head neon-head">
+      <h1 class="neon-text">Build Your Snailkart</h1>
+      <div class="neon-underline"></div>
+      <p class="neon-sub">Choose your spec. Your total updates automatically.</p>
+    </div>
+
+    <div class="contact-card neon-card neon-scan">
+
+      <form id="buildForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form">
+        <input type="hidden" name="_subject" value="New Snailkart Build Request">
+
+        <h3 class="neon-text">Kart Options</h3>
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+
+          <!-- Kart Type -->
+          <div>
+            <label for="kartType">Kart Type</label>
+            <select id="kartType" name="Kart Type" required>
+              <option value="Gas">Gas 125cc (+$300)</option>
+              <option value="Electric">Electric 72v (+$900 motor + $900 battery)</option>
+            </select>
+          </div>
+
+          <!-- Frame Type -->
+          <div>
+            <label for="frameType">Frame Type</label>
+            <select id="frameType" name="Frame Type" required>
+              <option value="Standard">Standard Frame (+$3000)</option>
+              <option value="Custom">Custom Frame (+$3600)</option>
+            </select>
+          </div>
+
+          <!-- Steering Wheel -->
+          <div>
+            <label for="steeringWheel">Steering Wheel</label>
+            <select id="steeringWheel" name="Steering Wheel">
+              <option value="Standard">Standard (+$150)</option>
+              <option value="Custom">Custom (+$225)</option>
+            </select>
+          </div>
+
+          <!-- Seat -->
+          <div>
+            <label for="seatType">Seat</label>
+            <select id="seatType" name="Seat">
+              <option value="Standard">Standard (+$150)</option>
+              <option value="Custom">Custom (+$250)</option>
+            </select>
+          </div>
+
+          <!-- Wheels & Tires -->
+          <div>
+            <label for="wheelFinish">Wheels & Tires</label>
+            <select id="wheelFinish" name="Wheel Finish">
+              <option value="Raw">Raw Aluminum (+$900)</option>
+              <option value="Basic">Basic Powder Coat (+$1025)</option>
+              <option value="Premium">Premium Finish (+$1065)</option>
+            </select>
+          </div>
+
+          <!-- PVC Slicks -->
+          <div>
+            <label for="slicks">PVC Slicks</label>
+            <select id="slicks" name="PVC Slicks">
+              <option value="1pair">1 Pair (+$50)</option>
+              <option value="3pair">3 Pairs (+$125)</option>
+            </select>
+          </div>
         </div>
 
-        <div class="contact-card neon-card neon-scan">
+        <h3 class="neon-text" style="margin-top:1rem;">Color Options</h3>
+        <p style="opacity:.8;margin-bottom:1rem;">Choose colors visually + select finish for pricing.</p>
 
-          <form id="buildForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form">
-            <input type="hidden" name="_subject" value="New Snailkart Build Request">
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+          
+          <!-- FRAME COLOR -->
+          <div>
+            <label>Frame Color (visual)</label>
+            <input type="color" id="frameColor" name="Frame Color" value="#c8ff00">
+          </div>
+          <div>
+            <label>Frame Finish (pricing)</label>
+            <select id="frameFinish" name="Frame Finish">
+              <option value="Basic">Basic (+$0)</option>
+              <option value="Premium">Premium (+$165)</option>
+            </select>
+          </div>
 
-            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+          <!-- WHEEL COLOR -->
+          <div>
+            <label>Wheel Color (visual)</label>
+            <input type="color" id="wheelColor" name="Wheel Color" value="#000000">
+          </div>
+          <div>
+            <label>Wheel Color Finish (pricing)</label>
+            <select id="wheelColorFinish" name="Wheel Color Finish">
+              <option value="Basic">Basic (+$125)</option>
+              <option value="Premium">Premium (+$165)</option>
+            </select>
+          </div>
 
-              <div>
-                <label for="kartType">Kart Type</label>
-                <select id="kartType" name="Kart Type" required>
-                  <option value="Gas 125cc">Gas (125cc)</option>
-                  <option value="Electric 72v">Electric (72v)</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="frame">Frame</label>
-                <select id="frame" name="Frame">
-                  <option value="Standard">Standard Frame</option>
-                  <option value="Custom">Custom Frame</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="seat">Seat Type</label>
-                <select id="seat" name="Seat">
-                  <option value="Standard">Standard</option>
-                  <option value="Racing">Racing</option>
-                  <option value="Padded">Padded</option>
-                  <option value="Custom">Custom</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="steering">Steering Wheel</label>
-                <select id="steering" name="Steering Wheel">
-                  <option value="Standard">Standard</option>
-                  <option value="D-Shape">D-Shape</option>
-                  <option value="Formula">Formula</option>
-                  <option value="Custom">Custom</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="kartColor">Kart Color</label>
-                <input id="kartColor" type="color" name="Kart Color" value="#c8ff00">
-              </div>
-
-              <div>
-                <label for="lighting">Lighting Color</label>
-                <select id="lighting" name="Lighting">
-                  <option value="Red">Red</option>
-                  <option value="Blue">Blue</option>
-                  <option value="Green">Green</option>
-                  <option value="White">White</option>
-                  <option value="Custom">Custom</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="wheels">Wheels &amp; Tires</label>
-                <select id="wheels" name="Wheels & Tires">
-                  <option value="Standard raw aluminum">Standard (raw aluminum)</option>
-                  <option value="Color basic">Color (basic)</option>
-                  <option value="Color premium">Color (flake/candy/two-part)</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="pvcSlicks">Replacement PVC Slicks</label>
-                <select id="pvcSlicks" name="PVC Slicks">
-                  <option value="None">None</option>
-                  <option value="1 pair">1 pair</option>
-                  <option value="2 pair">2 pair</option>
-                  <option value="3 pair">3 pair bundle</option>
-                </select>
-              </div>
-
-            </div>
-
-            <h3 class="neon-text" style="margin-top:1rem;">Your Info</h3>
-
-            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
-              <div>
-                <label for="name">Name</label>
-                <input id="name" type="text" name="Name" required>
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" type="email" name="Email" required>
-              </div>
-            </div>
-
-            <label for="notes">Notes</label>
-            <textarea id="notes" name="Notes" rows="4"></textarea>
-
-            <button type="submit" class="btn neon-btn pulse">Submit Build Sheet</button>
-            <p id="buildStatus" class="form-status"></p>
-          </form>
+          <!-- ACCENT COLOR -->
+          <div>
+            <label>Accent Color (visual)</label>
+            <input type="color" id="accentColor" name="Accent Color" value="#ffffff">
+          </div>
+          <div>
+            <label>Accent Finish (pricing)</label>
+            <select id="accentFinish" name="Accent Finish">
+              <option value="Basic">Basic (+$125)</option>
+              <option value="Premium">Premium (+$165)</option>
+            </select>
+          </div>
 
         </div>
-      </div>
-    </section>
+
+        <h3 class="neon-text" style="margin-top:1rem;">Your Info</h3>
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" name="Name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="Email" required>
+          </div>
+        </div>
+
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="Notes" rows="4"></textarea>
+
+        <!-- TOTAL PRICE -->
+        <div id="buildTotal" style="font-size:1.8rem;margin-top:1rem;text-align:center;font-weight:900;color:#C8FF00;text-shadow:0 0 15px #C8FF00;">
+          Total: $3000
+        </div>
+
+        <button type="submit" class="btn neon-btn pulse" style="margin-top:1rem;">Submit Build Sheet</button>
+        <p id="buildStatus" class="form-status"></p>
+
+      </form>
+
+    </div>
+  </div>
+</section>
 
     <!-- ================= CONTACT ================= -->
     <section id="contact" class="route section container contact hidden">
@@ -478,6 +513,54 @@
 
     window.addEventListener("hashchange", router);
   </script>
+<script>
+function updateTotal() {
+  let total = 0;
+
+  // Frame
+  total += document.getElementById("frameType").value === "Custom" ? 3600 : 3000;
+
+  // Kart type (engine)
+  const kartType = document.getElementById("kartType").value;
+  if (kartType === "Gas") total += 300;
+  if (kartType === "Electric") total += 900 + 900; // motor + battery
+
+  // Steering wheel
+  total += document.getElementById("steeringWheel").value === "Custom" ? 225 : 150;
+
+  // Seat
+  total += document.getElementById("seatType").value === "Custom" ? 250 : 150;
+
+  // Wheels & tires
+  const wheelFinish = document.getElementById("wheelFinish").value;
+  if (wheelFinish === "Raw") total += 900;
+  if (wheelFinish === "Basic") total += 1025;
+  if (wheelFinish === "Premium") total += 1065;
+
+  // PVC slicks
+  const slicks = document.getElementById("slicks").value;
+  if (slicks === "1pair") total += 50;
+  if (slicks === "3pair") total += 125;
+
+  // Frame finish
+  total += document.getElementById("frameFinish").value === "Premium" ? 165 : 0;
+
+  // Wheel color finish
+  total += document.getElementById("wheelColorFinish").value === "Premium" ? 165 : 125;
+
+  // Accent finish
+  total += document.getElementById("accentFinish").value === "Premium" ? 165 : 125;
+
+  // Update UI
+  document.getElementById("buildTotal").textContent = `Total: $${total.toLocaleString()}`;
+}
+
+document.querySelectorAll("#buildForm select, #buildForm input[type=color]").forEach(el => {
+  el.addEventListener("change", updateTotal);
+});
+
+updateTotal();
+</script>
 
 </body>
 </html>
