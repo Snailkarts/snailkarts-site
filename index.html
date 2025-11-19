@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Snailkarts – Engineered to Drift</title>
 
   <!-- FAVICONS -->
@@ -11,549 +10,437 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="mask-icon" href="favicon.svg" color="#000000">
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#000000">
   <link rel="shortcut icon" href="favicon.ico">
 
-  <!-- THEME -->
-  <meta name="msapplication-TileColor" content="#000000">
   <meta name="theme-color" content="#000000">
-
-  <!-- MAIN STYLESHEET -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- ========================================================= -->
-  <!--                       HEADER                              -->
-  <!-- ========================================================= -->
-  <header class="site-header">
-    <a class="brand" href="#home" data-link>
-      <span class="logo-badge">
-        <!-- Your black snail logo -->
-        <img class="logo" src="IMG_5286.PNG" alt="Snailkarts logo">
-      </span>
-      <span class="brand-text">
-        <span class="brand-title">Snailkarts</span>
-        <span class="brand-tagline">Engineered to Drift</span>
-      </span>
-    </a>
 
-    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+<header class="site-header">
+  <a class="brand" href="#home" data-link>
+    <span class="logo-badge">
+      <img class="logo" src="IMG_5286.PNG" alt="Snailkarts Logo">
+    </span>
+    <span class="brand-text">
+      <span class="brand-title">Snailkarts</span>
+      <span class="brand-tagline">Engineered to Drift</span>
+    </span>
+  </a>
 
-    <nav class="site-nav" id="nav">
-      <a href="#home" data-link>Home</a>
-      <a href="#karts" data-link>Karts</a>
-      <a href="#gallery" data-link>Gallery</a>
-      <a href="#build" data-link>Build</a>
-      <a href="#contact" class="cta neon-btn pulse" data-link>Contact</a>
+  <button class="nav-toggle" aria-expanded="false">☰</button>
 
-      <div class="social-wrap" aria-label="Follow Snailkarts">
-        <span class="follow-label">Follow us</span>
-        <div class="social-icons">
-          <!-- Instagram -->
-          <a href="https://instagram.com/Snailkarts" target="_blank" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
-          </a>
+  <nav class="site-nav">
+    <a href="#home" data-link>Home</a>
+    <a href="#karts" data-link>Karts</a>
+    <a href="#gallery" data-link>Gallery</a>
+    <a href="#build" data-link>Build</a>
+    <a href="#contact" class="cta neon-btn pulse" data-link>Contact</a>
+    <div class="social-wrap">
+      <div class="social-icons">
 
-          <!-- TikTok (updated link) -->
-          <a href="https://www.tiktok.com/@snailkarts" target="_blank" aria-label="TikTok">
-            <svg viewBox="0 0 24 24">
-              <path d="M16.8 3.2c.8 1.3 2.1 2.4 3.6 2.9v3.1a8.5 8.5 0 0 1-4.3-1.2v6.8a6.8 6.8 0 1 1-6.8-6.8c.5 0 1 .1 1.5.2v3.2a3.6 3.6 0 1 0 2.5 3.4V2.5h3.5v.7z"/>
-            </svg>
-          </a>
+        <!-- Instagram -->
+        <a href="https://instagram.com/snailkarts" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm6.5-.9a1.1 1.1 0 110 2.2 1.1 1.1 0 010-2.2z"/></svg>
+        </a>
 
-          <!-- YouTube -->
-          <a href="https://youtube.com/@Snailkarts" target="_blank" aria-label="YouTube">
-            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .6-5.8 31 31 0 0 0-.6-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
-          </a>
-        </div>
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@snailkarts" target="_blank" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16.8 3.2c.8 1.3 2.1 2.4 3.6 2.9v3.1a8.5 8.5 0 01-4.3-1.2v6.8a6.8 6.8 0 11-6.8-6.8c.5 0 1 .1 1.5.2v3.2a3.6 3.6 0 102.5 3.4V2.5h3.5v.7z"/></svg>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://youtube.com/@snailkarts" target="_blank" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.6 5.8 3 3 0 002.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
+        </a>
+
       </div>
-    </nav>
-  </header>
-
-  <!-- ========================================================= -->
-  <!--                       MAIN ROUTER                         -->
-  <!-- ========================================================= -->
-  <main id="app">
-
-    <!-- ================= HERO ================= -->
-    <section id="home" class="route hero">
-      <div class="hero-media">
-        <!-- Background hero video (original remote source) -->
-        <video class="hero-video" autoplay muted loop playsinline poster="IMG_5286.PNG">
-          <source src="https://assets.codepen.io/15323229/469ec902-6f85-d318-7491-a350336f4989_custom.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="hero-content container floaty">
-        <h1>
-          <span class="stroke">Engineered</span>
-          <span class="glow">to Drift</span>
-        </h1>
-        <p class="hero-sub neon-text">Precision-built karts tuned for smooth slides.</p>
-
-        <div class="hero-actions">
-          <a href="#karts" class="btn neon-btn pulse" data-link>Explore Karts</a>
-          <a href="#build" class="btn secondary" data-link>Configure Build</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= KARTS ================= -->
-    <section id="karts" class="route section hidden">
-      <div class="karts-video-bg">
-        <video autoplay muted loop playsinline>
-          <source src="https://assets.codepen.io/15323229/bbfbad66-75a9-0c8b-f385-7a491f2940e8_custom.mp4" type="video/mp4">
-        </video>
-        <div class="karts-overlay"></div>
-      </div>
-
-      <div class="karts-content">
-        <div class="section-head">
-          <h1 class="neon-text">Our Karts</h1>
-          <p>Launching with the S-kart-Go. Electric Es-kart-Go coming soon.</p>
-        </div>
-
-        <div class="cards hover-lift">
-
-          <!-- S-kart-Go -->
-          <article class="card">
-            <div class="card-media">
-              <video class="card-video" autoplay muted loop playsinline>
-                <source src="https://assets.codepen.io/15323229/43bd0f6c-6c62-888e-903f-4df78a449110_custom.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="card-body">
-              <h3 class="neon-text">S-kart-Go</h3>
-              <ul class="specs">
-                <li>Hydraulic rear disc brake</li>
-                <li>Hydraulic E-brake handle</li>
-                <li>3-speed 125cc engine</li>
-                <li>Custom lighting & colors</li>
-                <li>Keyed ignition</li>
-                <li>Push-to-start button</li>
-              </ul>
-              <a class="btn neon-btn pulse" href="#build" data-link>Configure & Request Quote</a>
-            </div>
-          </article>
-
-          <!-- Es-kart-Go -->
-          <article class="card">
-            <div class="coming-badge">Coming Soon</div>
-            <img src="yellowkart.jpg" alt="Es-kart-Go prototype">
-            <div class="card-body">
-              <h3 class="neon-text">Es-kart-Go</h3>
-              <ul class="specs">
-                <li>Balanced weight distribution</li>
-                <li>Drift-ready chassis setup</li>
-                <li>Service-friendly open layout</li>
-              </ul>
-              <a class="btn secondary" href="#build" data-link>Join Waitlist</a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= GALLERY ================= -->
-    <section id="gallery" class="route section hidden">
-      <div class="gallery-video-bg">
-        <video autoplay muted loop playsinline>
-          <source src="https://assets.codepen.io/15323229/72ba602c-7f10-d743-5218-bd99e9be7543_custom.mp4" type="video/mp4">
-        </video>
-        <div class="gallery-overlay"></div>
-      </div>
-
-      <div class="gallery-content">
-        <div class="section-head">
-          <h1 class="neon-text">Gallery</h1>
-          <p>Workshop snapshots and in-progress builds.</p>
-        </div>
-
-        <div class="masonry hover-lift">
-          <!-- Local photos -->
-          <figure class="tile"><img src="pinkkart.jpg" alt="Pink Snailkart"></figure>
-          <figure class="tile"><img src="yellowpinkkart.jpg" alt="Yellow and pink Snailkart"></figure>
-          <figure class="tile"><img src="whitekart.jpg" alt="White Snailkart"></figure>
-          <figure class="tile"><img src="yellowkart.jpg" alt="Yellow Snailkart"></figure>
-          <figure class="tile"><img src="kartsdinos2.jpg" alt="Karts with dino inflatables 2"></figure>
-          <figure class="tile"><img src="kartsdinos1.jpg" alt="Karts with dino inflatables 1"></figure>
-
-          <!-- Your short video in gallery (muted) -->
-          <figure class="tile">
-            <video autoplay muted loop playsinline>
-              <source src="7136d24717104a3f819ae4c0f21c5e98-_1_.mp4" type="video/mp4">
-            </video>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= TESTIMONIALS ================= -->
-    <section id="testimonials" class="route section container hidden">
-      <div class="section-head">
-        <h2 class="neon-text">What Drivers Say</h2>
-        <p>Feedback from test days and early owners.</p>
-      </div>
-
-      <div class="cards testimonials hover-lift">
-        <article class="card quote">
-          <p>“The chassis rotation is super predictable.”</p>
-          <div class="quote-meta"><span class="dot"></span> Alex R.</div>
-        </article>
-
-        <article class="card quote">
-          <p>“E-brake + hydro disc is perfect for initiations.”</p>
-          <div class="quote-meta"><span class="dot"></span> Marisol V.</div>
-        </article>
-
-        <article class="card quote">
-          <p>“We put a dozen hours on it the first weekend. Nothing broke.”</p>
-          <div class="quote-meta"><span class="dot"></span> Ken P.</div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ================= BUILD ================= -->
-    <section id="build" class="route section hidden">
-      <div class="build-video-bg">
-        <video autoplay muted loop playsinline>
-          <source src="https://assets.codepen.io/15323229/VideoAug30202542731PM-ezgif.com-resize-video.mov" type="video/mp4">
-        </video>
-        <div class="build-overlay"></div>
-      </div>
-
-      <div class="build-content">
-        <div class="section-head neon-head">
-          <h1 class="neon-text">Build Your Snailkart</h1>
-          <div class="neon-underline"></div>
-          <p class="neon-sub">Choose your spec. We’ll review and send a quote.</p>
-        </div>
-
-        <div class="contact-card neon-card neon-scan">
-          <form id="buildForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form">
-            <input type="hidden" name="_subject" value="New Snailkart Build Request">
-
-            <!-- PRICED OPTIONS -->
-            <h3 class="neon-text">Core Spec</h3>
-            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
-
-              <!-- Frame -->
-              <div>
-                <label for="frame">Frame</label>
-                <select id="frame" name="Frame" data-price-select required>
-                  <option value="Standard" data-price="3000">Standard Frame – $3,000</option>
-                  <option value="Custom" data-price="3600">Custom Frame – $3,600</option>
-                </select>
-              </div>
-
-              <!-- Engine / Powertrain -->
-              <div>
-                <label for="kartType">Powertrain</label>
-                <select id="kartType" name="Powertrain" data-price-select required>
-                  <option value="Gas 125cc" data-price="300">Gas 125cc – $300</option>
-                  <option value="Electric 72V" data-price="500">Electric 72V – $500 (+$900 battery)</option>
-                </select>
-              </div>
-
-              <!-- Steering -->
-              <div>
-                <label for="steering">Steering Wheel</label>
-                <select id="steering" name="Steering Wheel" data-price-select>
-                  <option value="Standard" data-price="150">Standard – $150</option>
-                  <option value="Custom" data-price="225">Custom – $225</option>
-                </select>
-              </div>
-
-              <!-- Seat -->
-              <div>
-                <label for="seat">Seat</label>
-                <select id="seat" name="Seat" data-price-select>
-                  <option value="Standard" data-price="150">Standard – $150</option>
-                  <option value="Custom" data-price="250">Custom – $250</option>
-                </select>
-              </div>
-
-              <!-- Wheels & Tires base -->
-              <div>
-                <label for="wheels">Wheels & Tires</label>
-                <select id="wheels" name="Wheels & Tires" data-price-select>
-                  <option value="Standard" data-price="900">Standard wheels & tires (raw aluminum) – $900</option>
-                </select>
-              </div>
-
-              <!-- Wheel color level -->
-              <div>
-                <label for="wheelColorLevel">Wheel Finish</label>
-                <select id="wheelColorLevel" name="Wheel Finish" data-price-select>
-                  <option value="Raw" data-price="0">Raw aluminum (no color) – included</option>
-                  <option value="Basic" data-price="125">Basic color (incl. black) – +$125</option>
-                  <option value="Premium" data-price="165">Flake / candy / 2-part – +$165</option>
-                </select>
-              </div>
-
-              <!-- Color matched accessories -->
-              <div>
-                <label for="accessories">Color-Matched Accessories</label>
-                <select id="accessories" name="Color Matched Accessories" data-price-select>
-                  <option value="None" data-price="0">No color-matched accessories</option>
-                  <option value="Yes" data-price="250">Yes – color-matched accents +$250</option>
-                </select>
-              </div>
-
-              <!-- PVC slicks -->
-              <div>
-                <label for="slicks">Replacement PVC Slicks</label>
-                <select id="slicks" name="PVC Slicks" data-price-select>
-                  <option value="None" data-price="0">No extra slicks</option>
-                  <option value="1pair" data-price="50">1 pair – $50</option>
-                  <option value="3pair" data-price="125">3 pairs – $125</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- COLOR PICKERS -->
-            <h3 class="neon-text" style="margin-top:1.5rem;">Color Choices</h3>
-            <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;">
-              <div>
-                <label for="frameColor">Frame Color</label>
-                <input id="frameColor" type="color" name="Frame Color" value="#c8ff00">
-              </div>
-
-              <div>
-                <label for="wheelColor">Wheel Color</label>
-                <input id="wheelColor" type="color" name="Wheel Color" value="#ffffff">
-              </div>
-
-              <div>
-                <label for="accentColor">Accent Color</label>
-                <input id="accentColor" type="color" name="Accent Color" value="#ff36a3">
-              </div>
-            </div>
-
-            <!-- CUSTOMER INFO -->
-            <h3 class="neon-text" style="margin-top:1.5rem;">Your Info</h3>
-            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
-              <div>
-                <label for="name">Name</label>
-                <input id="name" type="text" name="Name" required>
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" type="email" name="Email" required>
-              </div>
-            </div>
-
-            <label for="notes">Notes</label>
-            <textarea id="notes" name="Notes" rows="4" placeholder="Anything special? Number of karts, event date, etc."></textarea>
-
-            <!-- LIVE ESTIMATE -->
-            <p id="buildEstimate" class="form-status" style="margin-top:1rem;">
-              Estimated build: <strong><span id="buildTotal">$0</span></strong> (before tax/shipping)
-            </p>
-
-            <button type="submit" class="btn neon-btn pulse">Submit Build Sheet</button>
-            <p id="buildStatus" class="form-status"></p>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= CONTACT ================= -->
-    <section id="contact" class="route section container contact hidden">
-      <div class="contact-card">
-        <div class="contact-body">
-          <h1 class="neon-text">Contact</h1>
-          <p>Tell us how many karts you need, and any special requests.</p>
-
-          <form id="contactForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form">
-            <div class="grid">
-              <div>
-                <label for="cname">Name</label>
-                <input id="cname" type="text" name="name" required>
-              </div>
-              <div>
-                <label for="cemail">Email</label>
-                <input id="cemail" type="email" name="email" required>
-              </div>
-            </div>
-
-            <label for="company">Company</label>
-            <input id="company" type="text" name="company">
-
-            <label for="cmsg">Message</label>
-            <textarea id="cmsg" name="message" rows="5" required></textarea>
-
-            <button class="btn neon-btn pulse" type="submit">Send</button>
-            <p id="formStatus" class="form-status"></p>
-          </form>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      © <span id="year"></span> Snailkarts
     </div>
-  </footer>
+  </nav>
+</header>
 
-  <!-- ========================================================= -->
-  <!--                 JS: ROUTER + FORMS + PRICING              -->
-  <!-- ========================================================= -->
-  <script>
-    // ------------------ DOM SHORTCUTS ------------------
-    const routes = ["home", "karts", "gallery", "testimonials", "build", "contact"];
-    const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
-    const navLinks = [...document.querySelectorAll('.site-nav a[data-link]')];
+<main id="app">
 
-    // ------------------ ROUTER ------------------
-    function setActive(route) {
-      routes.forEach(r => {
-        const sec = sections[r];
-        if (!sec) return;
-        const active = (r === route);
+<!-- HERO SECTION -->
+<section id="home" class="route hero">
+  <div class="hero-media">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="https://assets.codepen.io/15323229/469ec902-6f85-d318-7491-a350336f4989_custom.mp4" type="video/mp4">
+    </video>
+  </div>
 
-        sec.classList.toggle("hidden", !active);
+  <div class="hero-content container floaty">
+    <h1><span class="stroke">Engineered</span> <span class="glow">to Drift</span></h1>
+    <p class="hero-sub neon-text">Precision-built drift karts for controlled slides.</p>
 
-        // Play/pause videos in section
-        sec.querySelectorAll("video").forEach(v => {
-          if (active) {
-            try { v.play(); } catch(e) {}
-          } else {
-            v.pause();
-          }
-        });
+    <div class="hero-actions">
+      <a href="#karts" class="btn neon-btn pulse" data-link>Explore Karts</a>
+      <a href="#build" class="btn secondary" data-link>Configure Build</a>
+    </div>
+  </div>
+</section>
 
-        if (active) {
-          sec.classList.remove("enter");
-          void sec.offsetWidth;
-          sec.classList.add("enter");
-        }
-      });
+<!-- KARTS SECTION -->
+<section id="karts" class="route section hidden">
+  <div class="karts-video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.codepen.io/15323229/bbfbad66-75a9-0c8b-f385-7a491f2940e8_custom.mp4" type="video/mp4">
+    </video>
+    <div class="karts-overlay"></div>
+  </div>
 
-      navLinks.forEach(a =>
-        a.classList.toggle("active", a.getAttribute("href") === "#" + route)
-      );
+  <div class="karts-content">
+    <div class="section-head">
+      <h1 class="neon-text">Our Karts</h1>
+      <p>Launching with the S-kart-Go. Electric Es-kart-Go coming soon.</p>
+    </div>
 
-      window.scrollTo({ top: 0, behavior: "instant" });
+    <div class="cards hover-lift">
 
-      if (window.plausible) {
-        plausible("pageview", { u: location.origin + "/#" + route });
+      <!-- S-KART-GO -->
+      <article class="card">
+        <div class="card-media">
+          <video class="card-video" autoplay muted loop playsinline>
+            <source src="https://assets.codepen.io/15323229/43bd0f6c-6c62-888e-903f-4df78a449110_custom.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="card-body">
+          <h3 class="neon-text">S-kart-Go</h3>
+          <ul class="specs">
+            <li>Hydraulic rear disc brake</li>
+            <li>Hydraulic E-brake</li>
+            <li>125cc gas engine</li>
+            <li>Lighting options</li>
+            <li>Keyed ignition</li>
+            <li>Push-to-start</li>
+          </ul>
+          <a class="btn neon-btn pulse" href="#build" data-link>Configure & Quote</a>
+        </div>
+      </article>
+
+      <!-- ELECTRIC KART -->
+      <article class="card">
+        <div class="coming-badge">Coming Soon</div>
+        <img src="whitekart.jpg" alt="Es-kart-Go">
+        <div class="card-body">
+          <h3 class="neon-text">Es-kart-Go</h3>
+          <ul class="specs">
+            <li>Electric 72V power system</li>
+            <li>Peak torque for instant drift</li>
+            <li>Balanced chassis</li>
+          </ul>
+          <a class="btn secondary" href="#build" data-link>Join Waitlist</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section id="gallery" class="route section hidden">
+  <div class="gallery-video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="7136d24717104a3f819ae4c0f21c5e98-_1_.mp4" type="video/mp4">
+    </video>
+    <div class="gallery-overlay"></div>
+  </div>
+
+  <div class="gallery-content">
+    <div class="section-head">
+      <h1 class="neon-text">Gallery</h1>
+      <p>Shop pics, karts, and behind-the-scenes builds.</p>
+    </div>
+
+    <div class="masonry hover-lift">
+      <figure class="tile"><img src="kartsdinos1.jpg"></figure>
+      <figure class="tile"><img src="kartsdinos2.jpg"></figure>
+      <figure class="tile"><img src="whitekart.jpg"></figure>
+      <figure class="tile"><img src="yellowkart.jpg"></figure>
+      <figure class="tile"><img src="yellowpinkkart.jpg"></figure>
+      <figure class="tile"><img src="pinkkart.jpg"></figure>
+    </div>
+  </div>
+</section>
+<!-- BUILD SECTION -->
+<section id="build" class="route section hidden">
+  <div class="build-video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.codepen.io/15323229/VideoAug30202542731PM-ezgif.com-resize-video.mov" type="video/mp4">
+    </video>
+    <div class="build-overlay"></div>
+  </div>
+
+  <div class="build-content">
+    <div class="section-head">
+      <h1 class="neon-text">Build Your Snailkart</h1>
+      <div class="neon-underline"></div>
+      <p class="neon-sub">Choose your spec — pricing updates automatically.</p>
+    </div>
+
+    <div class="contact-card neon-card neon-scan">
+
+      <!-- BUILD FORM -->
+      <form id="buildForm" action="https://formspree.io/f/meonzzkb" method="POST" class="contact-form">
+
+        <input type="hidden" name="_subject" value="New Snailkart Build Request">
+
+        <h3 class="neon-text">Kart Options</h3>
+
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+
+          <!-- FRAME -->
+          <div>
+            <label for="frame">Frame</label>
+            <select id="frame" name="Frame">
+              <option value="3000">Standard – $3000</option>
+              <option value="3600">Custom – $3600</option>
+            </select>
+          </div>
+
+          <!-- ENGINE -->
+          <div>
+            <label for="engine">Engine</label>
+            <select id="engine" name="Engine">
+              <option value="gas">Gas 125cc – $300</option>
+              <option value="electric">Electric – $500 motor + $900 battery</option>
+            </select>
+          </div>
+
+          <!-- WHEELS -->
+          <div>
+            <label for="wheels">Wheels & Tires</label>
+            <select id="wheels" name="Wheels">
+              <option value="900">Standard (Raw Aluminum) – $900</option>
+            </select>
+          </div>
+
+          <!-- WHEEL COLOR -->
+          <div>
+            <label for="wheelColor">Wheel Color</label>
+            <select id="wheelColor" name="Wheel Color">
+              <option value="0">None (Raw Aluminum)</option>
+              <option value="125">Basic Color – +$125</option>
+              <option value="165">Premium / Flake / Candy – +$165</option>
+            </select>
+          </div>
+
+          <!-- FRAME COLOR -->
+          <div>
+            <label for="frameColor">Frame Color</label>
+            <input id="frameColor" type="color" name="Frame Color" value="#ffffff">
+          </div>
+
+          <!-- ACCENT COLOR -->
+          <div>
+            <label for="accentColor">Accent Pieces Color</label>
+            <input id="accentColor" type="color" name="Accent Color" value="#ff00ff">
+          </div>
+
+          <!-- ACCESSORIES COLOR -->
+          <div>
+            <label for="accessories">Color-Matched Accessories</label>
+            <select id="accessories" name="Accessories">
+              <option value="0">None</option>
+              <option value="250">Add Accessories – $250</option>
+            </select>
+          </div>
+
+          <!-- PVC SLICKS -->
+          <div>
+            <label for="slicks">Replacement PVC Slicks</label>
+            <select id="slicks" name="PVC Slicks">
+              <option value="0">None</option>
+              <option value="50">1 Pair – $50</option>
+              <option value="125">3 Pairs – $125</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- CUSTOMER INFO -->
+        <h3 class="neon-text">Your Info</h3>
+
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="Name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="Email" required>
+          </div>
+        </div>
+
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="Notes" rows="4"></textarea>
+
+        <!-- LIVE TOTAL -->
+        <h3 class="neon-text">Estimated Total: <span id="totalPrice">$0</span></h3>
+
+        <button type="submit" class="btn neon-btn pulse">Submit Build Sheet</button>
+        <p id="buildStatus" class="form-status"></p>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="route section container hidden">
+  <div class="contact-card">
+    <div class="contact-body">
+      <h1 class="neon-text">Contact</h1>
+      <p>Send us a message. We’ll reply shortly.</p>
+
+      <form id="contactForm" action="https://formspree.io/f/meonzzkb" method="POST" class="contact-form">
+        <div class="grid">
+          <div>
+            <label for="cname">Name</label>
+            <input id="cname" name="name" required>
+          </div>
+
+          <div>
+            <label for="cemail">Email</label>
+            <input id="cemail" type="email" name="email" required>
+          </div>
+        </div>
+
+        <label for="company">Company</label>
+        <input id="company" name="company">
+
+        <label for="cmsg">Message</label>
+        <textarea id="cmsg" name="message" rows="5" required></textarea>
+
+        <button class="btn neon-btn pulse">Send</button>
+        <p id="formStatus" class="form-status"></p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    © <span id="year"></span> Snailkarts
+  </div>
+</footer>
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT (Routing, Form Handling, Pricing Calculator) -->
+<!-- ========================================================= -->
+<script>
+/* ROUTER */
+const routes = ["home","karts","gallery","build","contact"];
+const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
+const navLinks = [...document.querySelectorAll('.site-nav a[data-link]')];
+
+function setActive(route){
+  routes.forEach(r => {
+    const sec = sections[r];
+    if(sec){
+      const active = (r === route);
+      sec.classList.toggle("hidden", !active);
+      sec.querySelectorAll("video").forEach(v => active ? v.play() : v.pause());
+      if(active){
+        sec.classList.remove("enter");
+        void sec.offsetWidth;
+        sec.classList.add("enter");
       }
     }
+  });
 
-    function router() {
-      const hash = location.hash.slice(1);
-      setActive(routes.includes(hash) ? hash : "home");
-    }
+  navLinks.forEach(a =>
+    a.classList.toggle("active", a.getAttribute("href") === `#${route}`)
+  );
 
-    // ------------------ MOBILE NAV ------------------
-    const navToggle = document.querySelector(".nav-toggle");
-    if (navToggle) {
-      navToggle.addEventListener("click", () => {
-        const isOpen = document.body.classList.toggle("nav-open");
-        navToggle.setAttribute("aria-expanded", String(isOpen));
-      });
-    }
+  window.scrollTo({ top:0, behavior:"instant" });
+}
 
-    // ------------------ AJAX FORMS ------------------
-    function wireForm(formId, statusId, eventName) {
-      const form = document.getElementById(formId);
-      const out = document.getElementById(statusId);
-      if (!form || !out) return;
+function router(){
+  const hash = location.hash.slice(1);
+  setActive(routes.includes(hash) ? hash : "home");
+}
 
-      form.addEventListener("submit", async e => {
-        e.preventDefault();
-        out.textContent = "Sending…";
-        out.style.color = "";
+/* MOBILE NAV */
+document.querySelector(".nav-toggle").addEventListener("click",()=>{
+  document.body.classList.toggle("nav-open");
+});
 
-        try {
-          const res = await fetch(form.action, {
-            method: "POST",
-            headers: { "Accept": "application/json" },
-            body: new FormData(form),
-          });
+/* PRICING CALCULATOR */
+function updateTotal(){
+  let total = 0;
 
-          if (res.ok) {
-            out.textContent = "Thanks! We’ll reply shortly.";
-            out.style.color = "#c8ff00";
-            form.reset();
-            if (window.plausible) plausible(eventName);
-          } else {
-            out.textContent = "Error. Try again.";
-            out.style.color = "#ffb4c8";
-          }
-        } catch {
-          out.textContent = "Network error.";
-          out.style.color = "#ffb4c8";
-        }
-      });
-    }
+  const frame = parseInt(document.getElementById("frame").value);
+  const engineType = document.getElementById("engine").value;
+  const wheels = parseInt(document.getElementById("wheels").value);
+  const wheelColor = parseInt(document.getElementById("wheelColor").value);
+  const accessories = parseInt(document.getElementById("accessories").value);
+  const slicks = parseInt(document.getElementById("slicks").value);
 
-    wireForm("contactForm", "formStatus", "Contact Submit");
-    wireForm("buildForm", "buildStatus", "Build Sheet Submit");
+  total += frame;
+  total += wheels + wheelColor;
+  total += accessories;
+  total += slicks;
 
-    // ------------------ PRICING CALCULATOR ------------------
-    function calculateBuildTotal() {
-      const selects = document.querySelectorAll("[data-price-select]");
-      let total = 0;
+  if(engineType === "gas") total += 300;
+  if(engineType === "electric") total += 500 + 900;
 
-      selects.forEach(sel => {
-        const opt = sel.options[sel.selectedIndex];
-        if (!opt) return;
-        const price = parseFloat(opt.dataset.price || "0");
-        if (!isNaN(price)) total += price;
+  document.getElementById("totalPrice").textContent = `$${total}`;
+}
+
+document.querySelectorAll("#frame,#engine,#wheels,#wheelColor,#accessories,#slicks")
+  .forEach(el => el.addEventListener("change", updateTotal));
+
+/* FORMS */
+function wireForm(formId, statusId){
+  const form = document.getElementById(formId);
+  const out = document.getElementById(statusId);
+
+  form.addEventListener("submit", async e=>{
+    e.preventDefault();
+    out.textContent = "Sending…";
+
+    try {
+      const res = await fetch(form.action, {
+        method:"POST",
+        headers:{ "Accept":"application/json" },
+        body:new FormData(form)
       });
 
-      // Battery if Electric
-      const kartType = document.getElementById("kartType");
-      if (kartType) {
-        const val = kartType.value || "";
-        if (val.toLowerCase().includes("electric")) {
-          total += 900; // 72V battery
-        }
+      if(res.ok){
+        out.textContent = "Thank you! We'll reply shortly.";
+        out.style.color = "#C8FF00";
+        form.reset();
+        updateTotal();
+      } else {
+        out.textContent = "Error. Try again.";
+        out.style.color = "#FF36A3";
       }
-
-      const out = document.getElementById("buildTotal");
-      if (out) {
-        out.textContent = "$" + total.toLocaleString();
-      }
+    } catch {
+      out.textContent = "Network error.";
+      out.style.color = "#FF36A3";
     }
+  });
+}
 
-    function wirePricingCalculator() {
-      const selects = document.querySelectorAll("[data-price-select]");
-      if (!selects.length) return;
-      selects.forEach(sel => {
-        sel.addEventListener("change", calculateBuildTotal);
-      });
-      calculateBuildTotal();
-    }
+wireForm("contactForm","formStatus");
+wireForm("buildForm","buildStatus");
 
-    // ------------------ DOM READY ------------------
-    window.addEventListener("DOMContentLoaded", () => {
-      router();
+/* INIT */
+window.addEventListener("DOMContentLoaded",()=>{
+  router();
+  document.getElementById("year").textContent = new Date().getFullYear();
+  updateTotal();
+});
 
-      const yearEl = document.getElementById("year");
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
+window.addEventListener("hashchange", router);
+</script>
 
-      const first = document.querySelector(".route:not(.hidden)");
-      if (first) first.classList.add("enter");
-
-      document.body.addEventListener("click", e => {
-        const btn = e.target.closest('[data-track="cta"]');
-        if (btn && window.plausible) {
-          plausible("CTA Click", { props: { label: btn.dataset.label || btn.textContent.trim() } });
-        }
-      });
-
-      wirePricingCalculator();
-    });
-
-    window.addEventListener("hashchange", router);
-  </script>
 </body>
 </html>
