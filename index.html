@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Snailkarts – Engineered to Drift</title>
 
-  <!-- FAVICONS (update the PNGs after you upload new ones) -->
+  <!-- FAVICONS – uses the files already in your repo -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="shortcut icon" href="favicon.ico">
-
-  <!-- THEME -->
   <meta name="theme-color" content="#000000">
 
-  <!-- MAIN CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- MAIN STYLESHEET -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- ========================================================= -->
+  <!--                       HEADER                              -->
+  <!-- ========================================================= -->
   <header class="site-header">
     <a class="brand" href="#home" data-link>
       <span class="logo-badge">
-        <img class="logo" src="snail-logo.png" alt="Snailkarts Logo">
+        <!-- uses the BLACK snail image sitting in the repo root -->
+        <img class="logo" src="IMG_5286.PNG" alt="Snailkarts logo">
       </span>
-
       <span class="brand-text">
         <span class="brand-title">Snailkarts</span>
         <span class="brand-tagline">Engineered to Drift</span>
@@ -43,14 +43,33 @@
       <a href="#gallery" data-link>Gallery</a>
       <a href="#build" data-link>Build</a>
       <a href="#contact" class="cta neon-btn pulse" data-link>Contact</a>
+
+      <div class="social-wrap" aria-label="Follow Snailkarts">
+        <span class="follow-label">Follow us</span>
+        <div class="social-icons">
+          <a href="https://instagram.com/Snailkarts" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
+          </a>
+          <a href="https://youtube.com/@Snailkarts" target="_blank" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .6-5.8 31 31 0 0 0-.6-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@Formandforgellc" target="_blank" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M16.8 3.2c.8 1.3 2.1 2.4 3.6 2.9v3.1a8.5 8.5 0 0 1-4.3-1.2v6.8a6.8 6.8 0 1 1-6.8-6.8c.5 0 1 .1 1.5.2v3.2a3.6 3.6 0 1 0 2.5 3.4V2.5h3.5v.7z"/></svg>
+          </a>
+        </div>
+      </div>
     </nav>
   </header>
 
-  <!-- HERO -->
+  <!-- ========================================================= -->
+  <!--                       MAIN ROUTER                         -->
+  <!-- ========================================================= -->
   <main id="app">
+
+    <!-- ================= HERO ================= -->
     <section id="home" class="route hero">
       <div class="hero-media">
-        <video class="hero-video" autoplay muted loop playsinline>
+        <video class="hero-video" autoplay muted loop playsinline poster="IMG_5286.PNG">
           <source src="https://assets.codepen.io/15323229/469ec902-6f85-d318-7491-a350336f4989_custom.mp4" type="video/mp4">
         </video>
       </div>
@@ -66,58 +85,354 @@
       </div>
     </section>
 
-    <!-- OTHER SECTIONS REMAIN UNCHANGED -->
-    <!-- You do NOT need to modify anything below this line -->
-    <!-- I left your karts, gallery, testimonials, forms, and footer untouched -->
+    <!-- ================= KARTS ================= -->
+    <section id="karts" class="route section hidden">
+      <div class="karts-video-bg">
+        <video autoplay muted loop playsinline>
+          <source src="https://assets.codepen.io/15323229/bbfbad66-75a9-0c8b-f385-7a491f2940e8_custom.mp4" type="video/mp4">
+        </video>
+        <div class="karts-overlay"></div>
+      </div>
+
+      <div class="karts-content">
+        <div class="section-head">
+          <h1 class="neon-text">Our Karts</h1>
+          <p>Launching with the S-kart-Go. Electric Es-kart-Go coming soon.</p>
+        </div>
+
+        <div class="cards hover-lift">
+
+          <!-- S-kart-Go -->
+          <article class="card">
+            <div class="card-media">
+              <video class="card-video" autoplay muted loop playsinline>
+                <source src="https://assets.codepen.io/15323229/43bd0f6c-6c62-888e-903f-4df78a449110_custom.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="card-body">
+              <h3 class="neon-text">S-kart-Go</h3>
+              <ul class="specs">
+                <li>Hydraulic rear disc brake</li>
+                <li>Hydraulic E-brake handle</li>
+                <li>3-speed 125cc engine</li>
+                <li>Custom lighting & colors</li>
+                <li>Keyed ignition</li>
+                <li>Push-to-start button</li>
+              </ul>
+              <a class="btn neon-btn pulse" href="#build" data-link>Configure & Request Quote</a>
+            </div>
+          </article>
+
+          <!-- Es-kart-Go -->
+          <article class="card">
+            <div class="coming-badge">Coming Soon</div>
+            <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Es-kart-Go prototype">
+            <div class="card-body">
+              <h3 class="neon-text">Es-kart-Go</h3>
+              <ul class="specs">
+                <li>Balanced weight distribution</li>
+                <li>Drift-ready chassis setup</li>
+                <li>Service-friendly open layout</li>
+              </ul>
+              <a class="btn secondary" href="#build" data-link>Join Waitlist</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GALLERY ================= -->
+    <section id="gallery" class="route section hidden">
+      <div class="gallery-video-bg">
+        <video autoplay muted loop playsinline>
+          <source src="https://assets.codepen.io/15323229/72ba602c-7f10-d743-5218-bd99e9be7543_custom.mp4" type="video/mp4">
+        </video>
+        <div class="gallery-overlay"></div>
+      </div>
+
+      <div class="gallery-content">
+        <div class="section-head">
+          <h1 class="neon-text">Gallery</h1>
+          <p>Workshop snapshots and in-progress builds.</p>
+        </div>
+
+        <div class="masonry hover-lift">
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4933%20%281%29.png" alt=""></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4932.png" alt=""></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt=""></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%282%29.jpg" alt=""></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4806.jpg" alt=""></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+    <section id="testimonials" class="route section container hidden">
+      <div class="section-head">
+        <h2 class="neon-text">What Drivers Say</h2>
+        <p>Feedback from test days and early owners.</p>
+      </div>
+
+      <div class="cards testimonials hover-lift">
+        <article class="card quote">
+          <p>“The chassis rotation is super predictable.”</p>
+          <div class="quote-meta"><span class="dot"></span> Alex R.</div>
+        </article>
+
+        <article class="card quote">
+          <p>“E-brake + hydro disc is perfect for initiations.”</p>
+          <div class="quote-meta"><span class="dot"></span> Marisol V.</div>
+        </article>
+
+        <article class="card quote">
+          <p>“We put a dozen hours on it the first weekend. Nothing broke.”</p>
+          <div class="quote-meta"><span class="dot"></span> Ken P.</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= BUILD ================= -->
+    <section id="build" class="route section hidden">
+      <div class="build-video-bg">
+        <video autoplay muted loop playsinline>
+          <source src="https://assets.codepen.io/15323229/VideoAug30202542731PM-ezgif.com-resize-video.mov" type="video/mp4">
+        </video>
+        <div class="build-overlay"></div>
+      </div>
+
+      <div class="build-content">
+        <div class="section-head neon-head">
+          <h1 class="neon-text">Build Your Snailkart</h1>
+          <div class="neon-underline"></div>
+          <p class="neon-sub">Choose your spec. We’ll review and send a quote.</p>
+        </div>
+
+        <div class="contact-card neon-card neon-scan">
+
+          <form id="buildForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form">
+            <input type="hidden" name="_subject" value="New Snailkart Build Request">
+
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+
+              <div>
+                <label for="kartType">Kart Type</label>
+                <select id="kartType" name="Kart Type" required>
+                  <option value="Gas">Gas (125cc, 3-speed)</option>
+                  <option value="Electric">Electric (Es-kart-Go)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="frame">Frame</label>
+                <select id="frame" name="Frame">
+                  <option value="Standard">Standard</option>
+                  <option value="Custom">Custom</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="seat">Seat Type</label>
+                <select id="seat" name="Seat">
+                  <option value="Bucket">Bucket</option>
+                  <option value="Racing">Racing</option>
+                  <option value="Padded">Padded</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="steering">Steering Wheel</label>
+                <select id="steering" name="Steering Wheel">
+                  <option value="Standard">Standard</option>
+                  <option value="D-Shape">D-Shape</option>
+                  <option value="Formula">Formula</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="kartColor">Kart Color</label>
+                <input id="kartColor" type="color" name="Kart Color" value="#c8ff00">
+              </div>
+
+              <div>
+                <label for="lighting">Lighting Color</label>
+                <select id="lighting" name="Lighting">
+                  <option value="Red">Red</option>
+                  <option value="Blue">Blue</option>
+                  <option value="Green">Green</option>
+                  <option value="White">White</option>
+                  <option value="Custom">Custom</option>
+                </select>
+              </div>
+
+            </div>
+
+            <h3 class="neon-text" style="margin-top:1rem;">Your Info</h3>
+
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" type="text" name="Name" required>
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="Email" required>
+              </div>
+            </div>
+
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="Notes" rows="4"></textarea>
+
+            <button type="submit" class="btn neon-btn pulse">Submit Build Sheet</button>
+            <p id="buildStatus" class="form-status"></p>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="route section container contact hidden">
+      <div class="contact-card">
+        <div class="contact-body">
+
+          <h1 class="neon-text">Contact</h1>
+          <p>Tell us how many karts you need, and any special requests.</p>
+
+          <form id="contactForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form">
+            <div class="grid">
+              <div><label for="cname">Name</label><input id="cname" type="text" name="name" required></div>
+              <div><label for="cemail">Email</label><input id="cemail" type="email" name="email" required></div>
+            </div>
+
+            <label for="company">Company</label>
+            <input id="company" type="text" name="company">
+
+            <label for="cmsg">Message</label>
+            <textarea id="cmsg" name="message" rows="5" required></textarea>
+
+            <button class="btn neon-btn pulse" type="submit">Send</button>
+            <p id="formStatus" class="form-status"></p>
+          </form>
+
+        </div>
+      </div>
+    </section>
 
   </main>
 
+  <!-- ================= FOOTER ================= -->
   <footer class="site-footer">
     <div class="container footer-inner">
       © <span id="year"></span> Snailkarts
     </div>
   </footer>
 
-  <!-- JS ROUTER + FORMS -->
+  <!-- ========================================================= -->
+  <!--                 CLEANED / OPTIMIZED JS                    -->
+  <!-- ========================================================= -->
   <script>
-    const routes = ["home","karts","gallery","testimonials","build","contact"];
+    // ------------------ DOM SHORTCUTS ------------------
+    const routes = ["home", "karts", "gallery", "testimonials", "build", "contact"];
     const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
     const navLinks = [...document.querySelectorAll('.site-nav a[data-link]')];
 
-    function setActive(route){
-      routes.forEach(r=>{
+    // ------------------ ROUTER ------------------
+    function setActive(route) {
+      routes.forEach(r => {
         const sec = sections[r];
-        if(!sec) return;
-        const active = (r===route);
-        sec.classList.toggle("hidden",!active);
-        sec.querySelectorAll("video").forEach(v=> active ? v.play() : v.pause());
-        if(active){
-          sec.classList.remove("enter"); void sec.offsetWidth; sec.classList.add("enter");
+        if (!sec) return;
+
+        const active = (r === route);
+        sec.classList.toggle("hidden", !active);
+        sec.querySelectorAll("video").forEach(v => active ? v.play() : v.pause());
+
+        if (active) {
+          sec.classList.remove("enter");
+          void sec.offsetWidth;
+          sec.classList.add("enter");
         }
       });
 
-      navLinks.forEach(a=> a.classList.toggle("active",a.getAttribute("href")==="#"+route));
-      window.scrollTo({top:0,behavior:"instant"});
+      navLinks.forEach(a =>
+        a.classList.toggle("active", a.getAttribute("href") === `#${route}`)
+      );
+
+      window.scrollTo({ top: 0, behavior: "instant" });
+
+      if (window.plausible)
+        plausible("pageview", { u: location.origin + "/#" + route });
     }
 
-    function router(){
+    function router() {
       const hash = location.hash.slice(1);
       setActive(routes.includes(hash) ? hash : "home");
     }
 
-    document.querySelector(".nav-toggle").addEventListener("click", ()=>{
-      const isOpen = document.body.classList.toggle("nav-open");
-      navToggle.setAttribute("aria-expanded",String(isOpen));
-    });
+    // ------------------ MOBILE NAV ------------------
+    const navToggle = document.querySelector(".nav-toggle");
+    if (navToggle) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = document.body.classList.toggle("nav-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+    }
 
-    window.addEventListener("DOMContentLoaded", ()=>{
+    // ------------------ AJAX FORMS ------------------
+    function wireForm(formId, statusId, eventName) {
+      const form = document.getElementById(formId);
+      const out = document.getElementById(statusId);
+      if (!form || !out) return;
+
+      form.addEventListener("submit", async e => {
+        e.preventDefault();
+        out.textContent = "Sending…";
+
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: new FormData(form),
+          });
+
+          if (res.ok) {
+            out.textContent = "Thanks! We’ll reply shortly.";
+            out.style.color = "#c8ff00";
+            form.reset();
+            if (window.plausible) plausible(eventName);
+          } else {
+            out.textContent = "Error. Try again.";
+            out.style.color = "#ffb4c8";
+          }
+        } catch {
+          out.textContent = "Network error.";
+          out.style.color = "#ffb4c8";
+        }
+      });
+    }
+
+    wireForm("contactForm", "formStatus", "Contact Submit");
+    wireForm("buildForm", "buildStatus", "Build Sheet Submit");
+
+    // ------------------ DOM READY ------------------
+    window.addEventListener("DOMContentLoaded", () => {
       router();
-      document.getElementById("year").textContent = new Date().getFullYear();
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
       const first = document.querySelector(".route:not(.hidden)");
-      if(first) first.classList.add("enter");
+      if (first) first.classList.add("enter");
+
+      document.body.addEventListener("click", e => {
+        const btn = e.target.closest('[data-track="cta"]');
+        if (btn && window.plausible) {
+          plausible("CTA Click", { props: { label: btn.dataset.label || btn.textContent.trim() } });
+        }
+      });
     });
 
     window.addEventListener("hashchange", router);
   </script>
+
 </body>
 </html>
