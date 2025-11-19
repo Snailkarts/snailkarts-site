@@ -10,31 +10,33 @@
   <meta property="og:title" content="Snailkarts – Engineered to Drift">
   <meta property="og:description" content="Precision-built karts for drifting. Meet the S-kart-Go and Es-kart-Go.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://assets.codepen.io/15323229/IMG_4932.png">
+  <meta property="og:image" content="img/IMG_5286.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Favicons -->
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#0a0b0f">
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="favicon-32x32.png" />
 
-  <!-- Styles (cache-busted) -->
-  <link rel="stylesheet" href="style.css?v=7.5" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css?v=8.0" />
 
-  <!-- === Plausible Analytics (cookie-free) ===
-       Dashboard: create site "snailkarts.com" on plausible.io -->
+  <!-- Plausible Analytics -->
   <script defer data-domain="snailkarts.com" src="https://plausible.io/js/script.js"></script>
 </head>
+
 <body>
+
+  <!-- ========================================================= -->
+  <!--                       HEADER                              -->
+  <!-- ========================================================= -->
   <header class="site-header">
     <a class="brand" href="#home" data-link>
       <span class="logo-badge">
-        <img class="logo" src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo">
+        <img class="logo" src="img/IMG_5286.png" alt="Snailkarts logo">
       </span>
-      <span class="brand-text">Snailkarts</span>
+      <span class="brand-text">
+        <span class="brand-title">Snailkarts</span>
+        <span class="brand-tagline">Engineered to Drift</span>
+      </span>
     </a>
 
     <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
@@ -46,43 +48,48 @@
       <a href="#build" data-link>Build</a>
       <a href="#contact" class="cta neon-btn pulse" data-link>Contact</a>
 
-      <!-- Follow + social icons (top of page) -->
       <div class="social-wrap" aria-label="Follow Snailkarts">
         <span class="follow-label">Follow us</span>
         <div class="social-icons">
-          <a href="https://instagram.com/Snailkarts" target="_blank" rel="noopener" aria-label="Instagram @Snailkarts" title="Instagram @Snailkarts">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
+          <a href="https://instagram.com/Snailkarts" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
           </a>
-          <a href="https://youtube.com/@Snailkarts" target="_blank" rel="noopener" aria-label="YouTube @Snailkarts" title="YouTube @Snailkarts">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .6-5.8 31 31 31 0 0 0-.6-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
+          <a href="https://youtube.com/@Snailkarts" target="_blank" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .6-5.8 31 31 0 0 0-.6-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
           </a>
-          <a href="https://www.tiktok.com/@Formandforgellc" target="_blank" rel="noopener" aria-label="TikTok @Formandforgellc" title="TikTok @Formandforgellc">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.8 3.2c.8 1.3 2.1 2.4 3.6 2.9v3.1a8.5 8.5 0 0 1-4.3-1.2v6.8a6.8 6.8 0 1 1-6.8-6.8c.5 0 1 .1 1.5.2v3.2a3.6 3.6 0 1 0 2.5 3.4V2.5h3.5v.7z"/></svg>
+          <a href="https://www.tiktok.com/@Formandforgellc" target="_blank" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M16.8 3.2c.8 1.3 2.1 2.4 3.6 2.9v3.1a8.5 8.5 0 0 1-4.3-1.2v6.8a6.8 6.8 0 1 1-6.8-6.8c.5 0 1 .1 1.5.2v3.2a3.6 3.6 0 1 0 2.5 3.4V2.5h3.5v.7z"/></svg>
           </a>
         </div>
       </div>
     </nav>
   </header>
 
+  <!-- ========================================================= -->
+  <!--                       MAIN ROUTER                         -->
+  <!-- ========================================================= -->
   <main id="app">
-    <!-- HERO -->
-    <section id="home" class="route hero neon">
+
+    <!-- ================= HERO ================= -->
+    <section id="home" class="route hero">
       <div class="hero-media">
-        <video class="hero-video" autoplay muted loop playsinline poster="https://assets.codepen.io/15323229/IMG_4932.png">
+        <video class="hero-video" autoplay muted loop playsinline poster="img/IMG_5286.png">
           <source src="https://assets.codepen.io/15323229/469ec902-6f85-d318-7491-a350336f4989_custom.mp4" type="video/mp4">
         </video>
       </div>
+
       <div class="hero-content container floaty">
         <h1><span class="stroke">Engineered</span> <span class="glow">to Drift</span></h1>
         <p class="hero-sub neon-text">Precision-built karts tuned for smooth slides.</p>
+
         <div class="hero-actions">
-          <a href="#karts" class="btn neon-btn pulse" data-link data-track="cta" data-label="Explore Karts">Explore Karts</a>
-          <a href="#build" class="btn secondary" data-link data-track="cta" data-label="Configure Build">Configure Build</a>
+          <a href="#karts" class="btn neon-btn pulse" data-link>Explore Karts</a>
+          <a href="#build" class="btn secondary" data-link>Configure Build</a>
         </div>
       </div>
     </section>
 
-    <!-- KARTS -->
+    <!-- ================= KARTS ================= -->
     <section id="karts" class="route section hidden">
       <div class="karts-video-bg">
         <video autoplay muted loop playsinline>
@@ -98,6 +105,7 @@
         </div>
 
         <div class="cards hover-lift">
+
           <!-- S-kart-Go -->
           <article class="card">
             <div class="card-media">
@@ -112,17 +120,17 @@
                 <li>Hydraulic E-brake handle</li>
                 <li>3-speed 125cc engine</li>
                 <li>Custom lighting & colors</li>
-                <li>Keyed ignition for security</li>
+                <li>Keyed ignition</li>
                 <li>Push-to-start button</li>
               </ul>
-              <a class="btn neon-btn pulse" href="#build" data-link data-track="cta" data-label="Configure & Request Quote">Configure & Request Quote</a>
+              <a class="btn neon-btn pulse" href="#build" data-link>Configure & Request Quote</a>
             </div>
           </article>
 
-          <!-- Es-kart-Go (Coming Soon) -->
+          <!-- Es-kart-Go -->
           <article class="card">
             <div class="coming-badge">Coming Soon</div>
-            <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Es-kart-Go prototype">
+            <img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Es-kart-Go prototype">
             <div class="card-body">
               <h3 class="neon-text">Es-kart-Go</h3>
               <ul class="specs">
@@ -130,14 +138,15 @@
                 <li>Drift-ready chassis setup</li>
                 <li>Service-friendly open layout</li>
               </ul>
-              <a class="btn secondary" href="#build" data-link data-track="cta" data-label="Join Waitlist">Join Waitlist</a>
+              <a class="btn secondary" href="#build" data-link>Join Waitlist</a>
             </div>
           </article>
+
         </div>
       </div>
     </section>
 
-    <!-- GALLERY -->
+    <!-- ================= GALLERY ================= -->
     <section id="gallery" class="route section hidden">
       <div class="gallery-video-bg">
         <video autoplay muted loop playsinline>
@@ -151,39 +160,43 @@
           <h1 class="neon-text">Gallery</h1>
           <p>Workshop snapshots and in-progress builds.</p>
         </div>
+
         <div class="masonry hover-lift">
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4933%20%281%29.png" alt="Snailkarts mascot keychain" /></figure>
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4932.png" alt="Snailkarts logo artwork" /></figure>
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt="Green Snailkart angled front" /></figure>
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%282%29.jpg" alt="Green Snailkart side view" /></figure>
-          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4806.jpg" alt="Pair of karts top view" /></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4933%20%281%29.png" alt=""></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4932.png" alt=""></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%281%29.jpg" alt=""></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/Photo%20Sep%2002%202025%2C%209%2003%2029%20PM%20%282%29.jpg" alt=""></figure>
+          <figure class="tile"><img src="https://assets.codepen.io/15323229/IMG_4806.jpg" alt=""></figure>
         </div>
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- ================= TESTIMONIALS ================= -->
     <section id="testimonials" class="route section container hidden">
       <div class="section-head">
         <h2 class="neon-text">What Drivers Say</h2>
-        <p>Real feedback from test days and early owners.</p>
+        <p>Feedback from test days and early owners.</p>
       </div>
+
       <div class="cards testimonials hover-lift">
         <article class="card quote">
-          <p>“The chassis rotation is super predictable. You can hang it out and bring it back—zero surprises.”</p>
-          <div class="quote-meta"><span class="dot"></span><span>Alex R. — Track day regular</span></div>
+          <p>“The chassis rotation is super predictable.”</p>
+          <div class="quote-meta"><span class="dot"></span> Alex R.</div>
         </article>
+
         <article class="card quote">
-          <p>“E-brake plus rear hydro disc is perfect for initiations. It just does what you ask.”</p>
-          <div class="quote-meta"><span class="dot"></span><span>Marisol V. — Drift novice to addict</span></div>
+          <p>“E-brake + hydro disc is perfect for initiations.”</p>
+          <div class="quote-meta"><span class="dot"></span> Marisol V.</div>
         </article>
+
         <article class="card quote">
-          <p>“We put a dozen hours on it the first weekend. Nothing broke. Maintenance is easy.”</p>
-          <div class="quote-meta"><span class="dot"></span><span>Ken P. — Rental fleet owner</span></div>
+          <p>“We put a dozen hours on it the first weekend. Nothing broke.”</p>
+          <div class="quote-meta"><span class="dot"></span> Ken P.</div>
         </article>
       </div>
     </section>
 
-    <!-- BUILD -->
+    <!-- ================= BUILD ================= -->
     <section id="build" class="route section hidden">
       <div class="build-video-bg">
         <video autoplay muted loop playsinline>
@@ -200,216 +213,230 @@
         </div>
 
         <div class="contact-card neon-card neon-scan">
-          <div class="contact-body">
-            <form id="buildForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form">
-              <input type="hidden" name="_subject" value="New Snailkart Build Request">
-              <input type="hidden" name="formType" value="Build Sheet">
-              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
 
-              <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
-                <div>
-                  <label for="kartType" class="neon-text">Kart Type</label>
-                  <select id="kartType" name="Kart Type" required>
-                    <option value="Gas">Gas (125cc, 3-speed)</option>
-                    <option value="Electric">Electric (Es-kart-Go)</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="frame" class="neon-text">Frame</label>
-                  <select id="frame" name="Frame">
-                    <option value="Standard">Standard</option>
-                    <option value="Custom">Custom</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="seat" class="neon-text">Seat Type</label>
-                  <select id="seat" name="Seat">
-                    <option value="Bucket">Bucket</option>
-                    <option value="Racing">Racing</option>
-                    <option value="Padded">Padded</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="steering" class="neon-text">Steering Wheel</label>
-                  <select id="steering" name="Steering Wheel">
-                    <option value="Standard">Standard</option>
-                    <option value="D-Shape">D-Shape</option>
-                    <option value="Formula">Formula</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="kartColor" class="neon-text">Kart Color</label>
-                  <input id="kartColor" type="color" name="Kart Color" value="#c8ff00">
-                </div>
-                <div>
-                  <label for="lighting" class="neon-text">Lighting Color</label>
-                  <select id="lighting" name="Lighting">
-                    <option value="Red">Red</option>
-                    <option value="Blue">Blue</option>
-                    <option value="Green">Green</option>
-                    <option value="White">White</option>
-                    <option value="Custom">Custom</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="tank" class="neon-text">Gas Tank</label>
-                  <select id="tank" name="Gas Tank">
-                    <option value="Standard">Standard</option>
-                    <option value="Extended">Extended</option>
-                    <option value="None">None</option>
-                  </select>
-                </div>
-                <div style="display:flex;align-items:flex-end;">
-                  <label style="display:flex;gap:.5rem;align-items:center;">
-                    <input type="checkbox" name="Extra Drift Sleeves" value="Yes">
-                    <span class="neon-text">Add Extra PVC Drift Sleeves</span>
-                  </label>
-                </div>
+          <form id="buildForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form">
+            <input type="hidden" name="_subject" value="New Snailkart Build Request">
+
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+
+              <div>
+                <label for="kartType">Kart Type</label>
+                <select id="kartType" name="Kart Type" required>
+                  <option value="Gas">Gas (125cc, 3-speed)</option>
+                  <option value="Electric">Electric (Es-kart-Go)</option>
+                </select>
               </div>
 
-              <h3 class="neon-text" style="margin-top:1rem;">Your Info</h3>
-              <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
-                <div><label for="name" class="neon-text">Name</label><input id="name" type="text" name="Name" placeholder="Your name" required></div>
-                <div><label for="email" class="neon-text">Email</label><input id="email" type="email" name="Email" placeholder="Email address" required></div>
+              <div>
+                <label for="frame">Frame</label>
+                <select id="frame" name="Frame">
+                  <option value="Standard">Standard</option>
+                  <option value="Custom">Custom</option>
+                </select>
               </div>
-              <label for="notes" class="neon-text">Notes</label>
-              <textarea id="notes" name="Notes" rows="4" placeholder="Any extra requests?"></textarea>
 
-              <button type="submit" class="btn neon-btn pulse" data-track="cta" data-label="Submit Build Sheet">Submit Build Sheet</button>
-              <p id="buildStatus" class="form-status" aria-live="polite"></p>
-            </form>
-          </div>
+              <div>
+                <label for="seat">Seat Type</label>
+                <select id="seat" name="Seat">
+                  <option value="Bucket">Bucket</option>
+                  <option value="Racing">Racing</option>
+                  <option value="Padded">Padded</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="steering">Steering Wheel</label>
+                <select id="steering" name="Steering Wheel">
+                  <option value="Standard">Standard</option>
+                  <option value="D-Shape">D-Shape</option>
+                  <option value="Formula">Formula</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="kartColor">Kart Color</label>
+                <input id="kartColor" type="color" name="Kart Color" value="#c8ff00">
+              </div>
+
+              <div>
+                <label for="lighting">Lighting Color</label>
+                <select id="lighting" name="Lighting">
+                  <option value="Red">Red</option>
+                  <option value="Blue">Blue</option>
+                  <option value="Green">Green</option>
+                  <option value="White">White</option>
+                  <option value="Custom">Custom</option>
+                </select>
+              </div>
+
+            </div>
+
+            <h3 class="neon-text" style="margin-top:1rem;">Your Info</h3>
+
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:1rem;">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" type="text" name="Name" required>
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="Email" required>
+              </div>
+            </div>
+
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="Notes" rows="4"></textarea>
+
+            <button type="submit" class="btn neon-btn pulse">Submit Build Sheet</button>
+            <p id="buildStatus" class="form-status"></p>
+          </form>
+
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- ================= CONTACT ================= -->
     <section id="contact" class="route section container contact hidden">
       <div class="contact-card">
         <div class="contact-body">
+
           <h1 class="neon-text">Contact</h1>
-          <p>Tell us how many karts you need, where you’ll run them, and any special requests. We’ll spec a build and timeline.</p>
+          <p>Tell us how many karts you need, and any special requests.</p>
 
-          <form id="contactForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form" novalidate>
+          <form id="contactForm" action="https://formspree.io/f/xandlqzb" method="POST" class="contact-form">
             <div class="grid">
-              <div><label for="cname" class="neon-text">Name</label><input id="cname" type="text" name="name" placeholder="Your name" required></div>
-              <div><label for="cemail" class="neon-text">Email</label><input id="cemail" type="email" name="email" placeholder="Email address" required></div>
+              <div><label for="cname">Name</label><input id="cname" type="text" name="name" required></div>
+              <div><label for="cemail">Email</label><input id="cemail" type="email" name="email" required></div>
             </div>
-            <label for="company" class="neon-text">Company / Team (optional)</label>
-            <input id="company" type="text" name="company" placeholder="Company / Team">
-            <label for="cmsg" class="neon-text">Message</label>
-            <textarea id="cmsg" name="message" rows="5" placeholder="What are you building toward?" required></textarea>
 
-            <button type="submit" class="btn neon-btn pulse" data-track="cta" data-label="Send Contact">Send</button>
-            <p id="formStatus" class="form-status" aria-live="polite"></p>
+            <label for="company">Company</label>
+            <input id="company" type="text" name="company">
+
+            <label for="cmsg">Message</label>
+            <textarea id="cmsg" name="message" rows="5" required></textarea>
+
+            <button class="btn neon-btn pulse" type="submit">Send</button>
+            <p id="formStatus" class="form-status"></p>
           </form>
+
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- ================= FOOTER ================= -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <span>© <span id="year"></span> Snailkarts</span>
-      <!-- Footer socials intentionally removed -->
+      © <span id="year"></span> Snailkarts
     </div>
   </footer>
 
+  <!-- ========================================================= -->
+  <!--                 CLEANED / OPTIMIZED JS                    -->
+  <!-- ========================================================= -->
   <script>
-    // Router: shows one tab at a time, pauses hidden videos, highlights active nav, and triggers enter animation
+    // ------------------ DOM SHORTCUTS ------------------
     const routes = ["home", "karts", "gallery", "testimonials", "build", "contact"];
     const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
-    const navLinks = Array.from(document.querySelectorAll('.site-nav a[data-link], .site-nav a[href^="#"]'));
+    const navLinks = [...document.querySelectorAll('.site-nav a[data-link]')];
 
-    function setActive(route){
+    // ------------------ ROUTER ------------------
+    function setActive(route) {
       routes.forEach(r => {
         const sec = sections[r];
         if (!sec) return;
-        const isActive = r === route;
-        sec.classList.toggle('hidden', !isActive);
-        if (isActive) {
-          sec.classList.remove('enter');
-          void sec.offsetWidth; // restart animation
-          sec.classList.add('enter');
+
+        const active = (r === route);
+        sec.classList.toggle("hidden", !active);
+        sec.querySelectorAll("video").forEach(v => active ? v.play() : v.pause());
+
+        if (active) {
+          sec.classList.remove("enter");
+          void sec.offsetWidth;
+          sec.classList.add("enter");
         }
-        sec.querySelectorAll('video').forEach(v => {
-          try { isActive ? v.play() : v.pause(); } catch(e){}
-        });
       });
-      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${route}`));
-      window.scrollTo({ top: 0, behavior: 'instant' });
 
-      // --- Analytics: SPA pageview on route change ---
-      if (window.plausible) {
-        // send the route as a path (helps segment in dashboard)
-        plausible('pageview', { u: location.origin + '/#' + route });
-      }
+      navLinks.forEach(a =>
+        a.classList.toggle("active", a.getAttribute("href") === `#${route}`)
+      );
+
+      window.scrollTo({ top: 0, behavior: "instant" });
+
+      if (window.plausible)
+        plausible("pageview", { u: location.origin + "/#" + route });
     }
 
-    function router(){
+    function router() {
       const hash = location.hash.slice(1);
-      setActive(routes.includes(hash) ? hash : 'home');
+      setActive(routes.includes(hash) ? hash : "home");
     }
 
-    // Mobile menu
-    const btn = document.querySelector('.nav-toggle');
-    if(btn){
-      btn.addEventListener('click', () => {
-        const isOpen = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!isOpen));
-        document.body.classList.toggle('nav-open');
+    // ------------------ MOBILE NAV ------------------
+    const navToggle = document.querySelector(".nav-toggle");
+    if (navToggle) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = document.body.classList.toggle("nav-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
       });
     }
 
-    window.addEventListener('hashchange', router);
-    window.addEventListener('DOMContentLoaded', () => {
+    // ------------------ AJAX FORMS ------------------
+    function wireForm(formId, statusId, eventName) {
+      const form = document.getElementById(formId);
+      const out = document.getElementById(statusId);
+      if (!form || !out) return;
+
+      form.addEventListener("submit", async e => {
+        e.preventDefault();
+        out.textContent = "Sending…";
+
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: new FormData(form),
+          });
+
+          if (res.ok) {
+            out.textContent = "Thanks! We’ll reply shortly.";
+            out.style.color = "#c8ff00";
+            form.reset();
+            if (window.plausible) plausible(eventName);
+          } else {
+            out.textContent = "Error. Try again.";
+            out.style.color = "#ffb4c8";
+          }
+        } catch {
+          out.textContent = "Network error.";
+          out.style.color = "#ffb4c8";
+        }
+      });
+    }
+
+    wireForm("contactForm", "formStatus", "Contact Submit");
+    wireForm("buildForm", "buildStatus", "Build Sheet Submit");
+
+    // ------------------ DOM READY ------------------
+    window.addEventListener("DOMContentLoaded", () => {
       router();
-      const y = document.getElementById('year');
-      if (y) y.textContent = new Date().getFullYear();
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // Initial enter animation on first visible route
-      const first = document.querySelector('.route:not(.hidden)');
-      if (first) { first.classList.add('enter'); }
+      const first = document.querySelector(".route:not(.hidden)");
+      if (first) first.classList.add("enter");
 
-      // --- Analytics: CTA click tracking (label from data-attr) ---
-      document.body.addEventListener('click', (e) => {
-        const a = e.target.closest('[data-track="cta"]');
-        if (a && window.plausible) {
-          const label = a.getAttribute('data-label') || a.textContent.trim();
-          plausible('CTA Click', { props: { label } });
+      document.body.addEventListener("click", e => {
+        const btn = e.target.closest('[data-track="cta"]');
+        if (btn && window.plausible) {
+          plausible("CTA Click", { props: { label: btn.dataset.label || btn.textContent.trim() } });
         }
       });
     });
 
-    // AJAX submit wiring (contact + build) + analytics events on success
-    function wireAjaxForm(formId, statusId, eventName){
-      const form = document.getElementById(formId);
-      const statusEl = document.getElementById(statusId);
-      if(!form || !statusEl) return;
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        statusEl.textContent = 'Sending…';
-        const data = new FormData(form);
-        try {
-          const res = await fetch(form.action, { method:'POST', headers:{ 'Accept':'application/json' }, body:data });
-          if (res.ok) {
-            statusEl.style.color = '#c8ff00';
-            statusEl.textContent = 'Thanks! We’ll get back to you shortly.';
-            if (window.plausible && eventName) plausible(eventName);
-            form.reset();
-          } else {
-            statusEl.style.color = '#ffb4c8';
-            statusEl.textContent = 'Something went wrong. Please try again.';
-          }
-        } catch (err) {
-          statusEl.style.color = '#ffb4c8';
-          statusEl.textContent = 'Network error—please try again.';
-        }
-      });
-    }
-    wireAjaxForm('contactForm', 'formStatus', 'Contact Submit');
-    wireAjaxForm('buildForm', 'buildStatus', 'Build Sheet Submit');
+    window.addEventListener("hashchange", router);
   </script>
+
 </body>
 </html>
