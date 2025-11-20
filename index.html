@@ -224,6 +224,37 @@
 
           <!-- ================= FORM ================= -->
           <form id="buildForm" action="https://formspree.io/f/meonzzkb" method="POST" class="contact-form">
+           <h3 class="neon-text">Your Information</h3>
+
+<div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
+  <div>
+    <label>Name</label>
+    <input type="text" name="Customer Name" required>
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input type="email" name="Customer Email" required>
+  </div>
+</div>
+
+<div>
+  <label>Phone Number</label>
+  <input type="tel" name="Phone Number" required>
+</div>
+
+<div>
+  <label>City / State</label>
+  <input type="text" name="City State">
+</div>
+
+<div>
+  <label>Additional Notes</label>
+  <textarea name="Notes" rows="3" placeholder="Anything specific you want on your build?"></textarea>
+</div>
+
+<hr style="border:1px solid rgba(255,255,255,0.1); margin:1.5rem 0;">
+
             <input type="hidden" name="_subject" value="New Snailkart Build">
 
             <!-- ===== Row 1: Kart Type / Engine ===== -->
