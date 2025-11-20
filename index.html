@@ -12,7 +12,6 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="mask-icon" href="safari-pinned-tab.svg" color="#000000" />
   <link rel="shortcut icon" href="favicon.ico" />
-
   <meta name="theme-color" content="#000000" />
 
   <!-- MAIN CSS -->
@@ -39,12 +38,12 @@
       <a href="#home" data-link>Home</a>
       <a href="#karts" data-link>Karts</a>
       <a href="#gallery" data-link>Gallery</a>
-      <a href="#testimonials" data-link>Testimonials</a>
       <a href="#build" data-link>Build</a>
       <a href="#contact" class="cta neon-btn pulse" data-link>Contact</a>
 
       <div class="social-wrap">
         <div class="social-icons">
+
           <!-- Instagram -->
           <a href="https://instagram.com/snailkarts" target="_blank" aria-label="Instagram">
             <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
@@ -59,36 +58,35 @@
           <a href="https://youtube.com/@snailkarts" target="_blank" aria-label="YouTube">
             <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.3.6 9.3.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .6-5.8 31 31 0 0 0-.6-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
           </a>
+
         </div>
       </div>
     </nav>
   </header>
 
-  <!-- ===================== MAIN ROUTER ===================== -->
-  <main id="app">
+  <!-- ===================== HOME / HERO ===================== -->
+  <section id="home" class="route hero">
+    <div class="hero-media">
+      <video class="hero-video" autoplay muted loop playsinline poster="IMG_5286.PNG">
+        <source src="469ec902-6f85-d318-7491-a350336f4989_custom.mp4" type="video/mp4">
+      </video>
+    </div>
 
-    <!-- ===================== HOME / HERO ===================== -->
-    <section id="home" class="route hero">
-      <div class="hero-media">
-        <video class="hero-video" autoplay muted loop playsinline poster="whitekart.jpg">
-          <source src="469ec902-6f85-d318-7491-a350336f4989_custom.mp4" type="video/mp4">
-        </video>
+    <div class="hero-content container floaty">
+      <h1>
+        <span class="stroke">Engineered</span>
+        <span class="glow">to Drift</span>
+      </h1>
+      <p class="hero-sub neon-text">
+        Precision-built drift karts — tuned for slides, speed & style.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#karts" class="btn neon-btn pulse" data-link>Explore Karts</a>
+        <a href="#build" class="btn secondary" data-link>Configure Build</a>
       </div>
-
-      <div class="hero-content container floaty">
-        <h1>
-          <span class="stroke">Engineered</span>
-          <span class="glow">to Drift</span>
-        </h1>
-        <p class="hero-sub neon-text">Precision-built drift karts — designed for slides, speed &amp; style.</p>
-
-        <div class="hero-actions">
-          <a href="#karts" class="btn neon-btn pulse" data-link>Explore Karts</a>
-          <a href="#build" class="btn secondary" data-link>Configure Build</a>
-        </div>
-      </div>
-    </section>
-
+    </div>
+  </section>
     <!-- ===================== KARTS ===================== -->
     <section id="karts" class="route section hidden">
       <div class="karts-video-bg">
@@ -101,12 +99,12 @@
       <div class="karts-content">
         <div class="section-head">
           <h1 class="neon-text">Our Karts</h1>
-          <p>Choose from Gas or Electric builds. Fully customizable. Built to drift.</p>
+          <p>Choose Gas or Electric. Each kart is built to order and fully customizable.</p>
         </div>
 
         <div class="cards hover-lift">
 
-          <!-- Gas Kart -->
+          <!-- GAS KART -->
           <article class="card">
             <div class="card-media">
               <img src="whitekart.jpg" alt="Gas Drift Kart" />
@@ -114,17 +112,17 @@
             <div class="card-body">
               <h3 class="neon-text">S-Kart-Go (Gas)</h3>
               <ul class="specs">
-                <li>125cc Gas Engine</li>
-                <li>Hydraulic Rear Disc Brake</li>
-                <li>Hydraulic E-Brake Handle</li>
-                <li>Custom Lighting</li>
-                <li>Push-to-Start &amp; Keyed Ignition</li>
+                <li>125cc 4-Stroke Engine</li>
+                <li>Hydraulic Rear Brake</li>
+                <li>Hydraulic E-Brake</li>
+                <li>LED Lighting Package</li>
+                <li>Keyed Ignition + Push Start</li>
               </ul>
               <a class="btn neon-btn pulse" href="#build" data-link>Configure Build</a>
             </div>
           </article>
 
-          <!-- Electric Kart -->
+          <!-- ELECTRIC -->
           <article class="card">
             <div class="coming-badge">Electric</div>
             <div class="card-media">
@@ -133,10 +131,10 @@
             <div class="card-body">
               <h3 class="neon-text">Es-Kart-Go (Electric)</h3>
               <ul class="specs">
-                <li>72v Electric Motor</li>
-                <li>Instant Torque</li>
-                <li>Battery Option</li>
-                <li>Silent Operation</li>
+                <li>72v Brushless Motor</li>
+                <li>Instant Torque Delivery</li>
+                <li>72v Battery Included</li>
+                <li>Silent Running</li>
               </ul>
               <a class="btn neon-btn pulse" href="#build" data-link>Configure Build</a>
             </div>
@@ -158,10 +156,11 @@
       <div class="gallery-content">
         <div class="section-head">
           <h1 class="neon-text">Gallery</h1>
-          <p>Shop builds, customer karts, and drift sessions.</p>
+          <p>Builds, customer rides, and behind-the-scenes shop shots.</p>
         </div>
 
         <div class="masonry hover-lift">
+
           <figure class="tile"><img src="pinkkart.jpg" alt=""></figure>
           <figure class="tile"><img src="yellowpinkkart.jpg" alt=""></figure>
           <figure class="tile"><img src="whitekart.jpg" alt=""></figure>
@@ -171,10 +170,11 @@
 
           <!-- Video Tile -->
           <figure class="tile">
-            <video autoplay muted loop playsinline style="width:100%; border-radius:12px;">
+            <video autoplay muted loop playsinline style="width:100%;border-radius:12px;">
               <source src="7136d24717104a3f819ae4c0f21c5e98-_1_.mp4" type="video/mp4">
             </video>
           </figure>
+
         </div>
       </div>
     </section>
@@ -183,22 +183,22 @@
     <section id="testimonials" class="route section container hidden">
       <div class="section-head">
         <h2 class="neon-text">Driver Feedback</h2>
-        <p>What our early riders say about Snailkarts.</p>
+        <p>Real reviews from real riders.</p>
       </div>
 
       <div class="cards testimonials hover-lift">
         <article class="card quote">
-          <p>"The chassis rotation is super predictable. It drifts perfectly."</p>
+          <p>“This thing drifts better than my Miata.”</p>
           <div class="quote-meta"><span class="dot"></span> Alex R.</div>
         </article>
 
         <article class="card quote">
-          <p>"Hydro E-brake + gas engine is the perfect combo for slides."</p>
+          <p>“The hydro e-brake is insane. Zero learning curve.”</p>
           <div class="quote-meta"><span class="dot"></span> Marisol V.</div>
         </article>
 
         <article class="card quote">
-          <p>"We put hours on it the first weekend — zero issues."</p>
+          <p>“We’ve put 20+ hours on ours — not a single issue.”</p>
           <div class="quote-meta"><span class="dot"></span> Ken P.</div>
         </article>
       </div>
@@ -217,53 +217,35 @@
         <div class="section-head neon-head">
           <h1 class="neon-text">Build Your Snailkart</h1>
           <div class="neon-underline"></div>
-          <p class="neon-sub">Select your options. Pricing updates automatically.</p>
+          <p class="neon-sub">Choose all your options — pricing updates automatically.</p>
         </div>
 
         <div class="contact-card neon-card neon-scan">
 
           <!-- ================= FORM ================= -->
           <form id="buildForm" action="https://formspree.io/f/meonzzkb" method="POST" class="contact-form">
-           <h3 class="neon-text">Your Information</h3>
 
-<div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
-  <div>
-    <label>Name</label>
-    <input type="text" name="Customer Name" required>
-  </div>
+            <input type="hidden" name="_subject" value="New Snailkart Build Request">
 
-  <div>
-    <label>Email</label>
-    <input type="email" name="Customer Email" required>
-  </div>
-</div>
+            <!-- CONTACT INFO (required for communication) -->
+            <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+              <div>
+                <label>Your Name</label>
+                <input type="text" name="Customer Name" required>
+              </div>
+              <div>
+                <label>Email</label>
+                <input type="email" name="Customer Email" required>
+              </div>
+            </div>
 
-<div>
-  <label>Phone Number</label>
-  <input type="tel" name="Phone Number" required>
-</div>
-
-<div>
-  <label>City / State</label>
-  <input type="text" name="City State">
-</div>
-
-<div>
-  <label>Additional Notes</label>
-  <textarea name="Notes" rows="3" placeholder="Anything specific you want on your build?"></textarea>
-</div>
-
-<hr style="border:1px solid rgba(255,255,255,0.1); margin:1.5rem 0;">
-
-            <input type="hidden" name="_subject" value="New Snailkart Build">
-
-            <!-- ===== Row 1: Kart Type / Engine ===== -->
+            <!-- ===== Kart Type / Engine ===== -->
             <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
               <div>
                 <label>Kart Type</label>
                 <select id="kartType" name="Kart Type" required>
-                  <option value="Gas">Gas (125cc)</option>
-                  <option value="Electric">Electric (72v)</option>
+                  <option value="Gas">Gas</option>
+                  <option value="Electric">Electric</option>
                 </select>
               </div>
 
@@ -272,50 +254,39 @@
                 <select id="engine" name="Engine" required>
                   <option value="Gas125">125cc Gas ($700)</option>
                   <option value="Electric72">72v Electric Motor ($650)</option>
+                  <option value="Battery">72v Battery Pack ($900)</option>
                 </select>
               </div>
             </div>
 
-            <!-- ===== Battery ===== -->
-            <div>
-              <label>Battery (required for Electric builds)</label>
-              <select id="battery" name="Battery">
-                <option value="None">No Battery (Gas Builds)</option>
-                <option value="72vPack">72v Battery Pack ($900)</option>
-              </select>
-            </div>
-
-            <!-- ===== Row 2: Frame Type / Frame Color ===== -->
-            <h3 class="neon-text">Frame Options</h3>
+            <!-- ===== Frame Section ===== -->
+            <h3 class="neon-text" style="margin-top:1rem;">Frame Options</h3>
 
             <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
               <div>
                 <label>Frame Type</label>
-               <select id="frameType" name="Frame Type">
-  <option value="Standard">Standard ($2600)</option>
-  <option value="HeavyDuty">Heavy Duty ($3000)</option>
-</select>
-
+                <select id="frameType" name="Frame Type">
+                  <option value="Standard">Standard ($2600)</option>
+                  <option value="HeavyDuty">Heavy Duty ($3000)</option>
+                </select>
               </div>
 
               <div>
                 <label>Frame Color</label>
                 <select id="frameColorType" name="Frame Color Type">
                   <option value="None">Raw (No Color)</option>
-                  <option value="Basic">Basic Color (+$325)</option>
-                  <option value="Premium">Premium Color (+$475)</option>
-                  <option value="Custom">Custom Color (+$525)</option>
+                  <option value="Basic">Basic (+$325)</option>
+                  <option value="Premium">Premium (+$475)</option>
+                  <option value="Custom">Custom (+$525)</option>
                 </select>
               </div>
             </div>
 
-            <div>
-              <label>Frame Custom Color (optional)</label>
-              <input type="color" id="frameColorPicker" name="Frame Custom Color" value="#c8ff00">
-            </div>
+            <label>Frame Custom Color</label>
+            <input type="color" id="frameColorPicker" name="Frame Custom Color" value="#c8ff00">
 
-            <!-- ===== Row 3: Wheels / Wheel Color ===== -->
-            <h3 class="neon-text">Wheels &amp; Tires</h3>
+            <!-- ===== Wheels ===== -->
+            <h3 class="neon-text" style="margin-top:1rem;">Wheels & Tires</h3>
 
             <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
               <div>
@@ -330,20 +301,18 @@
                 <label>Wheel Color</label>
                 <select id="wheelColorType" name="Wheel Color Type">
                   <option value="None">Raw (No Color)</option>
-                  <option value="Basic">Basic Color (+$125)</option>
-                  <option value="Premium">Premium Color (+$200)</option>
-                  <option value="Custom">Custom Color (+$250)</option>
+                  <option value="Basic">Basic (+$125)</option>
+                  <option value="Premium">Premium (+$200)</option>
+                  <option value="Custom">Custom (+$250)</option>
                 </select>
               </div>
             </div>
 
-            <div>
-              <label>Wheel Custom Color</label>
-              <input type="color" id="wheelColorPicker" name="Wheel Custom Color" value="#000000">
-            </div>
+            <label>Wheel Custom Color</label>
+            <input type="color" id="wheelColorPicker" name="Wheel Custom Color" value="#000000">
 
-            <!-- ===== Row 4: Accessories ===== -->
-            <h3 class="neon-text">Accessories</h3>
+            <!-- ===== Accessories ===== -->
+            <h3 class="neon-text" style="margin-top:1rem;">Accessories</h3>
 
             <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
               <div>
@@ -357,21 +326,19 @@
               </div>
 
               <div>
-                <label>Seat</label>
-                <select id="seatType" name="Seat">
+                <label>Seat Type</label>
+                <select id="seatType" name="Seat Type">
                   <option value="Standard">Standard ($75)</option>
                   <option value="Custom">Custom ($150)</option>
                 </select>
               </div>
             </div>
 
-            <div>
-              <label>Accessory Custom Color</label>
-              <input type="color" id="accColorPicker" name="Accessory Custom Color" value="#ffffff">
-            </div>
+            <label>Accessory Custom Color</label>
+            <input type="color" id="accColorPicker" name="Accessory Custom Color" value="#ffffff">
 
-            <!-- ===== Row 5: Steering / PVC Slicks ===== -->
-            <h3 class="neon-text">Steering &amp; Drift Sleeves</h3>
+            <!-- ===== Steering & PVC ===== -->
+            <h3 class="neon-text" style="margin-top:1rem;">Steering & Drift Sleeves</h3>
 
             <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
               <div>
@@ -392,45 +359,51 @@
               </div>
             </div>
 
-            <!-- ===== Shipping ===== -->
-            <h3 class="neon-text">Shipping</h3>
+            <!-- Shipping -->
+            <h3 class="neon-text" style="margin-top:1rem;">Shipping</h3>
 
-            <label>Shipping Method</label>
             <select id="shipping" name="Shipping">
-              <option value="Pickup">Local Pickup (Phoenix, AZ) — $0</option>
+              <option value="Pickup">Local Pickup (Phoenix, AZ) — FREE</option>
               <option value="West">Western US (+$250)</option>
               <option value="Midwest">Midwest (+$350)</option>
               <option value="East">East Coast (+$450)</option>
             </select>
 
-            <!-- ===== Total Output ===== -->
-            <h3 class="neon-text">Total Build Price</h3>
-            <p id="totalPrice" style="font-size:1.4rem; color:#C8FF00; text-shadow:0 0 10px #C8FF00;">
-              $2,600
+            <!-- Total -->
+            <h3 class="neon-text" style="margin-top:1rem;">Total Build Price</h3>
+            <p id="totalPrice" style="font-size:1.4rem;color:#C8FF00;text-shadow:0 0 12px #C8FF00;">
+              $2600
             </p>
 
-            <p style="color:#ccc; font-size:.9rem; margin-top:.5rem;">
-              * Builds take 3–6 weeks<br>
-              * 20% deposit required (billed after review)
+            <p style="color:#ccc;font-size:.9rem;margin-top:.5rem;">
+              * Builds take 3–6 weeks • 20% deposit required • Custom paint adds time
             </p>
 
             <button class="btn neon-btn pulse" type="submit">Submit Build</button>
             <p id="buildStatus" class="form-status"></p>
+
           </form>
         </div>
       </div>
     </section>
-
     <!-- ===================== CONTACT ===================== -->
     <section id="contact" class="route section container contact hidden">
       <div class="contact-card">
         <div class="contact-body">
           <h1 class="neon-text">Contact</h1>
+          <p>Questions about builds, bulk orders, or custom fabrication? Reach out.</p>
 
           <form id="contactForm" action="https://formspree.io/f/meonzzkb" method="POST" class="contact-form">
-            <div class="grid">
-              <div><label>Name</label><input type="text" name="name" required></div>
-              <div><label>Email</label><input type="email" name="email" required></div>
+
+            <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
+              <div>
+                <label>Name</label>
+                <input type="text" name="name" required>
+              </div>
+              <div>
+                <label>Email</label>
+                <input type="email" name="email" required>
+              </div>
             </div>
 
             <label>Message</label>
@@ -448,71 +421,71 @@
   <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      © <span id="year"></span> Snailkarts
+      © <span id="year"></span> Snailkarts — Engineered to Drift
     </div>
   </footer>
 
-  <!-- ===================== JS CALCULATOR ===================== -->
+  <!-- ===================== PRICE CALCULATOR JS ===================== -->
   <script>
     function calcTotal() {
       let total = 0;
 
-      // Engine (motor only)
+      // ===== ENGINE =====
       const engine = document.getElementById("engine").value;
       if (engine === "Gas125") total += 700;
-      if (engine === "Electric72") total += 650;
+      if (engine === "Electric72") total += 650 + 900; // motor + battery
+      if (engine === "Battery") total += 900;
 
-      // Battery
-      const battery = document.getElementById("battery").value;
-      if (battery === "72vPack") total += 900;
+      // ===== FRAME =====
+      const frame = document.getElementById("frameType").value;
+      if (frame === "Standard") total += 2600;
+      if (frame === "HeavyDuty") total += 3000;
 
-      // Frame
-const frame = document.getElementById("frameType").value;
-total += (frame === "Standard" ? 2600 : 3000);
-
-
-      // Frame Color
+      // ===== FRAME COLOR =====
       const fc = document.getElementById("frameColorType").value;
       if (fc === "Basic") total += 325;
       if (fc === "Premium") total += 475;
       if (fc === "Custom") total += 525;
 
-      // Wheels
-      const wheels = document.getElementById("wheelType").value;
-      total += (wheels === "Raw" ? 700 : 900);
+      // ===== WHEELS =====
+      const wheelType = document.getElementById("wheelType").value;
+      if (wheelType === "Raw") total += 700;
+      if (wheelType === "Upgrade") total += 900;
 
-      // Wheel Color
+      // ===== WHEEL COLOR =====
       const wc = document.getElementById("wheelColorType").value;
       if (wc === "Basic") total += 125;
       if (wc === "Premium") total += 200;
       if (wc === "Custom") total += 250;
 
-      // Accessories color
+      // ===== ACCESSORIES =====
       const ac = document.getElementById("accColorType").value;
       if (ac === "Basic") total += 125;
       if (ac === "Premium") total += 200;
       if (ac === "Custom") total += 250;
 
-      // Seat
+      // ===== SEAT =====
       const seat = document.getElementById("seatType").value;
-      total += (seat === "Standard" ? 75 : 150);
+      if (seat === "Standard") total += 75;
+      if (seat === "Custom") total += 150;
 
-      // Steering
+      // ===== STEERING WHEEL =====
       const st = document.getElementById("steering").value;
-      total += (st === "Standard" ? 100 : 150);
+      if (st === "Standard") total += 100;
+      if (st === "Custom") total += 150;
 
-      // PVC sleeves
+      // ===== PVC =====
       const pvc = document.getElementById("pvc").value;
       if (pvc === "1pair") total += 50;
       if (pvc === "3pair") total += 125;
 
-      // Shipping
+      // ===== SHIPPING =====
       const shipping = document.getElementById("shipping").value;
       if (shipping === "West") total += 250;
       if (shipping === "Midwest") total += 350;
       if (shipping === "East") total += 450;
 
-      // Display
+      // Output total
       document.getElementById("totalPrice").textContent =
         "$" + total.toLocaleString();
     }
@@ -521,51 +494,58 @@ total += (frame === "Standard" ? 2600 : 3000);
       el.addEventListener("change", calcTotal);
     });
 
+    // Run on load
     calcTotal();
   </script>
 
-  <!-- ===================== ROUTER / NAV ===================== -->
+  <!-- ===================== ROUTER & NAV ===================== -->
   <script>
-    const routes = ["home","karts","gallery","testimonials","build","contact"];
-    const sections = Object.fromEntries(routes.map(r=>[r,document.getElementById(r)]));
+    const routes = ["home", "karts", "gallery", "testimonials", "build", "contact"];
+    const sections = Object.fromEntries(routes.map(r => [r, document.getElementById(r)]));
     const navLinks = [...document.querySelectorAll('.site-nav a[data-link]')];
 
-    function setActive(route){
-      routes.forEach(r=>{
+    function setActive(route) {
+      routes.forEach(r => {
         const sec = sections[r];
-        if(!sec) return;
-        const active = (r===route);
+        if (!sec) return;
+
+        const active = (r === route);
         sec.classList.toggle("hidden", !active);
-        sec.querySelectorAll("video").forEach(v => active ? v.play() : v.pause());
-        if(active){
+
+        // Pause and resume videos properly
+        sec.querySelectorAll("video").forEach(v => {
+          if (active) v.play();
+          else v.pause();
+        });
+
+        if (active) {
           sec.classList.remove("enter");
           void sec.offsetWidth;
           sec.classList.add("enter");
         }
       });
 
-      navLinks.forEach(a =>
-        a.classList.toggle("active", a.getAttribute("href") === "#"+route)
-      );
+      navLinks.forEach(a => {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + route);
+      });
 
-      window.scrollTo({top:0, behavior:"instant"});
+      window.scrollTo({ top: 0, behavior: "instant" });
     }
 
-    function router(){
+    function router() {
       const hash = location.hash.slice(1);
       setActive(routes.includes(hash) ? hash : "home");
     }
 
-    document.querySelector(".nav-toggle").addEventListener("click",()=>{
+    document.querySelector(".nav-toggle").addEventListener("click", () => {
       document.body.classList.toggle("nav-open");
     });
 
-    window.addEventListener("DOMContentLoaded",()=>{
+    window.addEventListener("DOMContentLoaded", () => {
       router();
-      const yearEl = document.getElementById("year");
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
+      document.getElementById("year").textContent = new Date().getFullYear();
       const first = document.querySelector(".route:not(.hidden)");
-      if(first) first.classList.add("enter");
+      if (first) first.classList.add("enter");
     });
 
     window.addEventListener("hashchange", router);
