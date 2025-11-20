@@ -436,8 +436,9 @@
       if (battery === "72vPack") total += 900;
 
       // Frame
-      const frame = document.getElementById("frameType").value;
-      total += (frame === "Standard" ? 2400 : 2750);
+const frame = document.getElementById("frameType").value;
+total += (frame === "Standard" ? 2600 : 3000);
+
 
       // Frame Color
       const fc = document.getElementById("frameColorType").value;
