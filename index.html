@@ -39,6 +39,7 @@
       <a href="#home" data-link>Home</a>
       <a href="#karts" data-link>Karts</a>
       <a href="#gallery" data-link>Gallery</a>
+      <a href="#testimonials" data-link>Testimonials</a>
       <a href="#build" data-link>Build</a>
       <a href="#contact" class="cta neon-btn pulse" data-link>Contact</a>
 
@@ -69,7 +70,7 @@
     <!-- ===================== HOME / HERO ===================== -->
     <section id="home" class="route hero">
       <div class="hero-media">
-        <video class="hero-video" autoplay muted loop playsinline>
+        <video class="hero-video" autoplay muted loop playsinline poster="whitekart.jpg">
           <source src="469ec902-6f85-d318-7491-a350336f4989_custom.mp4" type="video/mp4">
         </video>
       </div>
@@ -79,7 +80,7 @@
           <span class="stroke">Engineered</span>
           <span class="glow">to Drift</span>
         </h1>
-        <p class="hero-sub neon-text">Precision-built drift karts — designed for slides, speed & style.</p>
+        <p class="hero-sub neon-text">Precision-built drift karts — designed for slides, speed &amp; style.</p>
 
         <div class="hero-actions">
           <a href="#karts" class="btn neon-btn pulse" data-link>Explore Karts</a>
@@ -87,6 +88,7 @@
         </div>
       </div>
     </section>
+
     <!-- ===================== KARTS ===================== -->
     <section id="karts" class="route section hidden">
       <div class="karts-video-bg">
@@ -116,7 +118,7 @@
                 <li>Hydraulic Rear Disc Brake</li>
                 <li>Hydraulic E-Brake Handle</li>
                 <li>Custom Lighting</li>
-                <li>Push-to-Start & Keyed Ignition</li>
+                <li>Push-to-Start &amp; Keyed Ignition</li>
               </ul>
               <a class="btn neon-btn pulse" href="#build" data-link>Configure Build</a>
             </div>
@@ -133,7 +135,7 @@
               <ul class="specs">
                 <li>72v Electric Motor</li>
                 <li>Instant Torque</li>
-                <li>Battery Included</li>
+                <li>Battery Option</li>
                 <li>Silent Operation</li>
               </ul>
               <a class="btn neon-btn pulse" href="#build" data-link>Configure Build</a>
@@ -156,11 +158,10 @@
       <div class="gallery-content">
         <div class="section-head">
           <h1 class="neon-text">Gallery</h1>
-          <p>Shop builds, customer carts, and drift sessions.</p>
+          <p>Shop builds, customer karts, and drift sessions.</p>
         </div>
 
         <div class="masonry hover-lift">
-
           <figure class="tile"><img src="pinkkart.jpg" alt=""></figure>
           <figure class="tile"><img src="yellowpinkkart.jpg" alt=""></figure>
           <figure class="tile"><img src="whitekart.jpg" alt=""></figure>
@@ -174,7 +175,6 @@
               <source src="7136d24717104a3f819ae4c0f21c5e98-_1_.mp4" type="video/mp4">
             </video>
           </figure>
-
         </div>
       </div>
     </section>
@@ -203,6 +203,7 @@
         </article>
       </div>
     </section>
+
     <!-- ===================== BUILD ===================== -->
     <section id="build" class="route section hidden">
       <div class="build-video-bg">
@@ -223,12 +224,10 @@
 
           <!-- ================= FORM ================= -->
           <form id="buildForm" action="https://formspree.io/f/meonzzkb" method="POST" class="contact-form">
-
             <input type="hidden" name="_subject" value="New Snailkart Build">
 
             <!-- ===== Row 1: Kart Type / Engine ===== -->
             <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
-
               <div>
                 <label>Kart Type</label>
                 <select id="kartType" name="Kart Type" required>
@@ -244,6 +243,15 @@
                   <option value="Electric72">72v Electric Motor ($650)</option>
                 </select>
               </div>
+            </div>
+
+            <!-- ===== Battery ===== -->
+            <div>
+              <label>Battery (required for Electric builds)</label>
+              <select id="battery" name="Battery">
+                <option value="None">No Battery (Gas Builds)</option>
+                <option value="72vPack">72v Battery Pack ($900)</option>
+              </select>
             </div>
 
             <!-- ===== Row 2: Frame Type / Frame Color ===== -->
@@ -269,14 +277,13 @@
               </div>
             </div>
 
-            <!-- Frame custom color picker -->
             <div>
               <label>Frame Custom Color (optional)</label>
               <input type="color" id="frameColorPicker" name="Frame Custom Color" value="#c8ff00">
             </div>
 
             <!-- ===== Row 3: Wheels / Wheel Color ===== -->
-            <h3 class="neon-text">Wheels & Tires</h3>
+            <h3 class="neon-text">Wheels &amp; Tires</h3>
 
             <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
               <div>
@@ -332,7 +339,7 @@
             </div>
 
             <!-- ===== Row 5: Steering / PVC Slicks ===== -->
-            <h3 class="neon-text">Steering & Drift Sleeves</h3>
+            <h3 class="neon-text">Steering &amp; Drift Sleeves</h3>
 
             <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem;">
               <div>
@@ -367,17 +374,16 @@
             <!-- ===== Total Output ===== -->
             <h3 class="neon-text">Total Build Price</h3>
             <p id="totalPrice" style="font-size:1.4rem; color:#C8FF00; text-shadow:0 0 10px #C8FF00;">
-              $2600
+              $2,600
             </p>
 
             <p style="color:#ccc; font-size:.9rem; margin-top:.5rem;">
-              * Builds take 3–6 weeks  
+              * Builds take 3–6 weeks<br>
               * 20% deposit required (billed after review)
             </p>
 
             <button class="btn neon-btn pulse" type="submit">Submit Build</button>
             <p id="buildStatus" class="form-status"></p>
-
           </form>
         </div>
       </div>
@@ -419,10 +425,14 @@
     function calcTotal() {
       let total = 0;
 
-      // Engine
+      // Engine (motor only)
       const engine = document.getElementById("engine").value;
       if (engine === "Gas125") total += 700;
-      if (engine === "Electric72") total += 650 + 900; // motor + battery
+      if (engine === "Electric72") total += 650;
+
+      // Battery
+      const battery = document.getElementById("battery").value;
+      if (battery === "72vPack") total += 900;
 
       // Frame
       const frame = document.getElementById("frameType").value;
@@ -444,7 +454,7 @@
       if (wc === "Premium") total += 200;
       if (wc === "Custom") total += 250;
 
-      // Accessories (seat handled below)
+      // Accessories color
       const ac = document.getElementById("accColorType").value;
       if (ac === "Basic") total += 125;
       if (ac === "Premium") total += 200;
@@ -470,7 +480,8 @@
       if (shipping === "East") total += 450;
 
       // Display
-      document.getElementById("totalPrice").textContent = "$" + total.toLocaleString();
+      document.getElementById("totalPrice").textContent =
+        "$" + total.toLocaleString();
     }
 
     document.querySelectorAll("select, input[type=color]").forEach(el => {
@@ -482,17 +493,17 @@
 
   <!-- ===================== ROUTER / NAV ===================== -->
   <script>
-    const routes=["home","karts","gallery","testimonials","build","contact"];
-    const sections=Object.fromEntries(routes.map(r=>[r,document.getElementById(r)]));
-    const navLinks=[...document.querySelectorAll('.site-nav a[data-link]')];
+    const routes = ["home","karts","gallery","testimonials","build","contact"];
+    const sections = Object.fromEntries(routes.map(r=>[r,document.getElementById(r)]));
+    const navLinks = [...document.querySelectorAll('.site-nav a[data-link]')];
 
     function setActive(route){
       routes.forEach(r=>{
-        const sec=sections[r];
+        const sec = sections[r];
         if(!sec) return;
-        const active=(r===route);
-        sec.classList.toggle("hidden",!active);
-        sec.querySelectorAll("video").forEach(v=>active?v.play():v.pause());
+        const active = (r===route);
+        sec.classList.toggle("hidden", !active);
+        sec.querySelectorAll("video").forEach(v => active ? v.play() : v.pause());
         if(active){
           sec.classList.remove("enter");
           void sec.offsetWidth;
@@ -500,13 +511,16 @@
         }
       });
 
-      navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+route));
-      window.scrollTo({top:0,behavior:"instant"});
+      navLinks.forEach(a =>
+        a.classList.toggle("active", a.getAttribute("href") === "#"+route)
+      );
+
+      window.scrollTo({top:0, behavior:"instant"});
     }
 
     function router(){
-      const hash=location.hash.slice(1);
-      setActive(routes.includes(hash)?hash:"home");
+      const hash = location.hash.slice(1);
+      setActive(routes.includes(hash) ? hash : "home");
     }
 
     document.querySelector(".nav-toggle").addEventListener("click",()=>{
@@ -515,12 +529,13 @@
 
     window.addEventListener("DOMContentLoaded",()=>{
       router();
-      document.getElementById("year").textContent=new Date().getFullYear();
-      const first=document.querySelector(".route:not(.hidden)");
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+      const first = document.querySelector(".route:not(.hidden)");
       if(first) first.classList.add("enter");
     });
 
-    window.addEventListener("hashchange",router);
+    window.addEventListener("hashchange", router);
   </script>
 
 </body>
